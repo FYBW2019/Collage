@@ -2,27 +2,27 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>大学录取分数</button>
+        <button class='bton2' bindtap='SelectOne'>大学录取分数</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>一分一段表</button>
+        <button class='bton2' bindtap='SelectTwo'>一分一段表</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>大学信息</button>
+        <button class='bton2' bindtap='SelectThree'>大学信息</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>专业录取分</button>
+        <button class='bton2' bindtap='SelectFour'>专业录取分</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>全省考生去向</button>
+        <button class='bton2' bindtap='SelectFive'>全省考生去向</button>
       </view>
     </view>
   </view>

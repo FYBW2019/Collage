@@ -2,22 +2,22 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>查信息</button>
+        <button class='bton2' bindtap='selectInfo'>查信息</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>测性格</button>
+        <button class='bton2' bindtap='characterTest'>测性格</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>志愿选择分析</button>
+        <button class='bton2' bindtap='volunteerChoice'>志愿选择分析</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2'>个人中心</button>
+        <button class='bton2' bindtap='userInfo'>个人中心</button>
       </view>
     </view>
   </view>

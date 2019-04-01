@@ -7,7 +7,33 @@ Page({
   data: {
 
   },
+SelectOne:function(){
+wx.navigateTo({
+  url: '/pages/vipIndex/selectInfo/index/SelectOne/SelectOne'
 
+})
+},
+  SelectTwo:function(){
+    wx.navigateTo({
+      url: '/pages/vipIndex/selectInfo/index/SelectTwo/SelectTwo'
+
+    })
+  },
+  SelectThree:function(){
+    wx.navigateTo({
+    url: '/pages/vipIndex/selectInfo/index/SelectThree/SelectThree'
+    })
+  },
+  SelectFour:function(){
+    wx.navigateTo({
+    url: '/pages/vipIndex/selectInfo/index/SelectFour/SelectFour'
+  })
+  },
+  SelectFive: function () {
+    wx.navigateTo({
+    url: '/pages/vipIndex/selectInfo/index/SelectFive/SelectFive'
+})
+  },
   /**
    * 生命周期函数--监听页面加载
    */
