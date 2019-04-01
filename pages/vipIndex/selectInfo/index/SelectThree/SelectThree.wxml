@@ -1,0 +1,30 @@
+<view class='page__hd'>
+  <view class='section'>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton'>大学省份</button>
+      </view>
+      <view class="weui-flex__item">
+        <button class='bton'>大学性质</button>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton'>类别</button>
+      </view>
+      <view class="weui-flex__item">
+        <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{items}}">
+    <radio value="{{item.name}}" checked="{{item.checked}}" />
+    {{item.value}}
+  </label>
+</radio-group>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton3'>查询</button>
+      </view>
+    </view>
+  </view>
+</view>

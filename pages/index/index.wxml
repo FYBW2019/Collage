@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
+<!-- <view class="page" id="index">
+<view class="page__bd page__bd_spacing">
+<view class="button-sp-area">
+            <button class="weui-btn" hover="true" hover-class="btnhover" bindtap='findSchoolInfo'>查信息</button>
+            <button class="weui-btn" hover="true" hover-class="btnhover">找名校</button>
+            <button class="weui-btn" hover="true" hover-class="btnhover">问专业</button>
+            <button class="weui-btn" hover="true" hover-class="btnhover">测性格</button>
+ </view>
+ </view>
+ </view> -->
+<view class='page__hd'>
+  <view class='pageHander'>
+    <text>高考志愿辅助系统</text>
+  </view>
+  <view class='section'>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+         <picker bindchange="bindPickerChange"  range="{{array}}"> 
+        <button class='bton'>{{province}}</button>
+        </picker>
+      </view>
+      <view class="weui-flex__item">
+        <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
+                <button class='bton'>{{year}}</button>
+        </picker>       
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton'>大学省份</button>
+      </view>
+      <view class="weui-flex__item">
+        <button class='bton'>大学性质</button>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton2'>大学名称</button>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton2'>专业名称</button>
+      </view>
+    </view>
+    <view class="weui-flex">
+            <view class="weui-flex__item"><button class='bton3'>查询</button></view>
+            <view class="weui-flex__item"><button class='bton3' bindtap='login'>登录</button></view>
+  </view>
+  </view>
+</view>

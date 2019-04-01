@@ -1,0 +1,101 @@
+<!-- <view class="page">
+  <view class="header"> -->
+<!--index.wxml-->
+<!-- <view class="userinfo"> -->
+<!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button> -->
+<!-- <block>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+  </view> -->
+<!-- <view class='page__hd'>
+    <view class="weui-cells weui-cells_after-title">
+      <block wx:for="{{list}}" wx:key="index">
+
+        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">{{item.cn}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+
+      </block>
+    </view>
+  </view> -->
+<!-- <view class="weui-cells weui-cells_after-title">
+    <block wx:for="{{list}}" wx:key="index">
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">{{item.cn}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </block>
+
+  </view>
+</view> -->
+
+<view class="weui-cell">
+  <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+    <image src="/image/IMG_1644.JPG" style="width: 50px; height: 50px; display: block" />
+  </view>
+  <view class="weui-cell__bd">
+    <view>
+      <text>China No.1</text>
+    </view>
+    <view>生源地:
+      <text>西藏</text>
+    </view>
+  </view>
+  <view class="weui-cell__bd">
+    <view>等级:
+      <text>v1</text>
+    </view>
+    <view>当前积分:
+      <text>500</text>
+    </view>
+  </view>
+</view>
+<view class="weui-flex">
+  <view class="weui-flex__item">
+    <view class="show"></view>
+    <view>我的测评</view>
+  </view>
+  <view class="weui-flex__item">
+    <view class="show"></view>
+    <view>我的收藏</view>
+  </view>
+  <view class="weui-flex__item">
+    <view class="show"></view>
+    <view>1对1服务</view>
+  </view>
+</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">获取积分</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">我的订单</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">推荐记录</view>
+  </view>
+</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">修改资料</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">联系客服</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">关于我们</view>
+  </view>
+</view>
+<view class="weui-flex">
+      <view class="weui-flex__item">
+      </view>
+      <view class="weui-flex__item">
+        <button class="weui-btn" type="default" plain="true">退出</button>
+      </view>
+      <view class="weui-flex__item">
+      </view>
+    </view>

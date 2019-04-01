@@ -1,0 +1,17 @@
+<view class='page__hd'>
+  <view class='section'>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton'>年份</button>
+      </view>
+      <view class="weui-flex__item">
+        <button class='bton'>分数</button>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton3'>查询</button>
+      </view>
+    </view>
+  </view>
+</view>

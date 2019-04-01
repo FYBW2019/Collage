@@ -1,0 +1,16 @@
+
+.bton3{
+  width: 80%;
+  border: 3px solid #ee9209b6;
+  border-radius: 10px;
+  font-family: "楷体";
+}
+.weui-flex{
+  margin-top: 20px;
+}
+.bton2{
+  width: 85%;
+  border: 2px solid #115bfc79;
+  border-radius: 10px;
+  font-family: "楷体";
+}

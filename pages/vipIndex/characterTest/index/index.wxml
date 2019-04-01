@@ -1,0 +1,34 @@
+<view class='page__hd'>
+  <view class='pageHander'>
+    <text>MBTI职业性格测试</text>
+  </view>
+  <view class='section'>
+    <view class="weui-flex">
+      <view class="weui-flex__item textShow">
+        <text >MBTI职业性格测试是国际最为流行的职业人格评估工具，作为一种对个性的判断和分析，是一个理论模型，从纷繁复杂的个性特征中，归纳提炼出4个关键要素——动力、信息收集、决策方式、生活方式，进行分析判断，从而把不同个性的人区别开来。</text>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton3'>开始测试(50积分)</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='page__hd'>
+  <view class='pageHander'>
+    <text>霍兰德职业兴趣测量</text>
+  </view>
+  <view class='section'>
+    <view class="weui-flex">
+      <view class="weui-flex__item textShow">
+        <text >人的个性与职业有着密切的关系，不同职业对从业者的人格特征的要求是有差距的，如果通过科学的测试，可以预知自己的个性特征，这有助于选择适合于个人发展的职业。您将要阅读的这个《职业价格自测问卷》，可以帮助您作个性自评，从而获自己的个性特征更适合从事哪方面的工作。</text>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton3'>开始测试(50积分)</button>
+      </view>
+    </view>
+  </view>
+</view>

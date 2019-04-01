@@ -1,0 +1,29 @@
+.pageHander{
+  width: 100%;
+  height: 80px;
+  border: 3px solid #115bfc79;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(63, 206, 224, 0.1);
+}
+.bton{
+  width: 70%;
+  border: 2px solid #115bfc79;
+  border-radius: 10px;
+}
+.weui-flex{
+  margin-top: 20px;
+}
+/* input{
+  width: 85%;
+  border: 2px solid #115bfc79;
+  border-radius: 10px;
+  height: 40px;
+  margin: 0 auto;
+} */
+.bton3{
+  width: 80%;
+  border: 3px solid #ee9209b6;
+  border-radius: 10px;
+}
+

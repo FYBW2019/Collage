@@ -1,0 +1,36 @@
+/* pages/choiceprofession/choiceprofession.wxss */
+page{
+  background-color: #ffffff;
+}
+.selectOne{
+  width: 33.333%;
+  overflow: hidden;
+  float: left;
+}
+.weui-cell{
+  width: 100%;
+
+}
+.weui-cell__hd{
+  width: 60%;
+}
+.weui-cell__bd{
+  width: 40%;
+}
+.weui-label{
+  width: 100%;
+}
+.weui-check__label{
+  width: 100%;
+}
+.borderStyle{
+  border-bottom: 1px  solid #cccccc;  
+ 
+}
+.borderStyle2{
+  border-bottom: 1px  solid #cccccc;  
+ 
+}
+input{
+  font-size: 15px;
+}

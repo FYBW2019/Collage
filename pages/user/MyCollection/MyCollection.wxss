@@ -1,0 +1,9 @@
+text{
+  color: rgb(240, 173, 49);
+}
+.weui-cell{
+  border-bottom: 3px solid #aaa;
+  background: rgb(216, 213, 213);
+  font-family: "楷体";
+
+}

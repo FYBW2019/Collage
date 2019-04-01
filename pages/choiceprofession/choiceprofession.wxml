@@ -1,0 +1,70 @@
+<view class="page">
+<button bindtap='select'>确认</button>
+  <view class='page__hd'>
+    <checkbox-group bindchange="checkboxChange" class='selectOne'>
+      <block wx:for="{{dataOne}}" wx:key="{{index}}">
+        <view class="borderStyle">
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+              <view class="weui-label">
+                <input type='button' disabled='true' id="{{index}}" bindtap="changeDataOne" value='{{item.name}}' />
+              </view>
+            </view>
+            <view class="weui-cell__bd">
+              <label class="weui-cell__bd">
+                <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+                <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                  <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                  <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                </view>
+              </label>
+            </view>
+          </view>
+        </view>
+      </block>
+    </checkbox-group>
+    <checkbox-group bindchange="checkboxChange2" class='selectOne'>
+      <block wx:for="{{dataTwo2}}" wx:key="{{index}}">
+        <view class="borderStyle2">
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+              <input type='button' disabled='true' id="{{item.pid}},{{index}}" bindtap="changeDataTwo" value='{{item.name}}' />
+            </view>
+            <view class="weui-cell__bd">
+              <label class="weui-cell__bd">
+                <checkbox class="weui-check" value="{{item.value}}"  checked="{{item.checked}}" />
+                <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                  <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                  <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                </view>
+              </label>
+            </view>
+          </view>
+        </view>
+      </block>
+    </checkbox-group>
+    <checkbox-group bindchange="checkboxChange3" class='selectOne'>
+      <block wx:for="{{dataThree2}}" wx:key="{{index}}">
+        <view class="borderStyle">
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+              <input type='button' disabled='true' id="{{index}}" value='{{item.name}}' />
+            </view>
+            <view class="weui-cell__bd">
+              <label class="weui-cell__bd">
+                <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+                <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                  <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                  <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                </view>
+              </label>
+            </view>
+          </view>
+        </view>
+      </block>
+    </checkbox-group>
+  </view>
+
+
+</view>
+  

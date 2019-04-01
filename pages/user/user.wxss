@@ -1,0 +1,48 @@
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+text{
+  color: rgb(240, 173, 49);
+}
+.weui-cell{
+  border-bottom: 3px solid #aaa;
+  background: rgb(216, 213, 213);
+  font-family: "楷体";
+
+}
+.show{
+  width: 80px;
+  height: 80px;
+  border: 3px solid #aaa;
+  border-radius: 15px;
+  background: rgb(216, 213, 213);
+  margin: 0 auto;
+}
+.weui-flex__item{
+  text-align: center;
+  font-family: "楷体";
+}
+.weui-flex{
+  margin-top: 20px;
+}
+.weui-cells_after-title{
+  margin-top: 20px;
+  border-top: 3px solid #aaa;
+}

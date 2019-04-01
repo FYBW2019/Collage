@@ -1,0 +1,87 @@
+<view class="page">
+  <view class='page__hd'>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">年份</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="year" class="weui-input" placeholder="请输入年份"  value='{{year}}'/>
+          </view>
+          <view class="weui-cell__ft">
+            <view class="weui-vcode-btn">
+              <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
+                点击选择
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">大学省份</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="city" class="weui-input" placeholder="请输入省份"  value='{{region[0]}}'/>
+          </view>
+          <view class="weui-cell__ft">
+            <view class="weui-vcode-btn">
+              <picker mode="region" bindchange="bindRegionChange" >
+                点击选择
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">大学性质</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="nature" class="weui-input" placeholder="请输入大学性质"/>
+          </view>
+          <view class="weui-cell__ft">
+            <view class="weui-vcode-btn">
+              <picker mode="region" >
+                点击选择
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">大学名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="schoolName" class="weui-input" placeholder="请输入大学名称"/>
+          </view>
+          <view class="weui-cell__ft">
+            <view class="weui-vcode-btn">
+              <picker mode="region" >
+                点击选择
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">专业名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="majorName" class="weui-input" placeholder="请输入专业名称"/>
+          </view>
+          <view class="weui-cell__ft">
+            <view class="weui-vcode-btn">
+              <picker mode="region" >
+                点击选择
+              </picker>
+            </view>
+          </view>
+      </view>
+      </view>
+      
+      <button formType="submit" class="weui-btn" type="primary" plain="true">查询</button>
+    </form>
+  </view>
+</view>
+
+ 

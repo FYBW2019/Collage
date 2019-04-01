@@ -1,0 +1,22 @@
+<view class='page__hd'>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <button class='bton2'>大学省份选择</button>
+    </view>
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <button class='bton2'>专业类别选择</button>
+    </view>
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <button class='bton2'>分数范围</button>
+    </view>
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <button class='bton3'>查询</button>
+    </view>
+  </view>
+</view>

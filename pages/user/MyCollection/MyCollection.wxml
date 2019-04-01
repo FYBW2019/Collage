@@ -1,0 +1,18 @@
+<view class="weui-cell">
+  <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+    <image src="/image/IMG_1644.JPG" style="width: 30px; height: 30px; display: block" />
+  </view>
+  <view class="weui-cell__bd">
+    <view>
+      <text>China No.1</text>
+    </view>   
+  </view>
+  <view class="weui-cell__bd">
+    <view>生源地:<text>西藏</text>
+    </view>
+  </view>
+  <view class="weui-cell__bd">
+    <view>等级:<text>v1</text>
+    </view>
+  </view>
+</view>
