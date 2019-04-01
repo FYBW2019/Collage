@@ -6,20 +6,20 @@
 
       <view class="weui-flex">
         <view class="weui-flex__item">
-          <input type="number" placeholder='请输入QQ号'></input>
+          <input type="number" class='bton2 inputShow' placeholder-class='inputShow' placeholder='请输入QQ号'></input>
         </view>
       </view>
       <view class="weui-flex">
         <view class="weui-flex__item">
-          <input type='password' placeholder='请输入密码'></input>
+          <input type='password' class='bton2 inputShow' placeholder-class='inputShow' placeholder='请输入密码'></input>
         </view>
       </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3' bindtap='login'>登录</button>
+        <button class='bton3 weui-btn' type="primary" plain="true" bindtap='login'>登录</button>
       </view>
       <view class="weui-flex__item">
-        <button class='bton3' bindtap='cancel'>取消</button>
+      <button class='bton3 weui-btn' type="primary" plain="true" bindtap='cancel'>取消</button>
       </view>
     </view>
   </view>

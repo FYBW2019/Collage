@@ -1,11 +1,11 @@
 .pageHander{
-  width: 100%;
+  margin-top: 20px;
   height: 60px;
   border: 3px solid #115bfc79;
   border-radius: 10px;
   text-align: center;
   background: rgba(63, 206, 224, 0.1);
-  padding: 15px 0 0px 0
+  padding: 15px 0 0 0;
 }
 .pageHander>text{
   font-size: 30px;

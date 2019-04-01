@@ -81,13 +81,13 @@
 </view>
 <view class="weui-cells weui-cells_after-title">
   <view class="weui-cell">
-    <view class="weui-cell__bd">修改资料</view>
+    <view>修改资料</view>
   </view>
   <view class="weui-cell">
-    <view class="weui-cell__bd">联系客服</view>
+    <view>联系客服</view>
   </view>
   <view class="weui-cell">
-    <view class="weui-cell__bd">关于我们</view>
+    <view>关于我们</view>
   </view>
 </view>
 <view class="weui-flex">

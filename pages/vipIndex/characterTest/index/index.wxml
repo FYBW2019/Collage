@@ -1,4 +1,7 @@
 <view class='page__hd'>
+<view>
+    <my-component></my-component>
+  </view>
   <view class='pageHander'>
     <text>MBTI职业性格测试</text>
   </view>

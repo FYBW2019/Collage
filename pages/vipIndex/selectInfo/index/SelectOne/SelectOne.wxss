@@ -1,16 +1,100 @@
-
-.bton{
+.bton {
   width: 90%;
   border: 2px solid #115bfc79;
   border-radius: 10px;
   font-family: "楷体";
 }
-.bton3{
+
+.bton3 {
   width: 80%;
   border: 3px solid #ee9209b6;
   border-radius: 10px;
   font-family: "楷体";
 }
-.weui-flex{
+
+.weui-flex {
   margin-top: 20px;
+}
+
+.history-table-wrap {
+  width: 80%;
+  float: right;
+  /* overflow-y:hidden ;
+  overflow-x: scroll; */
+}
+
+.parent {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* 表格代码   */
+
+.table {
+  display: flex;
+}
+
+.tr {
+  width: 20%;
+  display: block;
+  float: left;
+  justify-content: space-between;
+}
+
+.trr {
+  display: block;
+  float: left;
+}
+
+.th {
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  font-weight: 800;
+  background-color: #b66242;
+  font-size: 28rpx;
+  color: #330e0e;
+}
+
+.td {
+  width: 100px;
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  color: #ec9480;
+  font-size: 28rpx;
+}
+
+.one {
+  width: 30%;
+  display: block;
+  float: left;
+  border-right: 1px solid #fff;
+  text-align: center;
+}
+
+.one2 {
+  padding: 10px 0 10px 0;
+}
+
+.two {
+  width: 60%;
+  display: block;
+  float: right;
+  text-align: center;
+}
+
+.two2 {
+  width: 100%;
+  padding: 0 0 10px 0;
+  border-bottom: 1px #fff solid;
+}
+
+.two3 {
+  width: 100%;
+  padding: 10px 0 0 0;
 }

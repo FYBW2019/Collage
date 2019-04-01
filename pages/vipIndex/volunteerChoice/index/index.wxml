@@ -1,4 +1,7 @@
 <view class='page__hd'>
+<view>
+    <my-component></my-component>
+  </view>
   <view class="weui-flex">
     <view class="weui-flex__item">
       <button class='bton2'>大学省份选择</button>

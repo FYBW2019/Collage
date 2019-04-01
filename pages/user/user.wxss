@@ -22,8 +22,7 @@ text{
   color: rgb(240, 173, 49);
 }
 .weui-cell{
-  border-bottom: 3px solid #aaa;
-  background: rgb(216, 213, 213);
+  background: rgba(216, 213, 213,0.3);
   font-family: "楷体";
 
 }
@@ -44,5 +43,4 @@ text{
 }
 .weui-cells_after-title{
   margin-top: 20px;
-  border-top: 3px solid #aaa;
 }
