@@ -1,7 +1,10 @@
 //app.js
 App({
   onLaunch: function() {
-    let that = this;    
+    let that = this;  
+     that.globalData.provinceList =['陕西', '山西', '北京', '上海', '广东', '河南'];
+    that.globalData.natureList = ['全部', '公办', '民办'];
+    that.globalData.batchList=['全部','一本','二本'];
     // 登录
     wx.login({
       success: loginRes => {
@@ -31,9 +34,13 @@ App({
       }
     })
   },
- 
+
   //全局变量
   globalData: {
+    provinceList: [],//省份列表
+    natureList: [],//性质列表
+    batchList:[],//批次列表 
+    accountList:['文科','理科'],//科目列表
     userInfo: null,
     openid: '',
     session_key: '',

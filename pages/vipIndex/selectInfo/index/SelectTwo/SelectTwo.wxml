@@ -17,4 +17,24 @@
       </view>
     </view>
   </view>
+  <view class='Table'>
+   <view class="tr">
+          <view class="th th1">分数</view>
+          <view class="th th2">平均位次</view>
+          <view class="th th2">最前位次</view>
+          <view class="th th2">最后位次</view>
+      </view>
+<view class='history-table-wrap'>
+    <view class="table">
+     
+      <view class="tr" wx:for="{{15}}">
+          <view class="td td1">688</view>
+          <view class="td td2">9</view>
+          <view class="td td2">8</view>
+          <view class="td td2">10</view>
+      </view>
+    </view>
+   </view> 
+ </view>
+
 </view>

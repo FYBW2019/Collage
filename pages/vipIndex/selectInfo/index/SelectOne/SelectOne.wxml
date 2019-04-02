@@ -5,18 +5,26 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>批次</button>
+        <picker bindchange="bindPickerChange" range="{{batchList}}">
+        <button class='bton'>{{batch}}</button>
+        </picker>
       </view>
       <view class="weui-flex__item">
-        <button class='bton'>年份</button>
+      <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
+        <button class='bton'>{{year}}</button>
+         </picker>
       </view>
       <view class="weui-flex__item">
-        <button class='bton'>文理</button>
+      <picker bindchange="bindPickerChange2" range="{{accountList}}">
+        <button class='bton'>{{account}}</button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>大学省份</button>
+      <picker bindchange="bindPickerChange3" range="{{provinceList}}">
+        <button class='bton'>{{SchoolProvince}}</button>
+        </picker>
       </view>
       <view class="weui-flex__item">
         <button class='bton'>大学名称</button>

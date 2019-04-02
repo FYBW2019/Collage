@@ -29,39 +29,47 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-         <picker bindchange="bindPickerChange"  range="{{array}}"> 
-        <button class='bton weui-btn'  type="default">{{province}}</button>
+        <picker bindchange="bindPickerChange" range="{{provinceList}}">
+          <button class='bton weui-btn' type="default">{{province}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
         <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
-                <button class='bton'>{{year}}</button>
-        </picker>       
+          <button class='bton'>{{year}}</button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>大学省份</button>
+        <picker bindchange="bindPickerChange2" range="{{provinceList}}">
+          <button class='bton'>{{SchoolProvince}}</button>
+        </picker>
       </view>
       <view class="weui-flex__item">
-        <button class='bton'>大学性质</button>
+        <picker bindchange="bindPickerChange3" range="{{natureList}}">
+          <button class='bton'>{{nature}}</button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <input type='text' class='bton2'  placeholder='请输入大学名称' placeholder-class='inputShow'/>
+        <input type='text' class='bton2' placeholder='请输入大学名称' placeholder-class='inputShow' />
         <!-- <button class='bton2'>大学名称</button> -->
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-      <input class='bton2'  placeholder='请输入专业名称' placeholder-class='inputShow'/>
+        <input class='bton2' placeholder='请输入专业名称' placeholder-class='inputShow' />
         <!-- <button class='bton2'></button> -->
       </view>
     </view>
     <view class="weui-flex">
-            <view class="weui-flex__item"><button class='bton3 weui-btn' type="primary" plain="true">查询</button></view>
-            <view class="weui-flex__item"><button class='bton3 weui-btn' bindtap='login' type="primary" plain="true">登录</button></view>
-  </view>
+      <view class="weui-flex__item">
+        <button class='bton3 weui-btn' type="primary" plain="true">查询</button>
+      </view>
+      <view class="weui-flex__item">
+        <button class='bton3 weui-btn' bindtap='login' type="primary" plain="true">登录</button>
+      </view>
+    </view>
   </view>
 </view>
