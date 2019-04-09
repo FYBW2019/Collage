@@ -6,24 +6,24 @@
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange" range="{{batchList}}">
-        <button class='bton'>{{batch}}</button>
+          <button class='bton'>{{batch}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
-      <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
-        <button class='bton'>{{year}}</button>
-         </picker>
+        <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
+          <button class='bton'>{{year}}</button>
+        </picker>
       </view>
       <view class="weui-flex__item">
-      <picker bindchange="bindPickerChange2" range="{{accountList}}">
-        <button class='bton'>{{account}}</button>
+        <picker bindchange="bindPickerChange2" range="{{accountList}}">
+          <button class='bton'>{{account}}</button>
         </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-      <picker bindchange="bindPickerChange3" range="{{provinceList}}">
-        <button class='bton'>{{SchoolProvince}}</button>
+        <picker bindchange="bindPickerChange3" range="{{provinceList}}">
+          <button class='bton'>{{SchoolProvince}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
@@ -37,56 +37,56 @@
     </view>
   </view>
   <view class="parent">
-  <view class="tr">
-    <view class="th">学校名称</view>
-    <view class="th">年份</view>
-    <view class="th">批次线</view>
-    <view class="th">
-      <view class='one'>
-        投档线
+    <view class="tr">
+      <view class="th">学校名称</view>
+      <view class="th">年份</view>
+      <view class="th">批次线</view>
+      <view class="th">
+        <view class='one'>
+          投档线
+        </view>
+        <view class='two'>
+          <view class='two2'>当年</view>
+          <view class='two3'>平均</view>
+        </view>
       </view>
-      <view class='two'>
-        <view class='two2'>当年</view>
-        <view class='two3'>平均</view>
+      <view class="th">
+        <view class='one one2'>
+          线差
+        </view>
+        <view class='two'>
+          <view class='two2'>当年</view>
+          <view class='two3'>平均</view>
+        </view>
+      </view>
+      <view class="th">
+        <view class='one'>
+          省排名
+        </view>
+        <view class='two'>
+          <view class='two2'>当年</view>
+          <view class='two3'>平均</view>
+        </view>
       </view>
     </view>
-    <view class="th">
-      <view class='one one2'>
-        线差
+    <scroll-view scroll-x style="width: 80%;float:right">
+      <view>
+        <view class="table">
+          <block wx:for="{{60}}">
+            <view class="trr">
+              <view class="td">北京大学</view>
+              <view class="td">2018</view>
+              <view class="td">455</view>
+              <view class="td">680</view>
+              <view class="td">689</view>
+              <view class="td">225</view>
+              <view class="td">193</view>
+              <view class="td">44</view>
+              <view class="td">29</view>
+            </view>
+          </block>
+        </view>
       </view>
-      <view class='two'>
-        <view class='two2'>当年</view>
-        <view class='two3'>平均</view>
-      </view>
-    </view>
-    <view class="th">
-      <view class='one'>
-       省排名
-      </view>
-      <view class='two'>
-        <view class='two2'>当年</view>
-        <view class='two3'>平均</view>
-      </view>
-    </view>
+    </scroll-view>
   </view>
-  <scroll-view scroll-x style="width: 80%;float:right">
-    <view>
-      <view class="table">
-        <block wx:for="{{60}}">
-          <view class="trr">
-            <view class="td">北京大学</view>
-            <view class="td">2018</view>
-            <view class="td">455</view>
-            <view class="td">680</view>
-            <view class="td">689</view>
-            <view class="td">225</view>
-            <view class="td">193</view>
-            <view class="td">44</view>
-            <view class="td">29</view>
-          </view>
-        </block>
-      </view>
-    </view>
-  </scroll-view>
-</view>
 </view>

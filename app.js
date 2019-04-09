@@ -1,8 +1,9 @@
 //app.js
 App({
   onLaunch: function() {
+    
     let that = this;  
-     that.globalData.provinceList =['陕西', '山西', '北京', '上海', '广东', '河南'];
+    that.globalData.provinceList = ['全部','安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙', '宁夏', '青海', '山东', '山西', '陕西', '上海', '四川', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆'];
     that.globalData.natureList = ['全部', '公办', '民办'];
     that.globalData.batchList=['全部','一本','二本'];
     // 登录

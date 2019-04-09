@@ -7,12 +7,25 @@ Page({
   data: {
 
   },
+onShareAppMessage:function(){
+let users=wx.getStorageSync('user');
+if(res.from==='button'){
 
+}
+return{
+  title:'转发',
+  path:'/pages/index/index',
+  success:function(res){}
+}
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+let that=this;
+console.log('options',options)
+let id=options.jsonStr
+console.log('id'+id)
   },
 
   /**

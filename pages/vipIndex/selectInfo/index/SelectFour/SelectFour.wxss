@@ -14,3 +14,51 @@
 .weui-flex{
   margin-top: 20px;
 }
+.parent {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* 表格代码   */
+
+.table {
+  display: flex;
+}
+
+.tr {
+  width: 20%;
+  display: block;
+  float: left;
+  justify-content: space-between;
+}
+
+.trr {
+  display: block;
+  float: left;
+}
+
+.th {
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  font-weight: 800;
+  background-color: #b66242;
+  font-size: 28rpx;
+  color: #330e0e;
+}
+
+.td {
+  width: 100px;
+  padding: 13px 0 12px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  color: #ec9480;
+  font-size: 23rpx;
+}
+
+
+

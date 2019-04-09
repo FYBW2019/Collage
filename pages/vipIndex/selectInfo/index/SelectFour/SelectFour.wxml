@@ -24,4 +24,30 @@
       </view>
     </view>
   </view>
+  <view class="parent">
+    <view class="tr">
+      <view class="th">专业名称</view>
+      <view class="th">年份</view>
+      <view class="th">最高分</view>
+      <view class="th">平均分</view>
+      <view class="th">最低分</view>
+      <view class="th">位次</view>
+    </view>
+    <scroll-view scroll-x style="width: 80%;float:right">
+      <view>
+        <view class="table">
+          <block wx:for="{{60}}">
+            <view class="trr">
+              <view class="td">控制工程</view>
+              <view class="td">2017</view>
+              <view class="td">448</view>
+              <view class="td">448</view>
+              <view class="td">448</view>
+              <view class="td">2</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
 </view>

@@ -30,12 +30,12 @@
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange" range="{{provinceList}}">
-          <button class='bton weui-btn' type="default">{{province}}</button>
+          <button class='bton weui-btn' type="default">省份:{{province}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
         <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
-          <button class='bton'>{{year}}</button>
+          <button class='bton'>年份:{{year}}</button>
         </picker>
       </view>
     </view>

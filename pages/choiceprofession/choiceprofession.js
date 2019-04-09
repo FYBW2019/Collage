@@ -733,7 +733,26 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
+
+    return {
+      title: '自定义分享标题',
+      desc: '这是一条测试',
+      imageUrl: '/image/IMG_1644.JPG',
+      path: '/pages/vipIndex/volunteerChoice/index/index',
+      success(e){
+        wx.showShareMenu({
+          withShareTicket:true
+        })
+      }
+      
+    
+
+
+
+    }
+
+
 
   }
 })

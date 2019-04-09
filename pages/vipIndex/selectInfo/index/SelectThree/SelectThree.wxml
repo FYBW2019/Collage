@@ -30,4 +30,23 @@
       </view>
     </view>
   </view>
+ <view class='Table'>
+    <view class="tr">
+      <view class="th th1">学校名称</view>
+      <view class="th th2">所在城市</view>
+      <view class="th th2">院校分类</view>
+      <view class="th th2">大学排名</view>
+    </view>
+    <view class='history-table-wrap'>
+      <view class="table">
+
+        <view class="tr" wx:for="{{15}}">
+          <view class="td td1">哈尔滨工业大学</view>
+          <view class="td td2">哈尔滨</view>
+          <view class="td td2">理工类</view>
+          <view class="td td2">23</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
