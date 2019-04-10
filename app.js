@@ -35,7 +35,12 @@ App({
       }
     })
   },
-
+  getUserInfo: function (e) {
+    if (e.detail.userInfo) {
+      console.log(e.detail.userInfo)
+      app.globalData.userInfo = e.detail.userInfo
+    }
+  },
   //全局变量
   globalData: {
     provinceList: [],//省份列表

@@ -1,4 +1,10 @@
+@import '/style/weui.wxss';
+.weui-cell{
+  border-bottom: 1px solid #aaa;
+  background: rgba(216, 213, 213,0.3);
+  font-family: "楷体";
 
+}
 .bton{
   width: 90%;
   border: 2px solid #115bfc79;

@@ -1,11 +1,12 @@
-// pages/vipIndex/selectInfo/index/index.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    nickName: '',
+    avatarUrl: ''
   },
 SelectOne:function(){
 wx.navigateTo({
@@ -38,7 +39,10 @@ wx.navigateTo({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
   },
 
   /**

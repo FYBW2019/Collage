@@ -1,4 +1,5 @@
 // pages/login/login.js
+const app = getApp();
 Page({
 
   /**
@@ -12,11 +13,18 @@ wx.navigateBack({
   
 })
   },
-login:function(){
-  wx.redirectTo({
-    url: '/pages/vipIndex/vipIndex',
-  })
-},
+  getUserInfo: function (e) {
+    if (e.detail.userInfo) {
+      console.log(e.detail.userInfo)
+      app.globalData.userInfo = e.detail.userInfo
+      wx.redirectTo({
+        url: '/pages/vipIndex/vipIndex',
+      })
+    }
+  },
+  formSubmit: function (e) {
+   
+  },
   /**
    * 生命周期函数--监听页面加载
    */

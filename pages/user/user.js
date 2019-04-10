@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    nickName:'',
+    avatarUrl:'',
     list: [{
       "cn": "钱包",
       "en": "wallet"
@@ -26,10 +27,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
-    that.setData({
-      userInfo: app.globalData.userInfo,
-    });
+    this.setData({
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
+ 
 
   },
 

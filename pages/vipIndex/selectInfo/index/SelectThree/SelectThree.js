@@ -1,4 +1,4 @@
-// pages/vipIndex/selectInfo/index/SelectThree/SelectThree.js
+const app = getApp();
 Page({
 
   /**
@@ -8,14 +8,19 @@ Page({
     items: [
       { name: '985', value: '985' },
       { name: '211', value: '211', checked: 'true' }
-    ]
+    ],
+    nickName: '',
+    avatarUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
   },
 
   /**

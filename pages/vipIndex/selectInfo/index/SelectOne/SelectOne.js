@@ -13,7 +13,8 @@ Page({
     year:"年份",
     account:"文理",
     SchoolProvince: "大学省份",//大学省份
-
+    nickName: '',
+    avatarUrl: ''
    
 
   },
@@ -52,7 +53,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      batchList: app.globalData.batchList
+      batchList: app.globalData.batchList,
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
     })
 
   },
