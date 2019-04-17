@@ -1,22 +1,15 @@
-<view class="weui-cell">
-  <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-    <image src="/image/IMG_1644.JPG" style="width: 50px; height: 50px; display: block" />
-  </view>
-  <view class="weui-cell__bd">
-    <view>
-      <text>China No.1</text>
-    </view>
-    <view>生源地:
-      <text>西藏</text>
-    </view>
-  </view>
-  <view class="weui-cell__bd">
-    <view>等级:
-      <text>v1</text>
-    </view>
-    <view>当前积分:
-      <text>500</text>
-    </view>
-  </view>
-</view>
-<slot></slot>
+<input type="button" disabled='true' value='{{majorName}}' class='showPicker' bindtap='showPicker'/>
+<cover-view class='{{ showPicker ? ".shade-container" : "hide-container" }}' wx:if='{{ firstShow }}'>
+  <cover-view class='left-shade' bindtap='hidePicker'></cover-view>
+  <cover-view class='right-choose'>
+    <cover-view class='button-container'>
+      <cover-view class='cancal' bindtap='cancal'>取消</cover-view>
+      <cover-view class='sure' bindtap='sure'>确定</cover-view>
+    </cover-view>
+    <cover-view class='picker-container'>
+      <cover-view class='picker-item {{ item.flag ? "picker-item-choose" : "" }}' wx:for='{{ chooseList }}' wx:key='index' wx:for-item='item' bindtap='chooseItem' data-value='{{ item.code}}'>
+        {{ item.name}}
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view>

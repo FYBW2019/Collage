@@ -6,7 +6,12 @@ Page({
    */
   data: {
     nickName: '',
-    avatarUrl: ''
+    avatarUrl: '',
+    year: '2018',
+    type: '理科',
+    typeList: ['理科', '文科'],
+    list:[]
+
   },
   onShareAppMessage: function() {
     let users = wx.getStorageSync('user');
@@ -18,6 +23,43 @@ Page({
       path: '/pages/index/index',
       success: function(res) {}
     }
+  },
+  //选择年份
+  bindDateChange: function(e) {
+    console.log(e.detail.value)
+    this.setData({
+      year: e.detail.value
+    })
+  },
+  //大学省份选择
+  bindPickerChange2: function(e) {
+    let that = this;
+    console.log('文理选择', that.data.typeList[e.detail.value])
+    var type = that.data.typeList[e.detail.value];
+    that.setData({
+      type: type
+    })
+  },
+  //结果查询
+  serachResult: function(e) {
+    let that = this;
+    let year = that.data.year;
+    let type = that.data.type;
+    wx.request({
+      url: 'http://192.168.60.7:8080/collage/CollageMobile/oneParagraph',
+      data: {
+        type: type,
+        year: year,
+        province: '安徽'
+      },
+      method:'GET',
+      success(res){
+        console.log(res.data.results);
+        that.setData({
+          list: res.data.results
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -67,7 +67,7 @@
 }
 
 .td {
-  width: 100px;
+  width: 150px;
   padding: 10px 0 10px 0;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;

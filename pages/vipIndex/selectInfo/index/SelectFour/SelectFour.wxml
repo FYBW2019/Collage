@@ -23,45 +23,52 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>年份</button>
+        <picker mode="date" fields="year" start="2013" end="2017" bindchange="bindDateChange">
+          <button class='bton'>年份:{{year}}</button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>大学名称</button>
+        <picker bindchange="bindPickerChange2" range="{{SchoolList}}">
+          <button class='bton'>{{SchoolName}}</button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>专业名称</button>
+        <right-picker bind:chooseEvent='choose' chooseList='{{ chooseList }}' multiple='{{ multiple }}'></right-picker>
       </view>
+
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3'>查询</button>
+        <button class='bton3' bindtap='selectResult'>查询</button>
       </view>
     </view>
   </view>
-  <view class="parent">
+  <view class="parent"  style='display: {{show}}'>
     <view class="tr">
+      <view class="th">文理</view>
       <view class="th">专业名称</view>
       <view class="th">年份</view>
       <view class="th">最高分</view>
       <view class="th">平均分</view>
       <view class="th">最低分</view>
-      <view class="th">位次</view>
+      <view class="th">平均位次</view>
     </view>
     <scroll-view scroll-x style="width: 80%;float:right">
       <view>
         <view class="table">
-          <block wx:for="{{60}}">
+          <block wx:for="{{results}}" wx:key="index">
             <view class="trr">
-              <view class="td">控制工程</view>
-              <view class="td">2017</view>
-              <view class="td">448</view>
-              <view class="td">448</view>
-              <view class="td">448</view>
-              <view class="td">2</view>
+              <view class="td">{{item.type}}</view>
+              <view class="td">{{item.major}}</view>
+              <view class="td">{{item.year}}</view>
+              <view class="td">{{item.max}}</view>
+              <view class="td">{{item.avg}}</view>
+              <view class="td">{{item.min}}</view>
+              <view class="td">{{item.avgRanking}}</view>
             </view>
           </block>
         </view>

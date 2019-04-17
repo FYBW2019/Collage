@@ -1,20 +1,26 @@
 {
   "pages": [
-    "pages/index/index",
+        "pages/index/index",
+        
+    "pages/vipIndex/selectInfo/index/SelectOne/SelectOne",
+    "pages/vipIndex/selectInfo/index/SelectFive/SelectFive",
+    "pages/vipIndex/selectInfo/index/SelectFour/SelectFour",
+
+    "pages/vipIndex/selectInfo/index/SelectThree/SelectThree",
+    
+    "pages/vipIndex/selectInfo/index/index",
+    
     "pages/login/login",
     "pages/vipIndex/vipIndex",
     "pages/vipIndex/characterTest/index/index",
     "pages/vipIndex/characterTest/MBTI/MBTI",
     "pages/choiceprofession/choiceprofession",
-    "pages/user/user",
-    "pages/vipIndex/selectInfo/index/index",
+    "pages/user/user", 
     "pages/vipIndex/selectInfo/index/SelectTwo/SelectTwo",
-    "pages/vipIndex/selectInfo/index/SelectOne/SelectOne",
-    "pages/vipIndex/selectInfo/index/SelectThree/SelectThree",
     "pages/vipIndex/volunteerChoice/index/index",
-    "pages/vipIndex/selectInfo/index/SelectFive/SelectFive",
+    
     "pages/user/MyCollection/MyCollection",
-    "pages/vipIndex/selectInfo/index/SelectFour/SelectFour",
+    
     "pages/register2/register2",
     "pages/register/register",
     "pages/schoolInfo/schoolInfo"

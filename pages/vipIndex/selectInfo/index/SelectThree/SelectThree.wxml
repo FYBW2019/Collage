@@ -23,27 +23,31 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>大学省份</button>
+        <picker bindchange="bindPickerChange" range="{{provinceList}}">
+          <button class='bton'>{{province}}</button>
+        </picker>
       </view>
       <view class="weui-flex__item">
-        <button class='bton'>大学性质</button>
-      </view>
-    </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton'>类别</button>
-      </view>
-      <view class="weui-flex__item">
-        <radio-group class="radio-group" bindchange="radioChange">
-          <label class="radio" wx:for="{{items}}">
-            <radio value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
-          </label>
-        </radio-group>
+        <picker bindchange="bindPickerChange2" range="{{natureList}}">
+          <button class='bton'>{{nature}}</button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3'>查询</button>
+        <picker bindchange="bindPickerChange3" range="{{typeList}}">
+          <button class='bton'>{{type}}</button>
+        </picker>
+      </view>
+      <view class="weui-flex__item">
+        <picker bindchange="bindPickerChange4" range="{{S985OR211List}}">
+          <button class='bton'>{{S985OR211}}</button>
+        </picker>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton3' bindtap='serachSchoolInfo'>查询</button>
       </view>
     </view>
   </view>
@@ -56,12 +60,16 @@
     </view>
     <view class='history-table-wrap'>
       <view class="table">
-
-        <view class="tr" wx:for="{{15}}">
-          <view class="td td1">哈尔滨工业大学</view>
-          <view class="td td2">哈尔滨</view>
-          <view class="td td2">理工类</view>
-          <view class="td td2">23</view>
+        <view class="tr" wx:for="{{list}}">
+          <view class="td td1">{{item.collageName}}</view>
+          <block wx:if="{{item.city==null}}">
+            <view class="td td2"></view>
+          </block>
+          <block wx:else>
+            <view class="td td2">{{item.city}}</view>
+          </block>
+          <view class="td td2">{{item.collageType}}</view>
+          <view class="td td2">{{item.ranking}}</view>
         </view>
       </view>
     </view>

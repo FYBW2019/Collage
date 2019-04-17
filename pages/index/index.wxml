@@ -1,27 +1,3 @@
-<!--index.wxml-->
-<!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view> -->
-<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
-<!-- <view class="page" id="index">
-<view class="page__bd page__bd_spacing">
-<view class="button-sp-area">
-            <button class="weui-btn" hover="true" hover-class="btnhover" bindtap='findSchoolInfo'>查信息</button>
-            <button class="weui-btn" hover="true" hover-class="btnhover">找名校</button>
-            <button class="weui-btn" hover="true" hover-class="btnhover">问专业</button>
-            <button class="weui-btn" hover="true" hover-class="btnhover">测性格</button>
- </view>
- </view>
- </view> -->
 <view class='page__hd'>
   <view class='pageHander'>
     <text>高考志愿辅助系统</text>
@@ -34,7 +10,7 @@
         </picker>
       </view>
       <view class="weui-flex__item">
-        <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
+        <picker mode="date" fields="year" start="2015" end="2015" bindchange="bindDateChange">
           <button class='bton'>年份:{{year}}</button>
         </picker>
       </view>
@@ -53,23 +29,63 @@
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <input type='text' class='bton2' placeholder='请输入大学名称' placeholder-class='inputShow' />
-        <!-- <button class='bton2'>大学名称</button> -->
+        <picker bindchange="bindPickerChange4" range="{{schoolList}}">
+          <button class='bton2'>{{schoolName}}</button>
+
+        </picker>
+
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <input class='bton2' placeholder='请输入专业名称' placeholder-class='inputShow' />
-        <!-- <button class='bton2'></button> -->
+        <picker bindchange="bindPickerChange5" range="{{majorList}}">
+          <button class='bton2'>{{majorName}}</button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3 weui-btn' type="primary" plain="true">查询</button>
+        <button class='bton3 weui-btn' bindtap='indexSelect' type="primary" plain="true">查询</button>
       </view>
       <view class="weui-flex__item">
         <button class='bton3 weui-btn' bindtap='login' type="primary" plain="true">登录</button>
       </view>
+    </view>
+  </view>
+  <view class="modal-mask" bindtap="hideModal" wx:if="{{showModal}}">
+
+  </view>
+
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="parent">
+      <view class="tr">
+        <view class="th">文理</view>
+        <view class="th">招生大学</view>
+        <view class="th">专业名称</view>
+        <view class="th">投档线</view>
+        <view class="th">批次</view>
+        <view class="th">最高分</view>
+        <view class="th">平均分</view>
+        <view class="th">最低分</view>
+      </view>
+      <scroll-view scroll-x style="width: 60%;float:right">
+        <view>
+          <view class="table">
+          <block wx:for="{{result}}" wx:key="index">
+            <view class="trr">
+              <view class="td">{{item.type}}</view>
+              <view class="td">{{item.name}}</view>
+              <view class="td">{{item.major}}</view>
+              <view class="td">{{item.scoreLine}}</view>
+              <view class="td">{{item.batch}}</view>
+              <view class="td">{{item.max}}</view>
+              <view class="td">{{item.avg}}</view>
+              <view class="td">{{item.min}}</view>
+            </view>
+          </block>  
+          </view>
+        </view>
+      </scroll-view>
     </view>
   </view>
 </view>

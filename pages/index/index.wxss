@@ -46,7 +46,6 @@ font-family: "楷体";
   font-family: "楷体";
     margin: 0 auto;
      height: 48px;
-  text-indent: 50px;
 }
 
 .bton3{
@@ -64,3 +63,69 @@ letter-spacing: 5px;
 .weui-flex{
   margin-top: 20px;
 }
+.parent {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 表格代码   */
+
+.table {
+  display: flex;
+  width: 150px
+}
+
+.tr {
+  width: 40%;
+  display: block;
+  float: left;
+  justify-content: space-between;
+}
+
+.trr {
+  display: block;
+  float: left;
+}
+
+.th {
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  font-weight: 800;
+  background-color: #b66242;
+  font-size: 28rpx;
+  color: #330e0e;
+}
+
+.td {
+  width: 150px;
+
+  padding: 10px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  color: #ec9480;
+  font-size: 28rpx;
+}
+.modal-mask {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.7;
+}
+ 
+.modal-dialog {
+  overflow: hidden;
+  position: fixed;
+  top: 10%;
+  width: 260px;
+  background: #f9f9f9;
+  margin: 0 0 0 0;
+}
+

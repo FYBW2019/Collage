@@ -23,15 +23,19 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>年份</button>
+       <picker mode="date" fields="year" start="2013" end="2018" bindchange="bindDateChange">
+        <button class='bton'>年份:{{year}}</button>
+       </picker> 
       </view>
       <view class="weui-flex__item">
-        <button class='bton'>分数</button>
+      <picker bindchange="bindPickerChange2" range="{{typeList}}">
+        <button class='bton'>文理:{{type}}</button>
+       </picker>  
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3'>查询</button>
+        <button class='bton3' bindtap='serachResult'>查询</button>
       </view>
     </view>
   </view>
@@ -44,12 +48,11 @@
     </view>
     <view class='history-table-wrap'>
       <view class="table">
-
-        <view class="tr" wx:for="{{15}}">
-          <view class="td td1">688</view>
-          <view class="td td2">9</view>
-          <view class="td td2">8</view>
-          <view class="td td2">10</view>
+        <view class="tr" wx:for="{{list}}">
+          <view class="td td1">{{item.score}}</view>
+          <view class="td td2">{{item.rankingAvg}}</view>
+          <view class="td td2">{{item.rankingMin}}</view>
+          <view class="td td2">{{item.rankingMax}}</view>
         </view>
       </view>
     </view>
