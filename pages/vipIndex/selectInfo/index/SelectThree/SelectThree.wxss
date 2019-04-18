@@ -20,6 +20,17 @@
 .weui-flex{
   margin-top: 20px;
 }
+.history-table-wrap{
+  width: 100%;
+  height: 578rpx;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.Table{
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
 /* 表格代码   */
 .table{
   border:1px solid #dadada;
@@ -44,9 +55,9 @@
 }
 .th{
   font-weight: 800;
-  background-color: #b66242;
   font-size: 28rpx;
   color: #330e0e;
+  background-color: #b663423b;
 }
 .td{
   font-size: 20rpx;

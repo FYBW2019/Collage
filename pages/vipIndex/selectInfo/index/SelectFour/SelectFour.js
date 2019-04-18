@@ -94,7 +94,7 @@ Page({
           list.push(res.data.results[i].name)
         }
         that.setData({
-          majorList: list,
+          chooseList: res.data.results,
           majorName: list[0]
         })
       }
@@ -112,7 +112,7 @@ Page({
       data: {
         year: '2017',
         province: '安徽',
-        S985OR211: ''
+        S985OR211: '全部'
       },
       method: 'GET',
       success(res) {

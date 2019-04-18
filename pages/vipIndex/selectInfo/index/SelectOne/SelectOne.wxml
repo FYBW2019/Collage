@@ -28,7 +28,7 @@
         </picker>
       </view>
       <view class="weui-flex__item">
-        <picker mode="date" fields="year" start="1970" end="2019" bindchange="bindDateChange">
+        <picker mode="date" fields="year" start="2012" end="2018" bindchange="bindDateChange">
           <button class='bton'>{{year}}</button>
         </picker>
       </view>
@@ -45,20 +45,26 @@
         </picker>
       </view>
       <view class="weui-flex__item">
-        <button class='bton'>大学名称</button>
+      <picker bindchange="bindPickerChange4" range="{{schoolList}}">
+       <input type='button' class='put' disabled="true" value='{{schoolName}}' style='display:{{show}}'></input>
+        <!-- <button class='bton'>{{schoolName}}</button> -->
+      </picker>  
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3'>查询</button>
+        <button class='bton3' bindtap='serachResult'>查询</button>
       </view>
     </view>
   </view>
-  <view class="parent">
+  <view class="modal-mask" wx:if="{{showModal}}">
+    <view class="modal-dialog" wx:if="{{showModal}}">
+      <view class="parent">
     <view class="tr">
       <view class="th">学校名称</view>
       <view class="th">年份</view>
       <view class="th">批次线</view>
+      <view class="th">批次</view>
       <view class="th">
         <view class='one'>
           投档线
@@ -90,21 +96,30 @@
     <scroll-view scroll-x style="width: 80%;float:right">
       <view>
         <view class="table">
-          <block wx:for="{{60}}">
+          <block wx:for="{{list}}" wx:key="index">
             <view class="trr">
-              <view class="td">北京大学</view>
-              <view class="td">2018</view>
-              <view class="td">455</view>
-              <view class="td">680</view>
-              <view class="td">689</view>
-              <view class="td">225</view>
-              <view class="td">193</view>
-              <view class="td">44</view>
-              <view class="td">29</view>
+              <view class="td">{{item.name}}</view>
+              <view class="td">{{item.batch}}</view>
+              <view class="td">{{item.year}}</view>
+              <view class="td">{{item.line}}</view>
+              <view class="td">{{item.sLine}}</view>
+              <view class="td">{{item.aScore}}</view>
+              <view class="td">{{item.diff}}</view>
+              <view class="td">{{item.aDiff}}</view>
+              <view class="td">{{item.rank}}</view>
+              <view class="td">{{item.aRank}}</view>
             </view>
           </block>
         </view>
       </view>
     </scroll-view>
   </view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <view class="button-sp-area">
+        <button class="weui-btn" type="primary" bindtap="hideModal" plain="true">返回</button>
+      </view>
+    </view>
+  </view>
+  
 </view>

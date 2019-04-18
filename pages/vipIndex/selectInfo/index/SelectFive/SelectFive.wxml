@@ -20,31 +20,54 @@
       </view>
     </view>
   </view>
+  <form bindsubmit="formSubmit">
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>年份</button>
+      <picker mode="date" name="year" fields="year" start="2013" end="2016" bindchange="bindDateChange">
+        <button class='bton'>年份:{{year}}</button>
+      </picker>  
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>大学名称</button>
+        <input type='text' name='collageName' class='put' value='' placeholder-class='pl' placeholder='请输入大学名称(必填)'/> 
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>专业名称</button>
+      <input type='text' name='majorName' class='put' value='' placeholder-class='pl' placeholder='请输入专业名称'/> 
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton'>分数范围</button>
+        <button class='bton3' formType="submit">查询</button>
       </view>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton3'>查询</button>
-      </view>
+  </view>
+  </form>
+ <view class="parent"  style='display: {{show}}'>
+    <view class="tr">
+      <view class="th">文理</view>
+      <view class="th">分数</view>
+      <view class="th">排位</view>
+      <view class="th">学校</view>
+      <view class="th">专业</view>
     </view>
+    <scroll-view scroll-x style="width: 80%;float:right">
+      <view>
+        <view class="table">
+          <block wx:for="{{list}}" wx:key="index">
+            <view class="trr">
+              <view class="td">{{item.type}}</view>
+              <view class="td">{{item.score}}</view>
+              <view class="td">{{item.ranking}}</view>
+              <view class="td">{{item.collageName}}</view>
+              <view class="td">{{item.majorName}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </scroll-view>
   </view>
 </view>

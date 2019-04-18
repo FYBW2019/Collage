@@ -237,6 +237,7 @@ Page({
             title: '暂无数据',
             icon: 'none',
             duration: 2000
+            
           })
         }else{
           

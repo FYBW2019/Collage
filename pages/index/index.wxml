@@ -52,40 +52,44 @@
       </view>
     </view>
   </view>
-  <view class="modal-mask" bindtap="hideModal" wx:if="{{showModal}}">
-
-  </view>
-
-  <view class="modal-dialog" wx:if="{{showModal}}">
-    <view class="parent">
-      <view class="tr">
-        <view class="th">文理</view>
-        <view class="th">招生大学</view>
-        <view class="th">专业名称</view>
-        <view class="th">投档线</view>
-        <view class="th">批次</view>
-        <view class="th">最高分</view>
-        <view class="th">平均分</view>
-        <view class="th">最低分</view>
-      </view>
-      <scroll-view scroll-x style="width: 60%;float:right">
-        <view>
-          <view class="table">
-          <block wx:for="{{result}}" wx:key="index">
-            <view class="trr">
-              <view class="td">{{item.type}}</view>
-              <view class="td">{{item.name}}</view>
-              <view class="td">{{item.major}}</view>
-              <view class="td">{{item.scoreLine}}</view>
-              <view class="td">{{item.batch}}</view>
-              <view class="td">{{item.max}}</view>
-              <view class="td">{{item.avg}}</view>
-              <view class="td">{{item.min}}</view>
-            </view>
-          </block>  
-          </view>
+  <view class="modal-mask" wx:if="{{showModal}}">
+    <view class="modal-dialog" wx:if="{{showModal}}">
+      <view class="parent">
+        <view class="tr">
+          <view class="th">文理</view>
+          <view class="th">招生大学</view>
+          <view class="th">专业名称</view>
+          <view class="th">投档线</view>
+          <view class="th">批次</view>
+          <view class="th">最高分</view>
+          <view class="th">平均分</view>
+          <view class="th">最低分</view>
         </view>
-      </scroll-view>
+        <scroll-view scroll-x style="width: 60%;float:right">
+          <view>
+            <view class="table">
+              <block wx:for="{{result}}" wx:key="index">
+                <view class="trr">
+                  <view class="td">{{item.type}}</view>
+                  <view class="td">{{item.name}}</view>
+                  <view class="td">{{item.major}}</view>
+                  <view class="td">{{item.scoreLine}}</view>
+                  <view class="td">{{item.batch}}</view>
+                  <view class="td">{{item.max}}</view>
+                  <view class="td">{{item.avg}}</view>
+                  <view class="td">{{item.min}}</view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <view class="button-sp-area">
+        <button class="weui-btn" type="primary" bindtap="hideModal" plain="true">返回</button>
+      </view>
     </view>
   </view>
+
 </view>
