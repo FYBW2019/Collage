@@ -5,29 +5,87 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{
-      'Title': '1.当你要外出一整天，你会',
-      'answer': [{
-        'Name': 'A.计划你要做什么和在什么时候做',
-        'value': 'A',
-        'checked': false
-      }, {
-        'Name': 'B.说去就去',
-        'value': 'B'
-      }]
-    }, {
-      'Title': '2.你认为自己是一个',
-      'answer': [{
-        'Name': 'A.较为随性所至的人',
-        'value': 'A',
-        'checked': false
-      }, {
-        'Name': 'B.较为有条理的人',
-        'value': 'B'
-      }]
-    }]
+    list: [],
+    page1: 'show',
+    page2: 'hidd',
+    page3: 'hidd',
+    page4: 'hidd',
+    navClass1: 'show2',
+    navClass2: '',
+    navClass3: '',
+    navClass4: '',
+    show:'block',
+    hidden:'none'
+
 
   },
+  /**
+   * 第一部分
+   */
+  page1: function() {
+    let that = this;
+    that.setData({
+      page1: 'show',
+      page2: 'hidd',
+      page3: 'hidd',
+      page4: 'hidd',
+      navClass1: 'show2',
+      navClass2: '',
+      navClass3: '',
+      navClass4: ''
+    })
+  },
+  /**
+   * 第二部分
+   */
+  page2: function() {
+    let that = this;
+    that.setData({
+      page1: 'hidd',
+      page2: 'show',
+      page3: 'hidd',
+      page4: 'hidd',
+      navClass1: '',
+      navClass2: 'show2',
+      navClass3: '',
+      navClass4: ''
+    })
+  },
+  /**
+   * 第三部分
+   */
+  page3: function() {
+    let that = this;
+    that.setData({
+      page1: 'hidd',
+      page2: 'hidd',
+      page3: 'show',
+      page4: 'hidd',
+      navClass1: '',
+      navClass2: '',
+      navClass3: 'show2',
+      navClass4: ''
+    })
+  },
+  /**
+   * 第四部分
+   */
+  page4: function() {
+    let that = this;
+    that.setData({
+      page1: 'hidd',
+      page2: 'hidd',
+      page3: 'hidd',
+      page4: 'show',
+      navClass1: '',
+      navClass2: '',
+      navClass3: '',
+      navClass4: 'show2'
+    })
+  },
+  /**
+   * 选择的答案
+   */
   radioChange: function(e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value);
     console.log('Id值：', e.currentTarget.id);
@@ -44,22 +102,69 @@ Page({
       list: answerList
     })
   },
+  /**
+   * 选中提交的答案
+   */
   show: function() {
-
-    var answerList = this.data.list;
+    let that = this;
+    let answerList = that.data.list;
+    let list = [];
     for (var i = 0; i < answerList.length; i++) {
       console.log(answerList[i])
       for (var j = 0; j < answerList[i].answer.length; j++) {
         if (answerList[i].answer[j].checked == true) {
-          console.log(answerList[i].answer[j].Name)
+          console.log(answerList[i].answer[j].value);
+          list.push(answerList[i].answer[j].value)
         }
       }
     }
+    let result = list.join(",");
+    wx.request({
+      url: 'http://192.168.60.7:8080/collage/CollageMobile/MBTISave',
+      method: 'GET',
+      data: {
+        result: result
+      },
+      success(res) {
+        console.log("结果》》》" + res.data.results.code);
+        console.log("code" + res.data.code)
+        console.log("answer" + res.data.results.answer);
+        that.setData({
+          code: res.data.results.code,
+          answer: res.data.results.answer,
+          show:'none',
+          hidden:'block'
+        })
+      }
+    })
+    console.log("结果" + list.join(","));
+  },
+  /**
+   * 返回按钮
+   */
+  cancel:function(){
+    this.setData({
+      show: 'block',
+      hidden: 'none'
+    })
+   
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let that = this;
+    wx.request({
+      url: 'http://192.168.60.7:8080/collage/CollageMobile/Test1',
+      method: 'GET',
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          list: res.data
+        })
+      }
+    })
+
   },
 
   /**

@@ -1,0 +1,129 @@
+<view class='page__hd'>
+  <view class="weui-cells__title" bindtap='collect'>点击加入收藏</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">学校名称</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.collageName}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">学校性质</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.collageNature}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">排名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.ranking}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">主管单位</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.chargeUnit}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">旧名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.collageNameOld}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">层级</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.level}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">985</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.special985}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">211</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.special211}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">院校分类</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.collageType}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">学历层次</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.collageLevel}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">招办电话</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.enrollTel}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">学历层次</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.collageLevel}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">官网</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.enrollUrl}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">通讯地址</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" disabled='true' value="{{schoolList.address}}" />
+      </view>
+    </view>
+  </view>
+  <view>
+    <view style='width:100%;overflow:hidden;'>
+      <view class='{{first}}' style='float:left;width:50%;text-align: center' bindtap='select1'>学校简介</view>
+      <view class='{{second}}' style='float:left;width:50%;text-align: center' bindtap='select2'>2018招生章程</view>
+    </view>
+    <view style='display:{{info1}};'>
+      <text class='txt'>{{schoolList.content1}}</text>
+    </view>
+    <view style='display:{{info2}}'>
+      <text class='txt'>{{schoolList.content8}}</text>
+    </view>
+  </view>
+</view>

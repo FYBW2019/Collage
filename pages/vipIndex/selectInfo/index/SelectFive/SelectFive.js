@@ -8,7 +8,8 @@ Page({
     nickName: '',
     avatarUrl: '',
     year:'2015',
-    list:[]
+    list:[],
+    show:'none'
   },
   //选择年份
   bindDateChange: function (e) {
@@ -21,13 +22,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.setData({
-    //   nickName: app.globalData.userInfo.nickName,
-    //   avatarUrl: app.globalData.userInfo.avatarUrl
-    // })
-    let page=1;
-    page++;
-    console.log(page)
+    this.setData({
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -52,9 +50,19 @@ Page({
         method: 'GET',
         success(res) {
           console.log(res.data.rows)
-          that.setData({
-            list: res.data.rows
-          })
+          if (res.data.rows==''){
+            wx.showToast({
+              title: '暂无数据',
+              icon:'none',
+              duration:3000
+            })
+          }else{
+            that.setData({
+              list: res.data.rows,
+              show:'block'
+            })
+          }
+          
         }
       })
     }

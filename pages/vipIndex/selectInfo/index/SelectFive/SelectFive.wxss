@@ -51,7 +51,7 @@
   width: 100%;
   overflow: hidden;
   font-weight: 800;
-  background-color: #b66242;
+  background-color: #b663423b;
   font-size: 28rpx;
   color: #330e0e;
 }
@@ -63,6 +63,7 @@
   border-right: 1px solid #dadada;
   text-align: center;
   color: #ec9480;
+  background-color: #42b66923;
   font-size: 23rpx;
 
 }
@@ -74,6 +75,7 @@
   border: 2px solid #115bfc79;
   border-radius: 10px;
   font-family: "楷体";
+  background-color: #ffffff;
   height: 46px;
 margin: 0 auto;
 }

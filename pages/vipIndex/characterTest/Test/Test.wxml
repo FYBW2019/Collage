@@ -1,0 +1,48 @@
+<view class='section' style='display:{{show}}'>
+  <block wx:for="{{list}}" wx:key="index">
+    <view class='weui-flex'>
+      <view class='weui-flex__item'>
+        {{index+1}}.{{item.Title}}
+      </view>
+    </view>
+    <view class="page">
+      <view class="page__bd">
+        <view class="section section_gap">
+          <radio-group class="radio-group" bindchange="radioChange" id="{{index}}">
+            <radio class="radio" wx:for-items="{{item.answer}}" wx:key="{{value}}" wx:for-item="answers" value="{{answers.value}}" checked="{{answers.checked}}">
+              <block wx:if="{{answers.value==1}}">
+                <view class="icon_sp_area">
+                  <text>否</text>
+                </view>
+              </block>
+              <block wx:if="{{answers.value==0}}">
+                <text>是</text>
+              </block>
+            </radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+  </block>
+  <button bindtap='show'>提交</button>
+</view>
+<view class="result" style='display:{{hidden}}'>
+  <view class="nav">
+    评测结果:{{code}}
+  </view>
+  <block wx:for="{{reault1}}" wx:key="{{index}}">
+    <view class="info">
+      <view class="infoOne">{{item.nameCn}} {{item.code}}</view>
+      <view class="infoTwo"><text>{{item.answer}}</text></view>
+    </view>
+  </block>
+  <view class="foot">
+  <view class="foot1">适合职业</view>
+  <view class="foot2">{{answer}}</view>
+  </view>
+   <view class="page__bd page__bd_spacing">
+       <view class="button-sp-area">
+            <button class="weui-btn" bindtap='cancel' type="primary" plain="true">返回</button>
+        </view>
+    </view>
+</view>

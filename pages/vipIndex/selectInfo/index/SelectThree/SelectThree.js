@@ -75,7 +75,7 @@ Page({
       },
       method: 'GET',
       success(res) {
-
+        console.log(res.data.results)
         if (res.data.results=='') {
           console.log(res.data.results)
           wx.showToast({
@@ -94,6 +94,14 @@ Page({
     })
 
   },
+  selectSchool:function(e){
+    console.log("这是id" + e.currentTarget.id);
+    
+   wx.navigateTo({
+     url: '/pages/vipIndex/selectInfo/index/SelectThree/collageInfo/collageInfo?id=' + e.currentTarget.id+'',
+   })
+   
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -101,8 +109,8 @@ Page({
     console.log("ss" + app.globalData.provinceList)
     this.setData({
       provinceList: app.globalData.provinceList,
-      // nickName: app.globalData.userInfo.nickName,
-      // avatarUrl: app.globalData.userInfo.avatarUrl
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
 
     })
   },

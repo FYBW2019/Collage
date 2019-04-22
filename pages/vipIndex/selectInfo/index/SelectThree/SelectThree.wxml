@@ -61,7 +61,7 @@
     <view class='history-table-wrap'>
       <view class="table">
         <view class="tr" wx:for="{{list}}">
-          <view class="td td1">{{item.collageName}}</view>
+          <view class="td td1" id="{{item.id}}" bindtap='selectSchool'><text>{{item.collageName}}</text></view>
           <block wx:if="{{item.city==null}}">
             <view class="td td2"></view>
           </block>

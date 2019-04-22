@@ -51,11 +51,20 @@
   width: 100%;
   overflow: hidden;
   font-weight: 800;
-  background-color: #b66242;
+  background-color: #b663423b;
   font-size: 28rpx;
   color: #330e0e;
 }
-
+.txt{
+   width: 100px;
+  padding: 13px 0 12px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  background: #42b66923;
+  font-size: 23rpx;
+  color: #5705ee;
+}
 .td {
   width: 100px;
   padding: 13px 0 12px 0;
@@ -63,7 +72,82 @@
   border-right: 1px solid #dadada;
   text-align: center;
   color: #ec9480;
+  background: #42b66923;
   font-size: 23rpx;
+}
+.pop-up-textarea-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop-up-textarea-container {
+  position: fixed;
+  top: 300rpx;
+  left: 85rpx;
+  width: 580rpx;
+  height: 560rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.top-view {
+  height: 98rpx;
+  width: 100%;
+  display: block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.top-view .title {
+  height: 98rpx;
+  line-height: 98rpx;
+  width: 100%;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.top-view .cancel {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right: 20rpx;
+  padding: 15px 0 0 0;
+  text-align: center;
+  
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.line-view, .top-line-view {
+  width: 100%;
+  height: 2rpx;
+  background-color: #eeeeee
+}
+
+.top-line-view {
+  background-color: #39cc6a
+}
+
+.pay-money-title {
+  width: 100%;
+ height: 100%;
+  overflow: hidden;
+  line-height: 80rpx;
+  color: #333333;
+  display:block;
+	white-space: pre-wrap;
+
 }
 
 

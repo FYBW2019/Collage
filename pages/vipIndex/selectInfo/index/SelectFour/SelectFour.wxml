@@ -63,7 +63,7 @@
           <block wx:for="{{results}}" wx:key="index">
             <view class="trr">
               <view class="td">{{item.type}}</view>
-              <view class="td">{{item.major}}</view>
+              <view class="txt" id="{{index}}" bindtap='majorInfo'>{{item.major}}</view>
               <view class="td">{{item.year}}</view>
               <view class="td">{{item.max}}</view>
               <view class="td">{{item.avg}}</view>
@@ -76,3 +76,15 @@
     </scroll-view>
   </view>
 </view>
+<cover-view class="pop-up-textarea-bg" wx:if="{{isShow}}">
+  <cover-view class="pop-up-textarea-container">
+    <cover-view class="top-view">
+      <cover-view class="title">专业介绍</cover-view>
+      <cover-view bindtap="onCancelOrderPay" class="cancel">X</cover-view>
+      <!-- <cover-image  ></cover-image> -->
+    </cover-view>
+    <cover-view class="top-line-view"></cover-view>
+    <cover-view class="pay-money-title">{{txt}}</cover-view>
+    
+  </cover-view>
+</cover-view>

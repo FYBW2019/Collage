@@ -1,0 +1,77 @@
+@import '/style/weui.wxss';
+.radio-group {
+    border-bottom: 1px solid #ddd;
+}
+.radio {
+    display: block;
+    border-top: 1px solid #ddd;
+    padding: 5px;
+}
+.placeholder{
+ text-align: center;
+ padding: 10px 0;
+ font-family: "楷体";
+ 
+}
+.weui-flex__item{
+  font-family: "楷体";
+}
+text{
+   font-family: "楷体";
+   display: block;
+   font-size: 14px;
+}
+.result{
+  width: 100%;
+  overflow: hidden;
+
+}
+.nav{
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+  font-family: "楷体";
+  border: 2px solid rgb(4, 169, 245);
+}
+.info{
+  width: 90%;
+   margin: 0 auto;
+  overflow: hidden;
+  border: 2px solid rgb(4, 169, 245);
+  margin-top: 10px;
+}
+.infoOne{
+  width: 100%;
+  background-color: rgb(231, 153, 36);
+  color: #ffffff;
+  font-family: "楷体";
+  padding: 5px;
+}
+.infoTwo{
+  width: 100%;
+  overflow: hidden;
+  font-family: "楷体";
+
+}
+.foot{
+  width: 90%;
+   margin: 0 auto;
+   border: 1px solid #ddd;
+   margin-top: 10px;
+}
+   .foot1{
+     margin: 0 auto;
+     width: 100%;
+     background-color: rgb(7, 175, 241);
+     color: #ffffff;
+     font-family: "楷体";
+   }
+   .foot2{
+      margin: 0 auto;
+     width: 100%;
+     font-family: "楷体";
+
+   }
+.page__bd_spacing{
+  margin-top: 10px;
+}

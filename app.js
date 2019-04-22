@@ -53,6 +53,7 @@ App({
     appid: "wxd5dadfcadee6b34a", //小程序的标识
     secret: "2a27ad48ec471a44f17665f264042d49", //小程序密钥（小程序管理后台获得）
     map: "VACBZ-OXXCO-E2YWW-S4ZF4-J7KS5-MOBOK",//微信小程序获取地理位置需要的密钥
+    collects:[]//收藏列表
 
   }
 })

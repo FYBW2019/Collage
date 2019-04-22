@@ -7,24 +7,66 @@ Page({
   data: {
     nickName: '',
     avatarUrl: '',
-    year: '2017',
-    SchoolList: [],
-    majorList: [],
+    year: '2016',
+    SchoolList: [],//学校列表
+    majorList: [],//专业列表
     SchoolName: '大学名称',
     majorName: '专业名称',
     chooseList: [],
     multiple: true,
-    results: [],
-    show:'none'
+    results: [],//选中的专业列表
+    show:'none',
+    isShow:false
   },
   // 点击确定事件
   choose(e) {
     let s = e.detail.chooseArray.join(',')
     this.setData({
       majorName: s
+      
     })
     console.log(e.detail.chooseArray);
-    console.log(s);
+  },
+  /**
+   * 关闭模态框
+   */
+  onCancelOrderPay: function (e) {
+    this.setData({
+      isShow: false
+    })
+  },
+  //专业介绍
+  majorInfo:function(e){
+    let that=this;
+    console.log("专业ID"+e.currentTarget.id);
+    console.log("选中的专业>>>" + that.data.results[e.currentTarget.id].major) 
+    let majorName = that.data.results[e.currentTarget.id].major;
+    let collageName=that.data.SchoolName;
+    wx.request({
+      url: 'http://192.168.60.7:8080/collage/CollageMobile/majorInfo',
+      data:{
+        collage: collageName,
+        major: majorName
+      },
+      method:'GET',
+      success(res){
+        console.log(res.data)
+        if (res.data==''){
+          wx.showToast({
+            title: '该专业无介绍',
+            icon:'none',
+            duration:3000
+          })
+        }else{
+          that.setData({
+            txt: res.data,
+            isShow: true
+          })
+        }
+        
+      }
+    })
+
   },
   //查询结果
   selectResult: function() {
@@ -133,10 +175,10 @@ Page({
 
       }
     });
-    // this.setData({
-    //   nickName: app.globalData.userInfo.nickName,
-    //   avatarUrl: app.globalData.userInfo.avatarUrl
-    // })
+    that.setData({
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
   },
 
   /**

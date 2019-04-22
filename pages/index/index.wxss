@@ -1,6 +1,7 @@
 /**index.wxss**/
 #index{
   padding: 200rpx 0 350rpx 0;
+ 
 
 }
 .usermotto {
