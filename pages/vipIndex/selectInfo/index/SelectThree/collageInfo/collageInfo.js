@@ -47,7 +47,7 @@ Page({
       id: options.id
     })
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/assembleQuery',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/assembleQuery',
       data: {
         id: options.id
       },

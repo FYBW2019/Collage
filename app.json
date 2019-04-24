@@ -1,5 +1,7 @@
 {
   "pages": [
+      "pages/index/index",
+    "pages/vipIndex/volunteerChoice/index/index",
     "pages/vipIndex/vipIndex",
     "pages/vipIndex/characterTest/Test/Test",
     "pages/vipIndex/characterTest/MBTI/MBTI",
@@ -8,7 +10,7 @@
     "pages/vipIndex/selectInfo/index/SelectFour/SelectFour",
     "pages/vipIndex/selectInfo/index/SelectThree/SelectThree",
     "pages/vipIndex/selectInfo/index/SelectThree/collageInfo/collageInfo",
-    "pages/index/index",
+  
     
     
     "pages/vipIndex/selectInfo/index/SelectTwo/SelectTwo",
@@ -22,7 +24,7 @@
   
     "pages/choiceprofession/choiceprofession",
     "pages/user/user",
-    "pages/vipIndex/volunteerChoice/index/index",
+   
     "pages/user/MyCollection/MyCollection",
     "pages/register2/register2",
     "pages/register/register",

@@ -66,7 +66,7 @@ Page({
       type = ''
     }
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/universityInfo',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/universityInfo',
       data: {
         S985OR211: S985OR211,
         province: province,

@@ -42,7 +42,7 @@ Page({
       SchoolProvince: that.data.provinceList[e.detail.value]
     })
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
       data: {
         year: year,
         province: province,
@@ -99,7 +99,7 @@ Page({
       nature: that.data.natureList[e.detail.value]
     })
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
       data: {
         year: year,
         province: province,
@@ -159,7 +159,7 @@ Page({
       schoolName: that.data.schoolList[e.detail.value]
     })
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/IndexFindMajor', // 仅为示例，并非真实的接口地址
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/IndexFindMajor', // 仅为示例，并非真实的接口地址
       data: {
         year: year,
         province: province,
@@ -222,7 +222,7 @@ Page({
     let collage = that.data.schoolName;
     
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/IndexSelect',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/IndexSelect',
       data: {
         province: province,
         year:2015,

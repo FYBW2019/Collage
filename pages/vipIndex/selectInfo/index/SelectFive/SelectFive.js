@@ -41,7 +41,7 @@ Page({
       let collageName=e.detail.value.collageName;
       let majorName=e.detail.value.majorName;
       wx.request({
-        url: 'http://192.168.60.7:8080/collage/CollageMobile/directionData',
+        url: 'http://qq.zhitonggaokao.cn/CollageMobile/directionData',
         data: {
           year: year,
           collageName: collageName,

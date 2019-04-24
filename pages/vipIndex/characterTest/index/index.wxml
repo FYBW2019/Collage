@@ -48,7 +48,7 @@
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3'>开始测试(50积分)</button>
+        <button class='bton3' bindtap='Test'>开始测试(50积分)</button>
       </view>
     </view>
   </view>

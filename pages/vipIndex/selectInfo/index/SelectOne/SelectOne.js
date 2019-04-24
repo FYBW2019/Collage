@@ -44,7 +44,7 @@ Page({
     }
     
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/collageDeliverFileAnalysis',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/collageDeliverFileAnalysis',
       data: {
         batch: batch,
         SchoolProvince: SchoolProvince,
@@ -90,7 +90,7 @@ Page({
       SchoolProvince: that.data.provinceList[e.detail.value]
     })
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/WEIXINcollageDeliverFileAnalysisCollageProvince',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/WEIXINcollageDeliverFileAnalysisCollageProvince',
       data: {
         enrollProvince: '安徽',
         province: that.data.provinceList[e.detail.value]

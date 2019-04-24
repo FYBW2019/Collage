@@ -120,7 +120,7 @@ Page({
     }
     let result = list.join(",");
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/MBTISave',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/MBTISave',
       method: 'GET',
       data: {
         result: result
@@ -155,7 +155,7 @@ Page({
   onLoad: function(options) {
     let that = this;
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/Test1',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/Test1',
       method: 'GET',
       success(res) {
         console.log(res.data);

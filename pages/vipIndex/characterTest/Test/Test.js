@@ -47,7 +47,7 @@ Page({
     let result = list.join(",");
     console.log("结果" + list.join(","));
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/TestSave2',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/TestSave2',
       data:{
         result: result
       },
@@ -80,7 +80,7 @@ this.setData({
   onLoad: function (options) {
     let that = this;
     wx.request({
-      url: 'http://192.168.60.7:8080/collage/CollageMobile/Test2',
+      url: 'http://qq.zhitonggaokao.cn/CollageMobile/Test2',
       method: 'GET',
       success(res) {
         console.log(res.data);
