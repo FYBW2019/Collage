@@ -1,28 +1,29 @@
 {
   "pages": [
-      "pages/index/index",
     "pages/vipIndex/volunteerChoice/index/index",
-    "pages/vipIndex/vipIndex",
+    "pages/choiceprofession/choiceprofession",
     "pages/vipIndex/characterTest/Test/Test",
     "pages/vipIndex/characterTest/MBTI/MBTI",
-
-   
+    "pages/vipIndex/characterTest/index/index",
+    "pages/vipIndex/selectInfo/index/SelectThree/collageInfo/collageInfo",
+    "pages/vipIndex/selectInfo/index/SelectFive/SelectFive",
     "pages/vipIndex/selectInfo/index/SelectFour/SelectFour",
     "pages/vipIndex/selectInfo/index/SelectThree/SelectThree",
-    "pages/vipIndex/selectInfo/index/SelectThree/collageInfo/collageInfo",
-  
-    
-    
     "pages/vipIndex/selectInfo/index/SelectTwo/SelectTwo",
     "pages/vipIndex/selectInfo/index/SelectOne/SelectOne",
-    
-    "pages/vipIndex/selectInfo/index/SelectFive/SelectFive",
-    
+    "pages/vipIndex/vipIndex",
     "pages/vipIndex/selectInfo/index/index",
-    "pages/login/login",
-    "pages/vipIndex/characterTest/index/index",
+    "pages/index/index",
+   
+
+    
+   
+
   
-    "pages/choiceprofession/choiceprofession",
+    "pages/login/login",
+    
+  
+    
     "pages/user/user",
    
     "pages/user/MyCollection/MyCollection",
@@ -33,7 +34,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "智通教育",
     "navigationBarTextStyle": "black"
   },
   "permission": {

@@ -10,7 +10,7 @@ Page({
     provinceList: app.globalData.provinceList, //省份列表
     accountList: app.globalData.accountList, //科目列表
     batch: "批次",
-    year: "年份",
+    year: "2015",
     account: "理科",
     SchoolProvince: "大学省份", //大学省份
     schoolList: [],

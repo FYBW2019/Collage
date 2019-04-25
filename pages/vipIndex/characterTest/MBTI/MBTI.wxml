@@ -18,12 +18,12 @@
 
   </view>
 </view>
-<view class='section'>
+<view class='Section'>
   <text class="{{page2}}">在下列每一对词语中,哪一个词语更合你心意?请仔细想想这些词语的意义,而不要理会他们的字形或读音 </text>
   <text class="{{page4}}">在下列每一对词语中,哪一个词语更合你心意?</text>
   <block wx:for="{{list}}" wx:key="index">
     <block wx:if="{{index<26}}">
-      <view class="{{page1}}">
+      <view class="{{page1}} question">
         <view class='weui-flex'>
           <view class='weui-flex__item'>
             {{index+1}}.{{item.Title}}
@@ -133,7 +133,7 @@
   </view>
    <view class="page__bd page__bd_spacing">
        <view class="button-sp-area">
-            <button class="weui-btn" bindtap='cancel' type="primary" plain="true">返回</button>
+            <button class="weui-btn" bindtap='cancel' type="primary" plain="true">关闭</button>
         </view>
     </view>
 </view>

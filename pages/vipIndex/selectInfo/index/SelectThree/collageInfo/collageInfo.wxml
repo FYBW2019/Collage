@@ -114,7 +114,7 @@
       </view>
     </view>
   </view>
-  <view>
+  <view class="schoolInfo">
     <view style='width:100%;overflow:hidden;'>
       <view class='{{first}}' style='float:left;width:50%;text-align: center' bindtap='select1'>学校简介</view>
       <view class='{{second}}' style='float:left;width:50%;text-align: center' bindtap='select2'>2018招生章程</view>

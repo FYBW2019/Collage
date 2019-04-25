@@ -1,19 +1,18 @@
 @import '/style/weui.wxss';
 .weui-cell{
   border-bottom: 1px solid #aaa;
-  background: rgba(216, 213, 213,0.3);
+  border-top: 1px solid #aaa;
   font-family: "楷体";
 
 }
 .bton{
   width: 90%;
-  border: 2px solid #115bfc79;
   border-radius: 10px;
   font-family: "楷体";
 }
 .bton3{
   width: 80%;
-  border: 3px solid #ee9209b6;
+  border: 1px solid #ee9209b6;
   border-radius: 10px;
   font-family: "楷体";
 }
@@ -23,6 +22,7 @@
 .parent {
   width: 100%;
   margin-top: 20px;
+  border-top:1px solid #dadada;
 }
 
 /* 表格代码   */
@@ -51,9 +51,9 @@
   width: 100%;
   overflow: hidden;
   font-weight: 800;
-  background-color: #b663423b;
   font-size: 28rpx;
   color: #330e0e;
+  font-family: "楷体"
 }
 
 .td {
@@ -63,21 +63,23 @@
   border-right: 1px solid #dadada;
   text-align: center;
   color: #ec9480;
-  background-color: #42b66923;
   font-size: 23rpx;
-
+ font-family: "楷体"
 }
 .pl{
   text-align: center;
+  font-family: "楷体";
+  color: #330e0e;
 }
 .put{
   width: 90%;
-  border: 2px solid #115bfc79;
+  border: 1px solid #330e0e;
   border-radius: 10px;
   font-family: "楷体";
   background-color: #ffffff;
   height: 46px;
-margin: 0 auto;
+  margin: 0 auto;
+  text-align: center;
 }
 
 

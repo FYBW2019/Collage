@@ -738,7 +738,7 @@ Page({
     return {
       title: '中科遥感',
       desc: '风云博维',
-      imageUrl: '../../image/IMG_1644.JPG',
+      imageUrl: '../../image/arrowright.png',
       path: '/pages/vipIndex/volunteerChoice/index/index',
       success(e){
         wx.showShareMenu({

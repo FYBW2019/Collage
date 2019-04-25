@@ -8,7 +8,7 @@
         <text>{{nickName}}</text>
       </view>
       <view>生源地:
-        <text>西藏</text>
+        <text>安徽</text>
       </view>
     </view>
     <view class="weui-cell__bd">
@@ -24,24 +24,24 @@
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange" range="{{batchList}}">
-          <button class='bton'>{{batch}}</button>
+          <button type="default" plain='true' class='bton'>{{batch}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
         <picker mode="date" fields="year" start="2012" end="2018" bindchange="bindDateChange">
-          <button class='bton'>{{year}}</button>
+          <button type="default" plain='true' class='bton'>{{year}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange2" range="{{accountList}}">
-          <button class='bton'>{{account}}</button>
+          <button type="default" plain='true' class='bton'>{{account}}</button>
         </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange3" range="{{provinceList}}">
-          <button class='bton'>{{SchoolProvince}}</button>
+          <button type="default" plain='true' class='bton'>{{SchoolProvince}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
@@ -53,7 +53,7 @@
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3' bindtap='serachResult'>查询</button>
+        <button class='bton3' type="primary" plain='true' bindtap='serachResult'>查询</button>
       </view>
     </view>
   </view>
@@ -99,9 +99,11 @@
           <block wx:for="{{list}}" wx:key="index">
             <view class="trr">
               <view class="td">{{item.name}}</view>
-              <view class="td">{{item.batch}}</view>
               <view class="td">{{item.year}}</view>
-              <view class="td">{{item.line}}</view>
+               <view class="td">{{item.line}}</view>
+              <view class="td">{{item.batch}}</view>
+              
+             
               <view class="td">{{item.sLine}}</view>
               <view class="td">{{item.aScore}}</view>
               <view class="td">{{item.diff}}</view>

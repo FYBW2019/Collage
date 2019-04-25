@@ -24,14 +24,14 @@
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker mode="date" fields="year" start="2013" end="2017" bindchange="bindDateChange">
-          <button class='bton'>年份:{{year}}</button>
+          <button class='bton' type="default" plain="true">年份:{{year}}</button>
         </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange2" range="{{SchoolList}}">
-          <button class='bton'>{{SchoolName}}</button>
+          <button class='bton' type="default" plain="true">{{SchoolName}}</button>
         </picker>
       </view>
     </view>

@@ -69,10 +69,9 @@ Page({
     })
   },
   cancel:function(){
-this.setData({
-  show: 'block',
-  hidden: 'none'
-})
+ wx.redirectTo({
+   url: '/pages/vipIndex/characterTest/index/index',
+ })
   },
   /**
    * 生命周期函数--监听页面加载

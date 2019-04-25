@@ -8,7 +8,7 @@
         <text>{{nickName}}</text>
       </view>
       <view>生源地:
-        <text>西藏</text>
+        <text>安徽</text>
       </view>
     </view>
     <view class="weui-cell__bd">

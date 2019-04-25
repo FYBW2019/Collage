@@ -50,7 +50,7 @@ Page({
         method: 'GET',
         success(res) {
           console.log(res.data.rows)
-          if (res.data.rows==''){
+          if (res.data.rows == ''){
             wx.showToast({
               title: '暂无数据',
               icon:'none',

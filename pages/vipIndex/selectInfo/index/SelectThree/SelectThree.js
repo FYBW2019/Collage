@@ -76,14 +76,14 @@ Page({
       method: 'GET',
       success(res) {
         console.log(res.data.results)
-        if (res.data.results=='') {
+        if (res.data.results == '') {
           console.log(res.data.results)
           wx.showToast({
             title: '无符合该条件的数据',
             icon: 'none',
             duration: 3000
           })
-        }else{
+        } else {
           that.setData({
             list: res.data.results
           })
@@ -94,13 +94,13 @@ Page({
     })
 
   },
-  selectSchool:function(e){
+  selectSchool: function(e) {
     console.log("这是id" + e.currentTarget.id);
-    
-   wx.navigateTo({
-     url: '/pages/vipIndex/selectInfo/index/SelectThree/collageInfo/collageInfo?id=' + e.currentTarget.id+'',
-   })
-   
+
+    wx.navigateTo({
+      url: '/pages/vipIndex/selectInfo/index/SelectThree/collageInfo/collageInfo?id=' + e.currentTarget.id + '',
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -108,9 +108,9 @@ Page({
   onLoad: function(options) {
     console.log("ss" + app.globalData.provinceList)
     this.setData({
-      provinceList: app.globalData.provinceList,
-      nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+       provinceList: app.globalData.provinceList,
+      // nickName: app.globalData.userInfo.nickName,
+      // avatarUrl: app.globalData.userInfo.avatarUrl
 
     })
   },

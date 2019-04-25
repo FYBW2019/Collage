@@ -5,7 +5,8 @@
 .txt{
  
   font-size: 15px;
-
+  border-bottom: 1px solid #cccccc;
+ 
 }
 .page__hd{
   padding: 10px;
@@ -13,6 +14,10 @@
 page{
   font-family: '楷体';
   background-color: #ffffff;
+}
+.schoolInfo{
+margin-top: 5px;
+border-top: 1xp #cccccc solid;
 }
 
 .show{

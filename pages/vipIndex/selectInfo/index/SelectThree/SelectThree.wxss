@@ -1,7 +1,7 @@
 @import '/style/weui.wxss';
 .weui-cell{
   border-bottom: 1px solid #aaa;
-  background: rgba(216, 213, 213,0.3);
+   border-top: 1px solid #aaa;
   font-family: "楷体";
 
 }
@@ -13,7 +13,7 @@
 }
 .bton3{
   width: 80%;
-  border: 3px solid #ee9209b6;
+  border: 2px solid #ee9209b6;
   border-radius: 10px;
   font-family: "楷体";
 }

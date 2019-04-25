@@ -143,9 +143,9 @@ Page({
    * 返回按钮
    */
   cancel:function(){
-    this.setData({
-      show: 'block',
-      hidden: 'none'
+
+    wx.redirectTo({
+      url: '/pages/vipIndex/characterTest/index/index',
     })
    
   },

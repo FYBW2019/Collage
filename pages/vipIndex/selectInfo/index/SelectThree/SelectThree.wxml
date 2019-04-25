@@ -8,7 +8,7 @@
         <text>{{nickName}}</text>
       </view>
       <view>生源地:
-        <text>西藏</text>
+        <text>安徽</text>
       </view>
     </view>
     <view class="weui-cell__bd">
@@ -24,24 +24,24 @@
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange" range="{{provinceList}}">
-          <button class='bton'>{{province}}</button>
+          <button class='bton' type="default" plain="true">{{province}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange2" range="{{natureList}}">
-          <button class='bton'>{{nature}}</button>
+          <button class='bton' type="default" plain="true">{{nature}}</button>
         </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange3" range="{{typeList}}">
-          <button class='bton'>{{type}}</button>
+          <button class='bton' type="default" plain="true">{{type}}</button>
         </picker>
       </view>
       <view class="weui-flex__item">
         <picker bindchange="bindPickerChange4" range="{{S985OR211List}}">
-          <button class='bton'>{{S985OR211}}</button>
+          <button class='bton' type="default" plain="true">{{S985OR211}}</button>
         </picker>
       </view>
     </view>

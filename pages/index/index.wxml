@@ -87,7 +87,8 @@
     </view>
     <view class="page__bd page__bd_spacing">
       <view class="button-sp-area">
-        <button class="weui-btn" type="primary" bindtap="hideModal" plain="true">返回</button>
+      
+        <button class="weui-btn" type="primary" bindtap="hideModal" >返回</button>
       </view>
     </view>
   </view>

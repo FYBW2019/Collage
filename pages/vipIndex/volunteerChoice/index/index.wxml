@@ -1,4 +1,4 @@
-<view class='page__hd'>
+<view class='page__hd' style='display:{{index}}'>
   <view class="weui-cell">
     <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
       <image src="{{avatarUrl}}" style="width: 50px; height: 50px; display: block" />
@@ -20,24 +20,111 @@
       </view>
     </view>
   </view>
+   <view class="weui-flex">
+  <view class="weui-flex__item">
+        <picker mode="date" fields="year" start="2013" end="2017" bindchange="bindDateChange">
+          <button class='bton2' type="default" plain="true">年份:{{year}}</button>
+        </picker>
+      </view>
+  </view>    
   <view class="weui-flex">
-    <view class="weui-flex__item">
-      <button class='bton2'>大学省份选择</button>
+    <view class="weui-flex__item" bindtap='selectProvince'>
+      <input class='put' disabled='true' value='{{province}}' placeholder-class='pl' placeholder='大学省份选择(可选4个)'></input>
     </view>
   </view>
   <view class="weui-flex">
-    <view class="weui-flex__item">
-      <button class='bton2'>专业类别选择</button>
+    <view class="weui-flex__item" bindtap='selectMajor'>
+      <input class='put' disabled='true' value='{{major}}' placeholder-class='pl' placeholder='专业选择(可选4个)'></input>
     </view>
   </view>
   <view class="weui-flex">
+
     <view class="weui-flex__item">
-      <button class='bton2'>分数范围</button>
+      <picker bindchange="bindPickerChange" range="{{socres}}">
+        <button class='bton2' type="default" plain="true">{{score}}</button>
+      </picker>
     </view>
+
   </view>
   <view class="weui-flex">
     <view class="weui-flex__item">
-      <button class='bton3'>查询</button>
+      <button class='bton3'  bindtap='serachResults'>查询</button>
+    </view>
+  </view>
+   <view class='Table'>
+    <view class="tr">
+      <view class="th th1"><text class='txt'>招生学校</text></view>
+      <view class="th th2"><text class='txt'>专业名称</text></view>
+      <view class="th th2"><text class='txt'>录取批次</text></view>
+      <view class="th th2"><text class='txt'>平均分数</text></view>
+    </view>
+    <view class='history-table-wrap'>
+      <view class="table">
+        <view class="tr" wx:for="{{schoolList}}">
+          <view class="td td1">{{item.name}}</view>
+          <view class="td td2">{{item.major}}</view>
+          <view class="td td2">{{item.batch}}</view>
+          <view class="td td2">{{item.avg}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page__bd page__bd_spacing" style='display:{{zhuanye}}'>
+  <view class="button-sp-area">
+    <button class="weui-btn" type="primary" plain="true" bindtap='return1'>返回</button>
+  </view>
+  <view class="section1">
+    <view class="hander">
+      <block wx:for="{{showData}}" wx:key="{{index}}">
+        <text> {{item}}</text>
+      </block>
+    </view>
+    <view class='section'>
+      <view class='left'>
+        <block wx:for="{{leftList}}" wx:key="{{index}}">
+          <view class="leftList" id="{{index}}" bindtap='show'>
+            {{item.name}}
+          </view>
+        </block>
+      </view>
+      <checkbox-group bindchange="checkboxChange" class="show">
+        <block wx:for="{{list}}" wx:key="{{index}}">
+          <view class="RightList">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}" class='check' />
+            <view class='te'>{{item.name}}</view>
+          </view>
+        </block>
+      </checkbox-group>
+    </view>
+  </view>
+</view>
+<view class="page__bd page__bd_spacing" style='display:{{shengfen}}' >
+  <view class="button-sp-area">
+    <button class="weui-btn" type="primary"  plain="true" bindtap='return2'>返回</button>
+  </view>
+  <view class="section1">
+    <view class="hander">
+      <block wx:for="{{ProvinceList}}" wx:key="{{index}}">
+        <text> {{item}}</text>
+      </block>
+    </view>
+    <view class='section'>
+      <view class='left'>
+        <block wx:for="{{leftList2}}" wx:key="{{index}}">
+          <view class="leftList" id="{{index}}" bindtap='show2'>
+            {{item.name}}
+          </view>
+        </block>
+      </view>
+      <checkbox-group bindchange="checkboxChange2" class="show">
+        <block wx:for="{{list2}}" wx:key="{{index}}">
+          <view class="RightList">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}" class='check' />
+            <view class='te'>{{item.name}}</view>
+          </view>
+        </block>
+      </checkbox-group>
     </view>
   </view>
 </view>

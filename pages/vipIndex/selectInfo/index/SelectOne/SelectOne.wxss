@@ -1,19 +1,18 @@
 @import '/style/weui.wxss';
 .weui-cell{
   border-bottom: 1px solid #aaa;
-  background: rgba(216, 213, 213,0.3);
+ border-top: 1px solid #aaa;
   font-family: "楷体";
 
 }
 .bton {
   width: 90%;
-  border: 2px solid #115bfc79;
   border-radius: 10px;
   font-family: "楷体";
 }
 .put{
   width: 90%;
-  border: 2px solid #115bfc79;
+  border: 1px solid rgb(20, 19, 19);
   border-radius: 10px;
   font-family: "楷体";
   height: 46px;
@@ -23,7 +22,6 @@
 }
 .bton3 {
   width: 80%;
-  border: 3px solid #ee9209b6;
   border-radius: 10px;
   font-family: "楷体";
 }
@@ -71,14 +69,14 @@
   width: 100%;
   overflow: hidden;
   font-weight: 800;
-  background-color: #b663423b;
+  background-color: rgba(42, 214, 65, 0.459);
   font-size: 28rpx;
   color: #330e0e;
 }
 
 .td {
     width: 180px;
-background: #42b66923;
+
   padding: 10px 0 10px 0;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
@@ -129,7 +127,7 @@ background: #42b66923;
 .modal-dialog {
   overflow: hidden;
   position: fixed;
-  top: 5%;
+  border-top: 1px solid #dadada;
   width: 300px;
   background: #f9f9f9;
   margin: 0 0 0 0;

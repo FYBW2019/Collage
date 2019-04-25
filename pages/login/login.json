@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#fffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "智通教育",
+  "backgroundColor": "#fffffff",
+  "backgroundTextStyle": "dark"
 }
