@@ -37,11 +37,14 @@ Page({
         duration:3000
       })
     }else{
+      wx.showLoading({
+        title: '数据加载中',
+      })
       let year=that.data.year;
       let collageName=e.detail.value.collageName;
       let majorName=e.detail.value.majorName;
       wx.request({
-        url: 'http://qq.zhitonggaokao.cn/CollageMobile/directionData',
+        url: 'https://qq.zhitonggaokao.cn/CollageMobile/directionData',
         data: {
           year: year,
           collageName: collageName,
@@ -50,13 +53,15 @@ Page({
         method: 'GET',
         success(res) {
           console.log(res.data.rows)
-          if (res.data.rows == ''){
+          if (res.data.rows == '' || res.data.rows==undefined){
             wx.showToast({
               title: '暂无数据',
               icon:'none',
-              duration:3000
-            })
+              duration:2000
+            });
+            wx.hideLoading();
           }else{
+            wx.hideLoading();
             that.setData({
               list: res.data.rows,
               show:'block'

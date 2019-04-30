@@ -10,7 +10,7 @@
         </picker>
       </view>
       <view class="weui-flex__item">
-        <picker mode="date" fields="year" start="2015" end="2015" bindchange="bindDateChange">
+        <picker mode="date" fields="year" start="2018" end="2014" bindchange="bindDateChange">
           <button class='bton'>年份:{{year}}</button>
         </picker>
       </view>

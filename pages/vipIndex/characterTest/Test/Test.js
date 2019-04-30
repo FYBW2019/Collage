@@ -32,6 +32,9 @@ Page({
   * 选中提交的答案
   */
   show: function () {
+    wx.showLoading({
+      title: '答案揭晓中',
+    })
     let that = this;
     let answerList = that.data.list;
     let list = [];
@@ -47,7 +50,7 @@ Page({
     let result = list.join(",");
     console.log("结果" + list.join(","));
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/TestSave2',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/TestSave2',
       data:{
         result: result
       },
@@ -56,6 +59,7 @@ Page({
         console.log("结果" + res.data.code);
         console.log("结果" + res.data.types[0].nameCn + res.data.types[0].code + res.data.types[0].answer);
         console.log("结果" + res.data.answers[0].answer);
+        wx.hideLoading();
         that.setData({
           reault1: res.data.types,
           code: res.data.code,
@@ -79,7 +83,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/Test2',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/Test2',
       method: 'GET',
       success(res) {
         console.log(res.data);

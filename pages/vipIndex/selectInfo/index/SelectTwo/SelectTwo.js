@@ -14,15 +14,7 @@ Page({
 
   },
   onShareAppMessage: function() {
-    let users = wx.getStorageSync('user');
-    if (res.from === 'button') {
-
-    }
-    return {
-      title: '转发',
-      path: '/pages/index/index',
-      success: function(res) {}
-    }
+ 
   },
   //选择年份
   bindDateChange: function(e) {
@@ -45,8 +37,11 @@ Page({
     let that = this;
     let year = that.data.year;
     let type = that.data.type;
+    wx.showLoading({
+      title: '数据加载中',
+    })
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/oneParagraph',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/oneParagraph',
       data: {
         type: type,
         year: year,
@@ -55,9 +50,20 @@ Page({
       method:'GET',
       success(res){
         console.log(res.data.results);
-        that.setData({
-          list: res.data.results
-        })
+        if (res.data.results == null || res.data.results==undefined){
+          wx.showToast({
+            title: '暂无数据',
+            icon:'none',
+            duration:2000
+          });
+          wx.hideLoading()
+        }else{
+          wx.hideLoading();
+          that.setData({
+            list: res.data.results
+          })
+        }
+      
       }
     })
   },

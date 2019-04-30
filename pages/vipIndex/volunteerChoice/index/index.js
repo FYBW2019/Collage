@@ -472,6 +472,7 @@ Page({
     list: [],
     flag: '',
     showData: [],
+    schoolList:[],
     ProvinceList: [],
     socres: ['600以上','500~600', '400~500', '300~400', '200~300', '100~200'],
     zhuanye: 'none',
@@ -528,13 +529,20 @@ Page({
     })
 
   },
+  /**
+   * 结果查询
+   */
   serachResults:function(e){
+    wx.showLoading({
+      title: '数据加载中',
+    })
    let that=this;
    let major=that.data.major;
     let province=that.data.province;
     let score=that.data.score;
     let ScoreGreater='';
     let ScoreLess='';
+    console.log(major + ">>>" + province + ">>>" + score)
     if (score =='600以上'){
       ScoreGreater='600';
       ScoreLess='750';
@@ -559,8 +567,9 @@ Page({
       ScoreGreater = '100';
       ScoreLess = '200';
     }
+    console.log(ScoreGreater + ">>" + ScoreLess);
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/collage/CollageMobile/score',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/WEIXINscore',
       data:{
         major: major,
         province: province,      
@@ -571,9 +580,20 @@ Page({
       method:"GET",
       success(res){
         console.log(res.data.rows);
-        that.setData({
-          schoolList: res.data.rows
-        })
+        if (res.data.rows == undefined || res.data.rows == '' || res.data.rows==null){
+          wx.showToast({
+            title: '暂无数据',
+            icon:'none',
+            duration:2000
+          });
+          wx.hideLoading();
+        }else{
+          wx.hideLoading();
+          that.setData({
+            schoolList: res.data.rows
+          })
+        }
+        
       }
 
     })
@@ -582,17 +602,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // wx.request({
-    //   url: 'http://139.198.17.207:8092/collage/e6f3ad53011a2f852cf41d3d246d45a1/2bfc4090465fe95f867b2011b5a32f61/1d8f636b03480e902afc4866f5eb8879/AllCeshi',
-    //   method:'GET',
-    //   success(res){
-    //     console.log(res)
-    //   }
-    // })
-    // this.setData({
-    //   nickName: app.globalData.userInfo.nickName,
-    //   avatarUrl: app.globalData.userInfo.avatarUrl
-    // })
+    let that=this;
+
+    this.setData({
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
+    wx.request({
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/AllCeshi',
+      method: "GET",
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          leftList: res.data.leftList,
+          rightList: res.data.rightList
+        })
+      }
+    })
   },
   show: function(e) {
     var leftName = this.data.leftList[e.currentTarget.id].name;

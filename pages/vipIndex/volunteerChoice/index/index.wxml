@@ -72,7 +72,7 @@
 </view>
 <view class="page__bd page__bd_spacing" style='display:{{zhuanye}}'>
   <view class="button-sp-area">
-    <button class="weui-btn" type="primary" plain="true" bindtap='return1'>返回</button>
+    <button class="weui-btn" type="default" plain="true" bindtap='return1'>确认</button>
   </view>
   <view class="section1">
     <view class="hander">
@@ -101,7 +101,7 @@
 </view>
 <view class="page__bd page__bd_spacing" style='display:{{shengfen}}' >
   <view class="button-sp-area">
-    <button class="weui-btn" type="primary"  plain="true" bindtap='return2'>返回</button>
+    <button class="weui-btn" type="default" plain="true" bindtap='return2'>确认</button>
   </view>
   <view class="section1">
     <view class="hander">

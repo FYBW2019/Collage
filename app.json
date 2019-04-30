@@ -1,7 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/vipIndex/volunteerChoice/index/index",
-    "pages/choiceprofession/choiceprofession",
+    "pages/choiceprofession/choiceprofession",    
     "pages/vipIndex/characterTest/Test/Test",
     "pages/vipIndex/characterTest/MBTI/MBTI",
     "pages/vipIndex/characterTest/index/index",
@@ -13,23 +14,11 @@
     "pages/vipIndex/selectInfo/index/SelectOne/SelectOne",
     "pages/vipIndex/vipIndex",
     "pages/vipIndex/selectInfo/index/index",
-    "pages/index/index",
-   
-
-    
-   
-
-  
     "pages/login/login",
-    
-  
-    
     "pages/user/user",
-   
     "pages/user/MyCollection/MyCollection",
     "pages/register2/register2",
-    "pages/register/register",
-    "pages/schoolInfo/schoolInfo"
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,5 +30,6 @@
     "scope.userLocation": {
       "desc": "获取地理位置可以获取更精准的信息"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

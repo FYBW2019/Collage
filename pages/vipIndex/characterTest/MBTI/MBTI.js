@@ -106,6 +106,9 @@ Page({
    * 选中提交的答案
    */
   show: function() {
+    wx.showLoading({
+      title: '答案揭晓中',
+    })
     let that = this;
     let answerList = that.data.list;
     let list = [];
@@ -120,7 +123,7 @@ Page({
     }
     let result = list.join(",");
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/MBTISave',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/MBTISave',
       method: 'GET',
       data: {
         result: result
@@ -134,7 +137,8 @@ Page({
           answer: res.data.results.answer,
           show:'none',
           hidden:'block'
-        })
+        });
+        wx.hideLoading();
       }
     })
     console.log("结果" + list.join(","));
@@ -155,7 +159,7 @@ Page({
   onLoad: function(options) {
     let that = this;
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/Test1',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/Test1',
       method: 'GET',
       success(res) {
         console.log(res.data);

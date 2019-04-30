@@ -42,9 +42,11 @@ Page({
       batch='';
       console.log(batch)
     }
-    
+    wx.showLoading({
+      title: '数据加载中',
+    })
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/collageDeliverFileAnalysis',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/collageDeliverFileAnalysis',
       data: {
         batch: batch,
         SchoolProvince: SchoolProvince,
@@ -61,13 +63,15 @@ Page({
             title: '暂无数据',
             icon: 'none',
             duration: 3000
-          })
+          });
+          wx.hideLoading();
         }else{
           that.setData({
             list: res.data,
             showModal: true,
             show: 'none'
-          })
+          });
+          wx.hideLoading();
         }
         
       }
@@ -90,7 +94,7 @@ Page({
       SchoolProvince: that.data.provinceList[e.detail.value]
     })
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/WEIXINcollageDeliverFileAnalysisCollageProvince',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/WEIXINcollageDeliverFileAnalysisCollageProvince',
       data: {
         enrollProvince: '安徽',
         province: that.data.provinceList[e.detail.value]

@@ -53,6 +53,9 @@ Page({
     let province = that.data.province;
     let nature = that.data.nature;
     let type = that.data.type;
+    wx.showLoading({
+      title: '数据加载中',
+    })
     if (S985OR211 == "全部" || S985OR211 == "985or211") {
       S985OR211 = ''
     }
@@ -66,7 +69,7 @@ Page({
       type = ''
     }
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/universityInfo',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/universityInfo',
       data: {
         S985OR211: S985OR211,
         province: province,
@@ -76,14 +79,16 @@ Page({
       method: 'GET',
       success(res) {
         console.log(res.data.results)
-        if (res.data.results == '') {
+        if (res.data.results == '' || res.data.results==undefined) {
           console.log(res.data.results)
           wx.showToast({
             title: '无符合该条件的数据',
             icon: 'none',
             duration: 3000
-          })
+          });
+          wx.hideLoading();
         } else {
+          wx.hideLoading();
           that.setData({
             list: res.data.results
           })
@@ -109,8 +114,8 @@ Page({
     console.log("ss" + app.globalData.provinceList)
     this.setData({
        provinceList: app.globalData.provinceList,
-      // nickName: app.globalData.userInfo.nickName,
-      // avatarUrl: app.globalData.userInfo.avatarUrl
+      nickName: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
 
     })
   },

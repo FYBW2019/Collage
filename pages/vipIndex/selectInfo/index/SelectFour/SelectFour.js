@@ -43,7 +43,7 @@ Page({
     let majorName = that.data.results[e.currentTarget.id].major;
     let collageName=that.data.SchoolName;
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/majorInfo',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/majorInfo',
       data:{
         collage: collageName,
         major: majorName
@@ -70,13 +70,16 @@ Page({
   },
   //查询结果
   selectResult: function() {
+    wx.showLoading({
+      title: '数据加载中',
+    })
     let that = this;
     let major = that.data.majorName;
     let year = that.data.year;
     let collage = that.data.SchoolName;
     let province = '安徽';
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/IndexSelect',
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/IndexSelect',
       data: {
         province: province,
         year: year,
@@ -86,13 +89,15 @@ Page({
       method: "GET",
       success(res) {
         console.log(res.data)
-        if (res.data==''){
+        if (res.data == '' || res.data==undefined){
+          wx.hideLoading();
           wx.showToast({
             title: '暂无数据',
             icon:'none',
             duration:3000
           })
         }else{
+          wx.hideLoading();
           that.setData({
             results: res.data,
             show:'block'
@@ -119,7 +124,7 @@ Page({
       SchoolName: SchoolName
     })
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/IndexFindMajor', // 仅为示例，并非真实的接口地址
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/IndexFindMajor', // 仅为示例，并非真实的接口地址
       data: {
         year: '2017',
         province: '安徽',
@@ -150,7 +155,7 @@ Page({
     let year = that.data.year;
 
     wx.request({
-      url: 'http://qq.zhitonggaokao.cn/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
+      url: 'https://qq.zhitonggaokao.cn/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
       data: {
         year: '2017',
         province: '安徽',
