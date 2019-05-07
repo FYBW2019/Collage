@@ -116,14 +116,13 @@ Page({
       console.log(answerList[i])
       for (var j = 0; j < answerList[i].answer.length; j++) {
         if (answerList[i].answer[j].checked == true) {
-          console.log(answerList[i].answer[j].value);
           list.push(answerList[i].answer[j].value)
         }
       }
     }
     let result = list.join(",");
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/MBTISave',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/MBTISave',
       method: 'GET',
       data: {
         result: result
@@ -159,7 +158,7 @@ Page({
   onLoad: function(options) {
     let that = this;
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/Test1',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/Test1',
       method: 'GET',
       success(res) {
         console.log(res.data);

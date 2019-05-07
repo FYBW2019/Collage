@@ -22,7 +22,11 @@ Page({
       "en": "install"
     }]
   },
-
+  myCollection: function (e) {
+    wx.navigateTo({
+      url: '/pages/user/MyCollection/MyCollection',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

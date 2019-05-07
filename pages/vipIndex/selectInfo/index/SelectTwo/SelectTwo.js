@@ -10,11 +10,19 @@ Page({
     year: '2018',
     type: '理科',
     typeList: ['理科', '文科'],
-    list:[]
+    list:[],
+    socres: ['600以上', '500~600', '400~500', '300~400', '200~300', '100~200'],
+    score: '分数范围'
 
   },
   onShareAppMessage: function() {
  
+  },
+  bindPickerChange: function (e) {
+    console.log('分数范围选择', this.data.socres[e.detail.value])
+    this.setData({
+      score: this.data.socres[e.detail.value],
+    })
   },
   //选择年份
   bindDateChange: function(e) {
@@ -37,15 +45,45 @@ Page({
     let that = this;
     let year = that.data.year;
     let type = that.data.type;
+    let score = that.data.score;
+    let ScoreGreater = '';
+    let ScoreLess = '';
+    if (score == '600以上') {
+      ScoreGreater = '600';
+      ScoreLess = '750';
+    }
+    if (score == '500~600') {
+      ScoreGreater = '500';
+      ScoreLess = '600';
+    }
+    if (score == '400~500') {
+      ScoreGreater = '400';
+      ScoreLess = '500';
+    }
+    if (score == '300~400') {
+      ScoreGreater = '300';
+      ScoreLess = '400';
+    }
+    if (score == '200~300') {
+      ScoreGreater = '200';
+      ScoreLess = '300';
+    }
+    if (score == '100~200') {
+      ScoreGreater = '100';
+      ScoreLess = '200';
+    }
+    console.log(ScoreGreater + ">>" + ScoreLess);
     wx.showLoading({
       title: '数据加载中',
     })
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/oneParagraph',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/oneParagraph',
       data: {
         type: type,
         year: year,
-        province: '安徽'
+        province: '安徽',
+        scoreLess: ScoreLess,
+        scoreGreater: ScoreGreater
       },
       method:'GET',
       success(res){

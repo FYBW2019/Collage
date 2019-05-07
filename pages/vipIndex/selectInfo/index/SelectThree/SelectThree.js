@@ -69,7 +69,7 @@ Page({
       type = ''
     }
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/universityInfo',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/universityInfo',
       data: {
         S985OR211: S985OR211,
         province: province,
@@ -110,7 +110,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) { 
     console.log("ss" + app.globalData.provinceList)
     this.setData({
        provinceList: app.globalData.provinceList,

@@ -54,7 +54,7 @@
   <view class='Table'>
     <view class="tr">
       <view class="th th1">学校名称</view>
-      <view class="th th2">所在城市</view>
+      <view class="th th2">所在地区</view>
       <view class="th th2">院校分类</view>
       <view class="th th2">大学排名</view>
     </view>

@@ -1,50 +1,28 @@
 <view style='display:{{show}}'>
-<view class='hander'>
-  <text>MBTI职业性格测试</text>
-</view>
-<view class="weui-flex">
-  <view class="weui-flex__item">
-    <view class="placeholder {{navClass1}}" bindtap='page1'>第一部分</view>
+  <view class='hander'>
+    <text>MBTI职业性格测试</text>
   </view>
-  <view class="weui-flex__item">
-    <view class="placeholder {{navClass2}}" bindtap='page2'>第二部分</view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <view class="placeholder {{navClass1}}" bindtap='page1'>第一部分</view>
+    </view>
+    <view class="weui-flex__item">
+      <view class="placeholder {{navClass2}}" bindtap='page2'>第二部分</view>
 
+    </view>
+    <view class="weui-flex__item">
+      <view class="placeholder {{navClass3}}" bindtap='page3'>第三部分</view>
+    </view>
+    <view class="weui-flex__item">
+      <view class="placeholder {{navClass4}}" bindtap='page4'>第四部分</view>
+    </view>
   </view>
-  <view class="weui-flex__item">
-    <view class="placeholder {{navClass3}}" bindtap='page3'>第三部分</view>
-  </view>
-  <view class="weui-flex__item">
-    <view class="placeholder {{navClass4}}" bindtap='page4'>第四部分</view>
-
-  </view>
-</view>
-<view class='Section'>
   <text class="{{page2}}">在下列每一对词语中,哪一个词语更合你心意?请仔细想想这些词语的意义,而不要理会他们的字形或读音 </text>
   <text class="{{page4}}">在下列每一对词语中,哪一个词语更合你心意?</text>
-  <block wx:for="{{list}}" wx:key="index">
-    <block wx:if="{{index<26}}">
-      <view class="{{page1}} question">
-        <view class='weui-flex'>
-          <view class='weui-flex__item'>
-            {{index+1}}.{{item.Title}}
-          </view>
-        </view>
-        <view class="page">
-          <view class="page__bd">
-            <view class="section section_gap">
-              <radio-group class="radio-group" bindchange="radioChange" id="{{index}}">
-                <radio class="radio" wx:for-items="{{item.answer}}" wx:key="{{value}}" wx:for-item="answers" value="{{answers.value}}" checked="{{answers.checked}}">
-                  <text>{{answers.Name}}</text>
-                </radio>
-              </radio-group>
-            </view>
-          </view>
-        </view>
-      </view>
-    </block>
-    <block wx:if="{{25<index}}">
-      <block wx:if="{{index<58}}">
-        <view class="{{page2}}">
+  <view class='Section {{page1}}'>
+    <block wx:for="{{list}}" wx:key="index">
+      <block wx:if="{{index<26}}">
+        <view class=" question">
           <view class='weui-flex'>
             <view class='weui-flex__item'>
               {{index+1}}.{{item.Title}}
@@ -64,53 +42,86 @@
         </view>
       </block>
     </block>
-    <block wx:if="{{57<index}}">
-      <block wx:if="{{index<78}}">
-        <view class="{{page3}}">
-          <view class='weui-flex'>
-            <view class='weui-flex__item'>
-              {{index+1}}.{{item.Title}}
+  </view>
+  <view class='Section {{page2}}'>
+    <block wx:for="{{list}}" wx:key="index">
+      <block wx:if="{{25<index}}">
+        <block wx:if="{{index<58}}">
+          <view>
+            <view class='weui-flex'>
+              <view class='weui-flex__item'>
+                {{index+1}}.{{item.Title}}
+              </view>
             </view>
-          </view>
-          <view class="page">
-            <view class="page__bd">
-              <view class="section section_gap">
-                <radio-group class="radio-group" bindchange="radioChange" id="{{index}}">
-                  <radio class="radio" wx:for-items="{{item.answer}}" wx:key="{{value}}" wx:for-item="answers" value="{{answers.value}}" checked="{{answers.checked}}">
-                    <text>{{answers.Name}}</text>
-                  </radio>
-                </radio-group>
+            <view class="page">
+              <view class="page__bd">
+                <view class="section section_gap">
+                  <radio-group class="radio-group" bindchange="radioChange" id="{{index}}">
+                    <radio class="radio" wx:for-items="{{item.answer}}" wx:key="{{value}}" wx:for-item="answers" value="{{answers.value}}" checked="{{answers.checked}}">
+                      <text>{{answers.Name}}</text>
+                    </radio>
+                  </radio-group>
+                </view>
               </view>
             </view>
           </view>
-        </view>
+        </block>
       </block>
     </block>
-    <block wx:if="{{77<index}}">
-      <block wx:if="{{index<93}}">
-        <view class="{{page4}}">
-          <view class='weui-flex'>
-            <view class='weui-flex__item'>
-              {{index+1}}.{{item.Title}}
+  </view>
+  <view class='Section {{page3}}'>
+    <block wx:for="{{list}}" wx:key="index">
+      <block wx:if="{{57<index}}">
+        <block wx:if="{{index<78}}">
+          <view>
+            <view class='weui-flex'>
+              <view class='weui-flex__item'>
+                {{index+1}}.{{item.Title}}
+              </view>
             </view>
-          </view>
-          <view class="page">
-            <view class="page__bd">
-              <view class="section section_gap">
-                <radio-group class="radio-group" bindchange="radioChange" id="{{index}}">
-                  <radio class="radio" wx:for-items="{{item.answer}}" wx:key="{{value}}" wx:for-item="answers" value="{{answers.value}}" checked="{{answers.checked}}">
-                    <text>{{answers.Name}}</text>
-                  </radio>
-                </radio-group>
+            <view class="page">
+              <view class="page__bd">
+                <view class="section section_gap">
+                  <radio-group class="radio-group" bindchange="radioChange" id="{{index}}">
+                    <radio class="radio" wx:for-items="{{item.answer}}" wx:key="{{value}}" wx:for-item="answers" value="{{answers.value}}" checked="{{answers.checked}}">
+                      <text>{{answers.Name}}</text>
+                    </radio>
+                  </radio-group>
+                </view>
               </view>
             </view>
           </view>
-        </view>
+        </block>
       </block>
     </block>
-  </block>
+  </view>
+  <view class='Section {{page4}}'>
+    <block wx:for="{{list}}" wx:key="index">
+      <block wx:if="{{77<index}}">
+        <block wx:if="{{index<93}}">
+          <view>
+            <view class='weui-flex'>
+              <view class='weui-flex__item'>
+                {{index+1}}.{{item.Title}}
+              </view>
+            </view>
+            <view class="page">
+              <view class="page__bd">
+                <view class="section section_gap">
+                  <radio-group class="radio-group" bindchange="radioChange" id="{{index}}">
+                    <radio class="radio" wx:for-items="{{item.answer}}" wx:key="{{value}}" wx:for-item="answers" value="{{answers.value}}" checked="{{answers.checked}}">
+                      <text>{{answers.Name}}</text>
+                    </radio>
+                  </radio-group>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </block>
+  </view>
   <button class="{{page4}}" bindtap='show'>提交</button>
-</view>
 </view>
 <view class="coverShow" style='display:{{hidden}}'>
   <view class="nav">
@@ -118,22 +129,24 @@
   </view>
   <view>
     <view class="infoNav">{{code}}</view>
-    <view class="info"><text>{{answer}}</text></view>
+    <view class="info">
+      <text>{{answer}}</text>
+    </view>
   </view>
   <view class="infoNav">性格解析</view>
   <view class='info'>
-    
-   <text> “性格”是一种个体内部的行为倾向，它具有整体性、结构性、持久稳定性等特点，是每个人特有的，可以对个人外显的行为,态度提供统一的,内在的解释。 MBTI把性格分析4个维度，每个维度上的包含相互对立的2种偏好:</text>
+
+    <text> “性格”是一种个体内部的行为倾向，它具有整体性、结构性、持久稳定性等特点，是每个人特有的，可以对个人外显的行为,态度提供统一的,内在的解释。 MBTI把性格分析4个维度，每个维度上的包含相互对立的2种偏好:</text>
     <text>外向 or 内向</text>
     <text>感觉 or 直觉</text>
     <text>思考 or 情感</text>
     <text>判断 or 感知</text>
     <text>其中,"外向E——内向I"代表着各人不同的精力（Energy）来源；</text>
-   <text>"感觉S—直觉N","思考T—情感F"分别表示人们在进行感知（Perception）和判断（Judgement）时不同的用脑偏好；"判断J—感知P"针对人们的生活方式（Life Style）而言，它表明我们如何适应外部环境——在我们适应外部环境的活动中，究竟是感知还是判断发挥了主导作用。</text>
+    <text>"感觉S—直觉N","思考T—情感F"分别表示人们在进行感知（Perception）和判断（Judgement）时不同的用脑偏好；"判断J—感知P"针对人们的生活方式（Life Style）而言，它表明我们如何适应外部环境——在我们适应外部环境的活动中，究竟是感知还是判断发挥了主导作用。</text>
   </view>
-   <view class="page__bd page__bd_spacing">
-       <view class="button-sp-area">
-            <button class="weui-btn" bindtap='cancel' type="primary" plain="true">关闭</button>
-        </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="button-sp-area">
+      <button class="weui-btn" bindtap='cancel' type="primary" plain="true">关闭</button>
     </view>
+  </view>
 </view>

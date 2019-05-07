@@ -190,3 +190,13 @@ margin-top: 5px;
   display: flex;
   align-items:center;
 }
+.weui-btn1{
+  border: 1px seagreen solid;
+  float: left;
+  width: 40%;
+}
+.weui-btn2{
+  border: 1px seagreen solid;
+  float: right;
+  width: 40%;
+}

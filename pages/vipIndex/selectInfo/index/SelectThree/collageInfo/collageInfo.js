@@ -9,7 +9,10 @@ Page({
     first: 'show',
     info1: 'block',
     info2: 'none',
-    id:''
+    id:'',
+    collect:'点击加入收藏',
+    collectList:app.globalData.collects
+
   },
   select1: function () {
     this.setData({
@@ -31,9 +34,26 @@ Page({
    * 收藏
    */
   collect:function(){
-    console.log("收藏的Id值"+this.data.id)
-    console.log("收藏夹" + app.globalData.collects)
-    app.globalData.collects.push(this.data.id)
+    console.log("Id值" + this.data.id)
+    if(this.data.collect=='点击加入收藏'){       
+      app.globalData.collects.push(this.data.id)
+      this.setData({
+        collect:'已收藏'
+      })
+      console.log("加入收藏夹" + app.globalData.collects)
+    }else{
+      for (var i = 0; i < app.globalData.collects.length;i++){
+        if (app.globalData.collects[i] == this.data.id){
+          app.globalData.collects.splice(i, 1);
+          break;
+        }
+      }
+      this.setData({
+        collect: '点击加入收藏'
+      })
+      console.log("删除收藏夹" + app.globalData.collects)
+    }
+ 
 
 
   },
@@ -41,13 +61,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("ssssssssssss"+options.id)
     let that = this;
+    console.log("ssssssssssss"+options.id)
+    for(var i=0;i<app.globalData.collects.length;i++){
+      if (app.globalData.collects[i] == options.id){
+        that.setData({
+          collect:'已收藏'
+        })
+      }
+    }
     that.setData({
       id: options.id
     })
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/assembleQuery',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/assembleQuery',
       data: {
         id: options.id
       },

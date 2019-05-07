@@ -50,7 +50,7 @@ Page({
     let result = list.join(",");
     console.log("结果" + list.join(","));
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/TestSave2',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/TestSave2',
       data:{
         result: result
       },
@@ -83,7 +83,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/Test2',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/Test2',
       method: 'GET',
       success(res) {
         console.log(res.data);

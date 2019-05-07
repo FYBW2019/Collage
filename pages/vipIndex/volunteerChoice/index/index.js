@@ -472,9 +472,9 @@ Page({
     list: [],
     flag: '',
     showData: [],
-    schoolList:[],
+    schoolList: [],
     ProvinceList: [],
-    socres: ['600以上','500~600', '400~500', '300~400', '200~300', '100~200'],
+    socres: ['600以上', '500~600', '400~500', '300~400', '200~300', '100~200'],
     zhuanye: 'none',
     shengfen: 'none',
     province: "",
@@ -484,7 +484,7 @@ Page({
     year: "2017", //年份
   },
   //选择年份
-  bindDateChange: function (e) {
+  bindDateChange: function(e) {
     console.log(e.detail.value)
     this.setData({
       year: e.detail.value
@@ -502,98 +502,106 @@ Page({
       shengfen: 'block'
     })
   },
-  selectMajor:function(){
+  selectMajor: function() {
     this.setData({
       index: 'none',
       zhuanye: 'block'
     })
   },
-  return1:function(e){
+  return1: function(e) {
     console.log(this.data.showData)
     let major = this.data.showData.join(",");
-    
     this.setData({
       major: major,
-     
       index: 'block',
       zhuanye: 'none'
     })
-
   },
-  return2: function (e) {
+  back1:function(e){
+    this.setData({
+      index: 'block',
+      zhuanye: 'none'
+    })
+  },
+  return2: function(e) {
     let province = this.data.ProvinceList.join(",");
     this.setData({
       province: province,
       index: 'block',
       shengfen: 'none'
     })
-
+  },
+  back2:function(e){
+    this.setData({
+      index: 'block',
+      shengfen: 'none'
+    })
   },
   /**
    * 结果查询
    */
-  serachResults:function(e){
+  serachResults: function(e) {
     wx.showLoading({
       title: '数据加载中',
     })
-   let that=this;
-   let major=that.data.major;
-    let province=that.data.province;
-    let score=that.data.score;
-    let ScoreGreater='';
-    let ScoreLess='';
+    let that = this;
+    let major = that.data.major;
+    let province = that.data.province;
+    let score = that.data.score;
+    let ScoreGreater = '';
+    let ScoreLess = '';
     console.log(major + ">>>" + province + ">>>" + score)
-    if (score =='600以上'){
-      ScoreGreater='600';
-      ScoreLess='750';
+    if (score == '600以上') {
+      ScoreGreater = '600';
+      ScoreLess = '750';
     }
     if (score == '500~600') {
-      ScoreGreater='500';
-      ScoreLess='600';
+      ScoreGreater = '500';
+      ScoreLess = '600';
     }
-    if (score =='400~500'){
+    if (score == '400~500') {
       ScoreGreater = '400';
       ScoreLess = '500';
     }
-    if (score =='300~400') {
+    if (score == '300~400') {
       ScoreGreater = '300';
       ScoreLess = '400';
     }
-    if (score =='200~300') {
+    if (score == '200~300') {
       ScoreGreater = '200';
       ScoreLess = '300';
     }
-    if (score =='100~200') {
+    if (score == '100~200') {
       ScoreGreater = '100';
       ScoreLess = '200';
     }
     console.log(ScoreGreater + ">>" + ScoreLess);
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/WEIXINscore',
-      data:{
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/WEIXINscore',
+      data: {
         major: major,
-        province: province,      
+        province: province,
         ScoreGreater: ScoreGreater,
         ScoreLess: ScoreLess,
         EnrollProvince: '安徽'
       },
-      method:"GET",
-      success(res){
+      method: "GET",
+      success(res) {
         console.log(res.data.rows);
-        if (res.data.rows == undefined || res.data.rows == '' || res.data.rows==null){
+        if (res.data.rows == undefined || res.data.rows == '' || res.data.rows == null) {
           wx.showToast({
             title: '暂无数据',
-            icon:'none',
-            duration:2000
+            icon: 'none',
+            duration: 2000
           });
           wx.hideLoading();
-        }else{
+        } else {
           wx.hideLoading();
           that.setData({
             schoolList: res.data.rows
           })
         }
-        
+
       }
 
     })
@@ -602,14 +610,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that=this;
+    let that = this;
 
     this.setData({
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl
     })
     wx.request({
-      url: 'https://qq.zhitonggaokao.cn/CollageMobile/AllCeshi',
+      url: 'https://mini.zhitonggaokao.cn/CollageMobile/AllCeshi',
       method: "GET",
       success(res) {
         console.log(res.data);
@@ -633,13 +641,41 @@ Page({
     }
   },
   checkboxChange: function(e) {
+    var show = this.data.showData;
     console.log('checkbox发生change事件，携带value值为：', e.detail.value);
     var values = e.detail.value;
     var l = this.data.rightList;
     var s = e.detail.value;
-    var show = this.data.showData;
-    if ((parseInt(show.length) + 1) <= 4) {
-      console.log("长度" + (parseInt(show.length) + 1))
+    let arr=[];
+    for (var i = 0, lenI = l.length; i < lenI; ++i) {
+      if (l[i].key == this.data.flag) {
+        var lists = l[i].list;
+        for (var j = 0; j < lists.length; j++) {
+          lists[j].checked = false;
+          for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
+            if (lists[j].name == values[k]) {
+              lists[j].checked = true;
+              break;
+            }
+          }
+        }
+        break;
+      }
+    }
+      for (var i = 0; i < l.length; i++) {
+        for (var j = 0; j < l[i].list.length; j++) {
+          if (l[i].list[j].checked == true) {
+            arr.push(l[i].key);
+          }
+        }
+      }
+    if (arr.length>4) {
+      wx.showToast({
+        title: '最多选四个',
+        icon: 'none',
+        duration: 3000
+      });
+    }else{
       show = [];
       for (var i = 0, lenI = l.length; i < lenI; ++i) {
         if (l[i].key == this.data.flag) {
@@ -667,17 +703,10 @@ Page({
         showData: show
       })
 
-
-    } else {
-      wx.showToast({
-        title: '最多选四个',
-        icon: 'none',
-        duration: 3000
-      });
-      this.setData({
-        showData: []
-      })
     }
+      
+    
+    
   },
   show2: function(e) {
     console.log(e.currentTarget.id)
@@ -699,46 +728,66 @@ Page({
     var l = this.data.rightList2;
     var s = e.detail.value;
     var show = this.data.ProvinceList;
-    if ((parseInt(show.length) + 1) <= 4) {
-      console.log("长度" + (parseInt(show.length) + 1))
+let arr=[]
       show = [];
-      for (var i = 0, lenI = l.length; i < lenI; ++i) {
-        if (l[i].key == this.data.flag2) {
-          var lists = l[i].list;
-          for (var j = 0; j < lists.length; j++) {
-            lists[j].checked = false;
-            for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
-              if (lists[j].name == values[k]) {
-                lists[j].checked = true;
-                break;
-              }
+    for (var i = 0, lenI = l.length; i < lenI; ++i) {
+      if (l[i].key == this.data.flag2) {
+        var lists = l[i].list;
+        for (var j = 0; j < lists.length; j++) {
+          lists[j].checked = false;
+          for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
+            if (lists[j].name == values[k]) {
+              lists[j].checked = true;
+              break;
             }
           }
-          break;
+        }
+        break;
+      }
+    }
+    for (var i = 0; i < l.length; i++) {
+      for (var j = 0; j < l[i].list.length; j++) {
+        if (l[i].list[j].checked == true) {
+          arr.push(l[i].key)
         }
       }
-      for (var i = 0; i < l.length; i++) {
-        for (var j = 0; j < l[i].list.length; j++) {
-          if (l[i].list[j].checked == true) {
-            show.push(l[i].list[j].name)
+    }
+if(arr.length>4){
+  wx.showToast({
+    title: '最多选四个',
+    icon: 'none',
+    duration: 3000
+  });
+}else{
+  for (var i = 0, lenI = l.length; i < lenI; ++i) {
+    if (l[i].key == this.data.flag2) {
+      var lists = l[i].list;
+      for (var j = 0; j < lists.length; j++) {
+        lists[j].checked = false;
+        for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
+          if (lists[j].name == values[k]) {
+            lists[j].checked = true;
+            break;
           }
         }
       }
-      this.setData({
-        ProvinceList: show
-      })
-
-
-    } else {
-      wx.showToast({
-        title: '最多选四个',
-        icon: 'none',
-        duration: 3000
-      });
-      this.setData({
-        ProvinceList: []
-      })
+      break;
     }
+  }
+  for (var i = 0; i < l.length; i++) {
+    for (var j = 0; j < l[i].list.length; j++) {
+      if (l[i].list[j].checked == true) {
+        show.push(l[i].list[j].name)
+      }
+    }
+  }
+  this.setData({
+    ProvinceList: show
+  })
+
+}
+
+ 
 
   },
   /**

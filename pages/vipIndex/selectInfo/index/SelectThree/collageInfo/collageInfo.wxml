@@ -1,12 +1,12 @@
 <view class='page__hd'>
-  <view class="weui-cells__title" bindtap='collect'>点击加入收藏</view>
+  <view class="weui-cells__title" bindtap='collect'>{{collect}}</view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
         <view class="weui-label">学校名称</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.collageName}}" />
+        <text class="weui-input" selectable='true'>{{schoolList.collageName}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -14,7 +14,7 @@
         <view class="weui-label">学校性质</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.collageNature}}" />
+        <text class="weui-input" selectable='true'> {{schoolList.collageNature}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -22,7 +22,7 @@
         <view class="weui-label">排名</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.ranking}}" />
+        <text class="weui-input" selectable='true'>{{schoolList.ranking}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -30,7 +30,7 @@
         <view class="weui-label">主管单位</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.chargeUnit}}" />
+      <text class="weui-input" selectable='true'>{{schoolList.chargeUnit}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -38,7 +38,7 @@
         <view class="weui-label">旧名</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.collageNameOld}}" />
+       <text class="weui-input" selectable='true'>{{schoolList.collageNameOld}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -46,7 +46,7 @@
         <view class="weui-label">层级</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.level}}" />
+       <text class="weui-input" selectable='true'>{{schoolList.level}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -54,7 +54,7 @@
         <view class="weui-label">985</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.special985}}" />
+      <text class="weui-input" selectable='true'>{{schoolList.special985}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -62,7 +62,7 @@
         <view class="weui-label">211</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.special211}}" />
+      <text class="weui-input" selectable='true'>{{schoolList.special211}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -70,7 +70,7 @@
         <view class="weui-label">院校分类</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.collageType}}" />
+       <text class="weui-input" selectable='true'>{{schoolList.collageType}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -78,7 +78,7 @@
         <view class="weui-label">学历层次</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.collageLevel}}" />
+       <text class="weui-input" selectable='true'>{{schoolList.collageLevel}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -86,7 +86,7 @@
         <view class="weui-label">招办电话</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.enrollTel}}" />
+       <text class="weui-input" selectable='true'>{{schoolList.enrollTel}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -94,7 +94,7 @@
         <view class="weui-label">学历层次</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.collageLevel}}" />
+      <text class="weui-input" selectable='true'>{{schoolList.collageLevel}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -102,7 +102,7 @@
         <view class="weui-label">官网</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.enrollUrl}}" />
+      <text class="weui-input" selectable='true'>{{schoolList.enrollUrl}}</text>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -110,7 +110,7 @@
         <view class="weui-label">通讯地址</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" disabled='true' value="{{schoolList.address}}" />
+      <text class="weui-input" selectable='true'>{{schoolList.address}}</text>
       </view>
     </view>
   </view>

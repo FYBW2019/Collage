@@ -1,13 +1,6 @@
 //app.js
 App({
   onLaunch: function() {
-    wx.request({
-      url: 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=20_mkIJsxCFypjkhChJCGG5yLGeqQ-Cp5a_XJmh5kARUDOkU8nlDam16kmMe1sx4M2auy8jvuL4KkvRuD2NVB1BZx_-e92WNtiIggu0XlzbduVS-6q0MQS-tq0nKISMdoBVkLTm0JbcX8wTqrJINJYbAHATPE&scene=2',
-      method: 'POST',
-      success(res) {
-        console.log("这是返回结果" + res.data)
-      }
-    })
     let that = this;  
     that.globalData.provinceList = ['安徽', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '四川', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆'];
     that.globalData.natureList = ['全部', '公办', '民办'];
