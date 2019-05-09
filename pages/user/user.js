@@ -8,19 +8,7 @@ Page({
   data: {
     nickName:'',
     avatarUrl:'',
-    list: [{
-      "cn": "钱包",
-      "en": "wallet"
-    }, {
-      "cn": "录音",
-      "en": "record"
-    }, {
-      "cn": "摄像头",
-      "en": "camera"
-    }, {
-      "cn": "设置",
-      "en": "install"
-    }]
+    vip:''
   },
   myCollection: function (e) {
     wx.navigateTo({
@@ -33,7 +21,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+      avatarUrl: app.globalData.userInfo.avatarUrl,
+      vip: app.globalData.vip
     })
  
 

@@ -13,7 +13,7 @@
     </view>
     <view class="weui-cell__bd">
       <view>等级:
-        <text>v1</text>
+        <text>V{{vip}}</text>
       </view>
       <view>当前积分:
         <text>500</text>
@@ -23,17 +23,17 @@
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2' bindtap='selectInfo'>查信息</button>
+        <button class='bton2' bindtap='selectInfo'>[V1]查信息</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2' bindtap='characterTest'>测性格</button>
+        <button class='bton2' disabled='{{power}}'  bindtap='characterTest'>[V2]测性格</button>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton2' bindtap='volunteerChoice'>志愿选择分析</button>
+        <button class='bton2' disabled='{{power}}'  bindtap='volunteerChoice'>[V2]志愿选择分析</button>
       </view>
     </view>
     <view class="weui-flex">

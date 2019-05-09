@@ -39,9 +39,20 @@ wx.navigateTo({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (app.globalData.vip==1){
+      this.setData({
+        power:true
+      })
+    }
+    if (app.globalData.vip == 2){
+      this.setData({
+        power: false
+      })
+    }
     this.setData({
       nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+      avatarUrl: app.globalData.userInfo.avatarUrl,
+      vip: app.globalData.vip
     })
   },
 

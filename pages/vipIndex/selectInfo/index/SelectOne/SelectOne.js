@@ -35,6 +35,15 @@ Page({
       batch='';
       console.log(batch)
     }
+    if (batch=='批次'){
+      wx.showToast({
+        title: '请选择批次',
+        icon:'none',
+        duration:2000
+      })
+    }else{
+
+    
     wx.showLoading({
       title: '数据加载中',
     })
@@ -69,7 +78,7 @@ Page({
         
       }
     })
-
+    }
   },
   //大学名称选择
   bindPickerChange4: function(e) {
@@ -136,7 +145,8 @@ Page({
     this.setData({
       batchList: app.globalData.batchList,
       nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+      avatarUrl: app.globalData.userInfo.avatarUrl,
+      vip: app.globalData.vip
     })
 
   },

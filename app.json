@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/vipIndex/selectInfo/index/SelectThree/SelectThree",
     "pages/index/index",
+    "pages/vipIndex/vipIndex", 
+    "pages/vipIndex/selectInfo/index/SelectThree/SelectThree",
     "pages/vipIndex/volunteerChoice/index/index",
     "pages/choiceprofession/choiceprofession",    
     "pages/vipIndex/characterTest/Test/Test",
@@ -12,18 +12,16 @@
     "pages/vipIndex/selectInfo/index/SelectFive/SelectFive",
     "pages/vipIndex/selectInfo/index/SelectFour/SelectFour", 
     "pages/vipIndex/selectInfo/index/SelectTwo/SelectTwo",
-    "pages/vipIndex/selectInfo/index/SelectOne/SelectOne",
-    "pages/vipIndex/vipIndex",
+    "pages/vipIndex/selectInfo/index/SelectOne/SelectOne",  
     "pages/vipIndex/selectInfo/index/index",
     "pages/user/user",
     "pages/user/MyCollection/MyCollection",
-    "pages/register2/register2",
     "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "智通教育",
+    "navigationBarTitleText": "恰好志愿",
     "navigationBarTextStyle": "black"
   },
   "permission": {

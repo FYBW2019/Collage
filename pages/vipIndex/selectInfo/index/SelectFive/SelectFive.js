@@ -24,7 +24,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+      avatarUrl: app.globalData.userInfo.avatarUrl,
+      vip: app.globalData.vip
     })
   },
   formSubmit: function (e) {

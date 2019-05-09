@@ -545,6 +545,7 @@ Page({
       title: '数据加载中',
     })
     let that = this;
+    let year=that.data.year;
     let major = that.data.major;
     let province = that.data.province;
     let score = that.data.score;
@@ -576,6 +577,7 @@ Page({
       ScoreLess = '200';
     }
     console.log(ScoreGreater + ">>" + ScoreLess);
+    console.log(year);
     wx.request({
       url: 'https://mini.zhitonggaokao.cn/CollageMobile/WEIXINscore',
       data: {
@@ -583,7 +585,9 @@ Page({
         province: province,
         ScoreGreater: ScoreGreater,
         ScoreLess: ScoreLess,
-        EnrollProvince: '安徽'
+        EnrollProvince: '安徽',
+        year:year
+
       },
       method: "GET",
       success(res) {
@@ -614,19 +618,20 @@ Page({
 
     this.setData({
       nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+      avatarUrl: app.globalData.userInfo.avatarUrl,
+      vip: app.globalData.vip
     })
-    wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/AllCeshi',
-      method: "GET",
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          leftList: res.data.leftList,
-          rightList: res.data.rightList
-        })
-      }
-    })
+    // wx.request({
+    //   url: 'https://mini.zhitonggaokao.cn/CollageMobile/AllCeshi',
+    //   method: "GET",
+    //   success(res) {
+    //     console.log(res.data);
+    //     that.setData({
+    //       leftList: res.data.leftList,
+    //       rightList: res.data.rightList
+    //     })
+    //   }
+    // })
   },
   show: function(e) {
     var leftName = this.data.leftList[e.currentTarget.id].name;

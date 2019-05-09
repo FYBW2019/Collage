@@ -6,7 +6,8 @@ Page({
    */
   data: {
     nickName:'',
-    avatarUrl:''
+    avatarUrl:'',
+    power:''
   },
   selectInfo: function() {
     wx.navigateTo({
@@ -28,14 +29,29 @@ Page({
       url: '/pages/user/user',
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     this.setData({
       nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+      avatarUrl: app.globalData.userInfo.avatarUrl,
+      vip: app.globalData.vip
     })
+    console.log(app.globalData.vip)
+    if (app.globalData.vip == 1) {
+      this.setData({
+        power: true
+      })
+    }
+    if (app.globalData.vip == 2) {
+      this.setData({
+        power: false
+      })
+    }
+
+    
   },
 
   /**

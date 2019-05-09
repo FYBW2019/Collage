@@ -115,7 +115,8 @@ Page({
     this.setData({
        provinceList: app.globalData.provinceList,
       nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl
+      avatarUrl: app.globalData.userInfo.avatarUrl,
+      vip: app.globalData.vip
 
     })
   },

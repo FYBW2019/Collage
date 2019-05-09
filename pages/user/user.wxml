@@ -47,7 +47,7 @@
   </view>
   <view class="weui-cell__bd">
     <view>等级:
-      <text>v1</text>
+      <text>V{{vip}}</text>
     </view>
     <view>当前积分:
       <text>500</text>
@@ -70,21 +70,10 @@
 </view>
 <view class="weui-cells weui-cells_after-title">
   <view class="weui-cell">
-    <view class="weui-cell__bd">获取积分</view>
+    <view>修改密码</view>
   </view>
   <view class="weui-cell">
-    <view class="weui-cell__bd">我的订单</view>
-  </view>
-  <view class="weui-cell">
-    <view class="weui-cell__bd">推荐记录</view>
-  </view>
-</view>
-<view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell">
-    <view>修改资料</view>
-  </view>
-  <view class="weui-cell">
-    <view>联系客服</view>
+    <view>代理人</view>
   </view>
   <view class="weui-cell">
     <view>关于我们</view>
