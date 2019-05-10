@@ -18,6 +18,8 @@
 }
 .Table{
   margin-top: 20px;
+  border: 1px solid #dadada;
+  overflow: hidden;
 }
 .weui-flex{
   margin-top: 20px;
@@ -30,7 +32,6 @@
 }
 /* 表格代码   */
 .table{
-  border:1px solid #dadada;
   border-right:0;
   border-bottom: 0;
   width: 100%;
@@ -52,12 +53,9 @@
 }
 .th{
   font-weight: 800;
-  background-color: #b663423b;
   font-size: 28rpx;
   color: #330e0e;
 }
 .td{
-  font-size: 20rpx;
-  color: #ec9480;
-  background: #42b66923;
+  font-size: 30rpx;
 }

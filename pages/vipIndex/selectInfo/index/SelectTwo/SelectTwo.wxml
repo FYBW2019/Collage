@@ -27,7 +27,6 @@
           <button class='bton' type="default" plain="true">年份:{{year}}</button>
         </picker>
       </view>
-
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
@@ -43,8 +42,6 @@
         </picker>
       </view>
     </view>
-
-
     <view class="weui-flex">
       <view class="weui-flex__item">
         <button class='bton3' bindtap='serachResult'>查询</button>

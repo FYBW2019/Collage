@@ -46,7 +46,7 @@
     </view>
   </view>
   </form>
- <view class="parent"  style='display: {{show}}'>
+ <view class="parent" >
     <view class="tr">
       <view class="th">文理</view>
       <view class="th">分数</view>

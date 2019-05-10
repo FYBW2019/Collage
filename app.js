@@ -24,7 +24,8 @@ App({
     map: "VACBZ-OXXCO-E2YWW-S4ZF4-J7KS5-MOBOK",//微信小程序获取地理位置需要的密钥
     collects:[],//收藏列表
     userId:'',
-    vip:''
+    vip:'',
+    unionid:''
 
   }
 })

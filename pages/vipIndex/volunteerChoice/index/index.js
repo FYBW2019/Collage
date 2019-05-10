@@ -517,7 +517,7 @@ Page({
       zhuanye: 'none'
     })
   },
-  back1:function(e){
+  back1: function(e) {
     this.setData({
       index: 'block',
       zhuanye: 'none'
@@ -531,7 +531,7 @@ Page({
       shengfen: 'none'
     })
   },
-  back2:function(e){
+  back2: function(e) {
     this.setData({
       index: 'block',
       shengfen: 'none'
@@ -545,7 +545,7 @@ Page({
       title: '数据加载中',
     })
     let that = this;
-    let year=that.data.year;
+    let year = that.data.year;
     let major = that.data.major;
     let province = that.data.province;
     let score = that.data.score;
@@ -586,7 +586,7 @@ Page({
         ScoreGreater: ScoreGreater,
         ScoreLess: ScoreLess,
         EnrollProvince: '安徽',
-        year:year
+        year: year
 
       },
       method: "GET",
@@ -621,17 +621,6 @@ Page({
       avatarUrl: app.globalData.userInfo.avatarUrl,
       vip: app.globalData.vip
     })
-    // wx.request({
-    //   url: 'https://mini.zhitonggaokao.cn/CollageMobile/AllCeshi',
-    //   method: "GET",
-    //   success(res) {
-    //     console.log(res.data);
-    //     that.setData({
-    //       leftList: res.data.leftList,
-    //       rightList: res.data.rightList
-    //     })
-    //   }
-    // })
   },
   show: function(e) {
     var leftName = this.data.leftList[e.currentTarget.id].name;
@@ -639,7 +628,8 @@ Page({
       if (leftName == this.data.rightList[i].key) {
         this.setData({
           list: this.data.rightList[i].list,
-          flag: leftName
+          flag: leftName,
+          majorID: e.currentTarget.id
         })
         break;
       }
@@ -651,92 +641,9 @@ Page({
     var values = e.detail.value;
     var l = this.data.rightList;
     var s = e.detail.value;
-    let arr=[];
+    let arr = [];
     for (var i = 0, lenI = l.length; i < lenI; ++i) {
       if (l[i].key == this.data.flag) {
-        var lists = l[i].list;
-        for (var j = 0; j < lists.length; j++) {
-          lists[j].checked = false;
-          for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
-            if (lists[j].name == values[k]) {
-              lists[j].checked = true;
-              break;
-            }
-          }
-        }
-        break;
-      }
-    }
-      for (var i = 0; i < l.length; i++) {
-        for (var j = 0; j < l[i].list.length; j++) {
-          if (l[i].list[j].checked == true) {
-            arr.push(l[i].key);
-          }
-        }
-      }
-    if (arr.length>4) {
-      wx.showToast({
-        title: '最多选四个',
-        icon: 'none',
-        duration: 3000
-      });
-    }else{
-      show = [];
-      for (var i = 0, lenI = l.length; i < lenI; ++i) {
-        if (l[i].key == this.data.flag) {
-          var lists = l[i].list;
-          for (var j = 0; j < lists.length; j++) {
-            lists[j].checked = false;
-            for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
-              if (lists[j].name == values[k]) {
-                lists[j].checked = true;
-                break;
-              }
-            }
-          }
-          break;
-        }
-      }
-      for (var i = 0; i < l.length; i++) {
-        for (var j = 0; j < l[i].list.length; j++) {
-          if (l[i].list[j].checked == true) {
-            show.push(l[i].list[j].name)
-          }
-        }
-      }
-      this.setData({
-        showData: show
-      })
-
-    }
-      
-    
-    
-  },
-  show2: function(e) {
-    console.log(e.currentTarget.id)
-    console.log(this.data.leftList2[e.currentTarget.id].name)
-    var leftName = this.data.leftList2[e.currentTarget.id].name;
-    for (var i = 0; i < this.data.rightList2.length; i++) {
-      if (leftName == this.data.rightList2[i].key) {
-        this.setData({
-          list2: this.data.rightList2[i].list,
-          flag2: leftName
-        })
-        break;
-      }
-    }
-  },
-  checkboxChange2: function(e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
-    var values = e.detail.value;
-    var l = this.data.rightList2;
-    var s = e.detail.value;
-    var show = this.data.ProvinceList;
-let arr=[]
-      show = [];
-    for (var i = 0, lenI = l.length; i < lenI; ++i) {
-      if (l[i].key == this.data.flag2) {
         var lists = l[i].list;
         for (var j = 0; j < lists.length; j++) {
           lists[j].checked = false;
@@ -753,47 +660,137 @@ let arr=[]
     for (var i = 0; i < l.length; i++) {
       for (var j = 0; j < l[i].list.length; j++) {
         if (l[i].list[j].checked == true) {
-          arr.push(l[i].key)
+          arr.push(l[i].list[j].name);
         }
       }
     }
-if(arr.length>4){
-  wx.showToast({
-    title: '最多选四个',
-    icon: 'none',
-    duration: 3000
-  });
-}else{
-  for (var i = 0, lenI = l.length; i < lenI; ++i) {
-    if (l[i].key == this.data.flag2) {
-      var lists = l[i].list;
-      for (var j = 0; j < lists.length; j++) {
-        lists[j].checked = false;
-        for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
-          if (lists[j].name == values[k]) {
-            lists[j].checked = true;
+    if (arr.length > 4) {
+      wx.showToast({
+        title: '最多选四个',
+        icon: 'none',
+        duration: 2000
+      });
+      //大于四个的时候将第五个状态置为false
+      for (var i = 0; i < l.length; i++) {
+        for (var j = 0; j < l[i].list.length; j++) {
+          if (l[i].list[j].name == arr[4] & l[i].list[j].checked == true) {
+            console.log(l[i].list[j].checked)
+            l[i].list[j].checked = false;
             break;
           }
         }
       }
-      break;
+      //将改变后的总体列表数据返回
+      this.setData({
+        rightList: l
+      })
+      //将要展示的列表数据返回
+      for (var i = 0; i < l.length; i++) {
+        if (this.data.flag == l[i].key) {
+          console.log(this.data.flag == l[i].key)
+          this.setData({
+            list: l[i].list,
+          })
+          break;
+        }
+      }
+      arr.splice(4, 1);//去掉第五条数据
     }
-  }
-  for (var i = 0; i < l.length; i++) {
-    for (var j = 0; j < l[i].list.length; j++) {
-      if (l[i].list[j].checked == true) {
-        show.push(l[i].list[j].name)
+    this.setData({
+      showData: arr
+    })
+      
+
+    
+
+
+
+  },
+  show2: function(e) {
+    console.log(e.currentTarget.id)
+    console.log(this.data.leftList2[e.currentTarget.id].name)
+    var leftName = this.data.leftList2[e.currentTarget.id].name;
+    for (var i = 0; i < this.data.rightList2.length; i++) {
+      if (leftName == this.data.rightList2[i].key) {
+        this.setData({
+          list2: this.data.rightList2[i].list,
+          flag2: leftName,
+          ProvinceID: e.currentTarget.id
+        })
+        break;
       }
     }
-  }
-  this.setData({
-    ProvinceList: show
-  })
-
-}
-
- 
-
+  },
+  checkboxChange2: function(e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
+    var values = e.detail.value;
+    var l = this.data.rightList2;
+    var s = e.detail.value;
+    var show = this.data.ProvinceList;
+    let arr = []
+    show = [];
+    //改变勾选状态
+    for (var i = 0, lenI = l.length; i < lenI; ++i) {
+      if (l[i].key == this.data.flag2) {
+        var lists = l[i].list;
+        for (var j = 0; j < lists.length; j++) {
+          lists[j].checked = false;
+          for (var k = 0, lenJ = values.length; k < lenJ; ++k) {
+            if (lists[j].name == values[k]) {
+              lists[j].checked = true;
+              break;
+            }
+          }
+        }
+        break;
+      }
+    }
+    //拿到已选中的
+    for (var i = 0; i < l.length; i++) {
+      for (var j = 0; j < l[i].list.length; j++) {
+        if (l[i].list[j].checked == true) {
+          arr.push(l[i].list[j].name)
+        }
+      }
+    }
+    console.log("一共" + arr)
+    
+    if (arr.length > 4) {
+      //大于四个的时候提示
+      wx.showToast({
+        title: '最多选择四个',
+        icon: 'none',
+        duration: 2000
+      })
+      //大于四个的时候将第五个状态置为false
+      for (var i = 0; i < l.length; i++) {
+        for (var j = 0; j < l[i].list.length; j++) {
+          if (l[i].list[j].name == arr[4] & l[i].list[j].checked == true) {
+            console.log(l[i].list[j].checked)
+            l[i].list[j].checked = false;
+            break;
+          }
+        }
+      }
+      //将改变后的总体列表数据返回
+      this.setData({
+        rightList2: l
+      })
+      //将要展示的列表数据返回
+      for (var i = 0; i < l.length; i++) {
+        if (this.data.flag2 == l[i].key) {
+          console.log(this.data.flag2 == l[i].key)
+          this.setData({
+            list2: l[i].list,
+          })
+          break;
+        }
+      }
+      arr.splice(4, 1);//去掉第五条数据
+    }
+    this.setData({
+      ProvinceList: arr
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

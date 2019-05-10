@@ -5,9 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    nickName:'',
-    avatarUrl:'',
-    power:''
+    nickName: '',
+    avatarUrl: '',
+    power: ''
   },
   selectInfo: function() {
     wx.navigateTo({
@@ -34,24 +34,77 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      nickName: app.globalData.userInfo.nickName,
-      avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
-    })
+    console.log(app.globalData.userInfo)
+    if (app.globalData.userInfo!=null){
+      this.setData({
+        nickName: app.globalData.userInfo.nickName,
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        vip: app.globalData.vip
+      })
+    }
+    let that=this;
+      wx.getSetting({
+        success(res) {
+          console.log(res)
+          if (!res.authSetting['scope.userInfo']) {
+            wx.redirectTo({
+              url: '/pages/index/index',
+            })
+          }else{
+            wx.getUserInfo({
+              lang: "zh_CN",
+              success(res) {
+                wx.login({
+                  success: loginRes => {
+                    wx.request({
+                      url: 'https://mini.zhitonggaokao.cn/CollageMobile/weixinLogin',
+                      data: {
+                        CODE: loginRes.code
+                      },
+                      success(res) {
+                        if (res.data.user!=null){
+                          let userId = res.data.user[0];
+                          let vip = res.data.user[14];
+                          app.globalData.userId = userId;
+                          app.globalData.vip = vip;  
+                          that.setData({
+                            vip: vip
+                          })
+                        }else{
+                          wx.redirectTo({
+                            url: '/pages/regist/regist',
+                          })
+                        }                                                                                                         
+                      }
+                    })
+                  }
+                })
+
+
+                that.setData({
+                  nickName: res.userInfo.nickName,
+                  avatarUrl: res.userInfo.avatarUrl,
+                })
+                app.globalData.userInfo = res.userInfo;
+              }
+            })
+          }
+        }
+      })
+   
     console.log(app.globalData.vip)
     if (app.globalData.vip == 1) {
-      this.setData({
+      that.setData({
         power: true
       })
     }
     if (app.globalData.vip == 2) {
-      this.setData({
+      that.setData({
         power: false
       })
     }
 
-    
+
   },
 
   /**

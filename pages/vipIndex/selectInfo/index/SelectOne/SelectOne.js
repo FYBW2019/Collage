@@ -17,67 +17,67 @@ Page({
     schoolName: '大学名称',
     nickName: '',
     avatarUrl: '',
-    list:[],
+    list: [],
     hideModal: true, //模态框的状态  true-隐藏  false-显示
-    animationData: {},//
+    animationData: {}, //
 
 
   },
   //查询结果
   serachResult: function(e) {
     let that = this;
-    let batch=that.data.batch;
-    let SchoolProvince=that.data.SchoolProvince;
-    let collageName=that.data.schoolName;
-    let year=that.data.year;
-    let type=that.data.account;
-    if (batch=="全部"){
-      batch='';
+    let batch = that.data.batch;
+    let SchoolProvince = that.data.SchoolProvince;
+    let collageName = that.data.schoolName;
+    let year = that.data.year;
+    let type = that.data.account;
+    if (batch == "全部") {
+      batch = '';
       console.log(batch)
     }
-    if (batch=='批次'){
+    if (batch == '批次') {
       wx.showToast({
         title: '请选择批次',
-        icon:'none',
-        duration:2000
+        icon: 'none',
+        duration: 2000
       })
-    }else{
+    } else {
 
-    
-    wx.showLoading({
-      title: '数据加载中',
-    })
-    wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/collageDeliverFileAnalysis',
-      data: {
-        batch: batch,
-        SchoolProvince: SchoolProvince,
-        year: year,
-        type: type,
-        CollageName: collageName,
-        enroll_province: '安徽'
-      },
-      method:"GET",
-      success(res){
-        console.log(res.data)
-        if (res.data == '') {
-          wx.showToast({
-            title: '暂无数据',
-            icon: 'none',
-            duration: 3000
-          });
-          wx.hideLoading();
-        }else{
-          that.showModal();
-          that.setData({
-            list: res.data,
-            showModal: true       
-          });
-          wx.hideLoading();
+
+      wx.showLoading({
+        title: '数据加载中',
+      })
+      wx.request({
+        url: 'https://mini.zhitonggaokao.cn/CollageMobile/collageDeliverFileAnalysis',
+        data: {
+          batch: batch,
+          SchoolProvince: SchoolProvince,
+          year: year,
+          type: type,
+          CollageName: collageName,
+          enroll_province: '安徽'
+        },
+        method: "GET",
+        success(res) {
+          console.log(res.data)
+          if (res.data == '') {
+            wx.showToast({
+              title: '暂无数据',
+              icon: 'none',
+              duration: 3000
+            });
+            wx.hideLoading();
+          } else {
+            //that.showModal();
+            that.setData({
+              list: res.data,
+             // showModal: true
+            });
+            wx.hideLoading();
+          }
+
         }
-        
-      }
-    })
+      })
     }
   },
   //大学名称选择
@@ -151,46 +151,46 @@ Page({
 
   },
   // 显示遮罩层
-  showModal: function () {
+  showModal: function() {
     var that = this;
     that.setData({
       hideModal: false
     })
     var animation = wx.createAnimation({
-      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
+      duration: 600, //动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease', //动画的效果 默认值是linear
     })
     this.animation = animation
-    setTimeout(function () {
-      that.fadeIn();//调用显示动画
+    setTimeout(function() {
+      that.fadeIn(); //调用显示动画
     }, 200)
   },
 
   // 隐藏遮罩层
-  hideModal: function () {
+  hideModal: function() {
     var that = this;
     var animation = wx.createAnimation({
-      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
+      duration: 800, //动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease', //动画的效果 默认值是linear
     })
     this.animation = animation
-    that.fadeDown();//调用隐藏动画   
-    setTimeout(function () {
+    that.fadeDown(); //调用隐藏动画   
+    setTimeout(function() {
       that.setData({
         hideModal: true
       })
-    }, 720)//先执行下滑动画，再隐藏模块
+    }, 720) //先执行下滑动画，再隐藏模块
 
   },
 
   //动画集
-  fadeIn: function () {
+  fadeIn: function() {
     this.animation.translateY(0).step()
     this.setData({
-      animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
+      animationData: this.animation.export() //动画实例的export方法导出动画数据传递给组件的animation属性
     })
   },
-  fadeDown: function () {
+  fadeDown: function() {
     this.animation.translateY(300).step()
     this.setData({
       animationData: this.animation.export(),

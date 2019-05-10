@@ -30,10 +30,10 @@
   width: 100%;
   overflow: hidden;
   margin-top: 20px;
+  border: 1px solid #dadada;
 }
 /* 表格代码   */
 .table{
-  border:1px solid #dadada;
   border-right:0;
   border-bottom: 0;
   width: 100%;
@@ -57,11 +57,9 @@
   font-weight: 800;
   font-size: 28rpx;
   color: #330e0e;
-  background-color: #b663423b;
 }
 .td{
-  font-size: 20rpx;
-  color: #ec9480;
+  font-size: 28rpx;
 }
 text{
   color: #ee1616;

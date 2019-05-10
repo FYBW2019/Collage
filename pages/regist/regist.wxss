@@ -1,0 +1,8 @@
+/* pages/regist/regist.wxss */
+text{
+  color: #020202;
+}
+image{
+  display: block;
+  margin: 0 auto;
+}

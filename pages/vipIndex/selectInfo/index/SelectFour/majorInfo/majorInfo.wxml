@@ -1,0 +1,12 @@
+<view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1">专业介绍</view>
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__p">
+                        <rich-text nodes="{{txt}}" ></rich-text> 
+                    </view>
+                </view>               
+            </view>
+        </view>
+    </view>

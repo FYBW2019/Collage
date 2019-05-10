@@ -22,6 +22,8 @@ border-top: 1px solid #aaa;
 .parent {
   width: 100%;
   margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid #dadada;
 }
 
 /* 表格代码   */
@@ -56,24 +58,23 @@ font-family: "楷体";
 }
 .txt{
    width: 100px;
-  padding: 13px 0 12px 0;
+  padding: 10px 0 10px 0;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
   text-align: center;
   background: #42b66923;
-  font-size: 23rpx;
+  font-size: 28rpx;
   color: #5705ee;
   font-family: "楷体";
 }
 .td {
   width: 100px;
-  padding: 13px 0 12px 0;
+  padding: 10px 0 10px 0;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
   text-align: center;
-  color: #ec9480;
 font-family: "楷体";
-  font-size: 23rpx;
+  font-size: 28rpx;
 }
 .pop-up-textarea-bg {
   position: fixed;
@@ -91,8 +92,8 @@ font-family: "楷体";
   position: fixed;
   top: 300rpx;
   left: 85rpx;
-  width: 580rpx;
-  height: 560rpx;
+  width: 620rpx;
+  height: 600rpx;
   background-color: #fff;
   border-radius: 8rpx;
   color: #666;
@@ -147,6 +148,7 @@ font-family: "楷体";
   color: #333333;
   display:block;
 	white-space: pre-wrap;
+
 
 }
 

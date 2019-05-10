@@ -58,10 +58,13 @@ Page({
             duration:3000
           })
         }else{
-          that.setData({
-            txt: res.data,
-            isShow: true
+          wx.navigateTo({
+            url: '/pages/vipIndex/selectInfo/index/SelectFour/majorInfo/majorInfo?txt=' + res.data,
           })
+          // that.setData({
+          //   txt: res.data,
+          //   isShow: true
+          // })
         }
         
       }

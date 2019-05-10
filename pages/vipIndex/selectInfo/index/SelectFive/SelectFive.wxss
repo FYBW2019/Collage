@@ -21,8 +21,10 @@
 }
 .parent {
   width: 100%;
+  overflow: hidden;
   margin-top: 20px;
-  border-top:1px solid #dadada;
+  border:1px solid #dadada;
+
 }
 
 /* 表格代码   */
@@ -58,12 +60,12 @@
 
 .td {
   width: 100px;
-  padding: 13px 0 12px 0;
+  padding: 10px 0 8px 0;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
   text-align: center;
   color: #ec9480;
-  font-size: 23rpx;
+  font-size: 30rpx;
  font-family: "楷体"
 }
 .pl{
