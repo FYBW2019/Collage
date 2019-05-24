@@ -1,73 +1,88 @@
-<view class='page__hd'>
- <view class="weui-cell">
-    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-      <image src="{{avatarUrl}}" style="width: 50px; height: 50px; display: block" />
-    </view>
-    <view class="weui-cell__bd">
-      <view>
-        <text>{{nickName}}</text>
+<view class='nav'>
+  <image src="/image/banner.jpg" class='backImage'></image>
+  <view class='userBox'>
+    <image src='{{avatarUrl}}'></image>
+  </view>
+  <view class='name'>
+    <text>{{nickName}}</text>
+  </view>
+  <view class='info'>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/1.png'></image>
       </view>
-      <view>生源地:
-        <text>安徽</text>
-      </view>
-    </view>
-    <view class="weui-cell__bd">
-      <view>等级:
+      <view class="infoPageRight">
+        <text>等级</text>
         <text>V{{vip}}</text>
       </view>
-      <view>当前积分:
-        <text>500</text>
+    </view>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/2.png'></image>
+      </view>
+      <view class="infoPageRight">
+        <text>类别</text>
+        <text>{{userType}}</text>
+      </view>
+    </view>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/3.png'></image>
+      </view>
+      <view class="infoPageRight">
+        <text>生源地</text>
+        <text>{{userProvince}}</text>
       </view>
     </view>
   </view>
-  <form bindsubmit="formSubmit">
+</view>
+<view class='Table'>
+  <view class="tr">
+    <view class="th">学校</view>
+    <view class="th">专业</view>
+    <view class="th">分数</view>
+    <view class="th">排位</view>
+  </view>
+  <view class='history-table-wrap'>
+    <view class="table">
+      <view class="tr" wx:for="{{list}}">
+             <view class="td">{{item.collageName}}</view>
+            <view class="td">{{item.majorName}}</view>
+            <view class="td">{{item.score}}</view>
+            <view class="td">{{item.ranking}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<form bindsubmit="formSubmit">
   <view class='section'>
     <view class="weui-flex">
       <view class="weui-flex__item">
-      <picker mode="date" name="year" fields="year" value="2016" start="2013" end="2016" bindchange="bindDateChange">
-        <button class='bton' type="default" plain="true">年份:{{year}}</button>
-      </picker>  
+        <picker mode="date" name="year" fields="year" value="2016" start="2013" end="2016" bindchange="bindDateChange">
+          <button class='bton' hover-class='selected'>年份:{{year}}   <text class="icon-triangledownfill"></text></button>
+        </picker>
+      </view>
+      <view class="weui-flex__item">
+        <picker bindchange="bindPickerChange" range="{{socres}}">
+          <button class='bton'>{{score}}   <text class="icon-triangledownfill"></text></button>
+        </picker>
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <input type='text' name='collageName' class='put' value='' placeholder-class='pl' placeholder='请输入大学名称(必填)'/> 
+        <input type='text' name='collageName' class='put' value='' placeholder-class='pl' placeholder='请输入大学名称(必填)' />
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-      <input type='text' name='majorName' class='put' value='' placeholder-class='pl' placeholder='请输入专业名称'/> 
+        <input type='text' name='majorName' class='put' value='' placeholder-class='pl' placeholder='请输入专业名称' />
       </view>
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class='bton3' formType="submit">查询</button>
+        <button class='bton3' hover-class='selected' formType="submit">查询</button>
       </view>
     </view>
   </view>
-  </form>
- <view class="parent" >
-    <view class="tr">
-      <view class="th">文理</view>
-      <view class="th">分数</view>
-      <view class="th">排位</view>
-      <view class="th">学校</view>
-      <view class="th">专业</view>
-    </view>
-    <scroll-view scroll-x style="width: 80%;float:right">
-      <view>
-        <view class="table">
-          <block wx:for="{{list}}" wx:key="index">
-            <view class="trr">
-              <view class="td">{{item.type}}</view>
-              <view class="td">{{item.score}}</view>
-              <view class="td">{{item.ranking}}</view>
-              <view class="td">{{item.collageName}}</view>
-              <view class="td">{{item.majorName}}</view>
-            </view>
-          </block>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-</view>
+</form>

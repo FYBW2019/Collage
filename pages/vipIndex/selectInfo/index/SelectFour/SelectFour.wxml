@@ -1,81 +1,98 @@
-<view class='page__hd'>
-  <view class="weui-cell">
-    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-      <image src="{{avatarUrl}}" style="width: 50px; height: 50px; display: block" />
-    </view>
-    <view class="weui-cell__bd">
-      <view>
-        <text>{{nickName}}</text>
+<view class='nav'>
+  <image src="/image/banner.jpg" class='backImage'></image>
+  <view class='userBox'>
+    <image src='{{avatarUrl}}'></image>
+  </view>
+  <view class='name'>
+    <text>{{nickName}}</text>
+  </view>
+  <view class='info'>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/1.png'></image>
       </view>
-      <view>生源地:
-        <text>安徽</text>
-      </view>
-    </view>
-    <view class="weui-cell__bd">
-      <view>等级:
+      <view class="infoPageRight">
+        <text>等级</text>
         <text>V{{vip}}</text>
       </view>
-      <view>当前积分:
-        <text>500</text>
+    </view>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/2.png'></image>
+      </view>
+      <view class="infoPageRight">
+        <text>类别</text>
+        <text>{{userType}}</text>
       </view>
     </view>
-  </view>
-  <view class='section'>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <picker mode="date" fields="year" start="2013" value="2017" end="2017" bindchange="bindDateChange">
-          <button class='bton' type="default" plain="true">年份:{{year}}</button>
-        </picker>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/3.png'></image>
+      </view>
+      <view class="infoPageRight">
+        <text>生源地</text>
+        <text>{{userProvince}}</text>
       </view>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange2" range="{{SchoolList}}">
-          <button class='bton' type="default" plain="true">{{SchoolName}}</button>
-        </picker>
-      </view>
-    </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <right-picker bind:chooseEvent='choose' chooseList='{{ chooseList }}' multiple='{{ multiple }}'></right-picker>
-      </view>
-
-    </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton3' bindtap='selectResult'>查询</button>
-      </view>
-    </view>
-  </view>
-  <view class="parent">
-    <view class="tr">
-      <view class="th">文理</view>
-      <view class="th">专业名称</view>
-      <view class="th">年份</view>
-      <view class="th">最高分</view>
-      <view class="th">平均分</view>
-      <view class="th">最低分</view>
-      <view class="th">平均位次</view>
-    </view>
-    <scroll-view scroll-x style="width: 80%;float:right">
-      <view>
-        <view class="table">
-          <block wx:for="{{results}}" wx:key="index">
-            <view class="trr">
-              <view class="td">{{item.type}}</view>
-              <view class="txt" id="{{index}}" bindtap='majorInfo'>{{item.major}}</view>
-              <view class="td">{{item.year}}</view>
-              <view class="td">{{item.max}}</view>
-              <view class="td">{{item.avg}}</view>
-              <view class="td">{{item.min}}</view>
-              <view class="td">{{item.avgRanking}}</view>
-            </view>
-          </block>
-        </view>
-      </view>
-    </scroll-view>
   </view>
 </view>
+<view class="parent">
+  <view class="tr">
+    <view class="th">文理</view>
+    <view class="th">专业名称</view>
+    <view class="th">年份</view>
+    <view class="th">最高分</view>
+    <view class="th">平均分</view>
+    <view class="th">最低分</view>
+    <view class="th">平均位次</view>
+  </view>
+  <scroll-view scroll-x style="width: 80%;float:right">
+    <view>
+      <view class="table">
+        <block wx:for="{{results}}" wx:key="index">
+          <view class="trr">
+            <view class="td">{{item.type}}</view>
+            <view class="txt" id="{{index}}" bindtap='majorInfo'>{{item.major}}</view>
+            <view class="td">{{item.year}}</view>
+            <view class="td">{{item.max}}</view>
+            <view class="td">{{item.avg}}</view>
+            <view class="td">{{item.min}}</view>
+            <view class="td">{{item.avgRanking}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class='section'>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <picker mode="date" fields="year" start="2013" value="2018" end="2018" bindchange="bindDateChange">
+        <button class='bton' hover-class='selected'>年份:{{year}}   <text class="icon-triangledownfill"></text></button>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <picker bindchange="bindPickerChange2" range="{{SchoolList}}">
+        <button class='bton' hover-class='selected'>学校:{{SchoolName}}   <text class="icon-triangledownfill"></text></button>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <right-picker bind:chooseEvent='choose' chooseList='{{ chooseList }}' multiple='{{ multiple }}'>   <text class="icon-triangledownfill"></text></right-picker>
+    </view>
+
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <button class='bton3' hover-class='selected' bindtap='selectResult'>查询</button>
+    </view>
+  </view>
+</view>
+
 <view class="pop-up-textarea-bg" wx:if="{{isShow}}">
   <view class="pop-up-textarea-container">
     <view class="top-view">
@@ -84,11 +101,11 @@
       <view>
         <view class="top-line-view"></view>
 
-          <scroll-view   class="pay-money-title">{{txt}}</scroll-view>
-    
-      
+        <scroll-view class="pay-money-title">{{txt}}</scroll-view>
+
+
 
       </view>
     </view>
-  </view>    
-</view>  
+  </view>
+</view>

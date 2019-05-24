@@ -1,0 +1,227 @@
+.history-table-wrap{
+  width: 100%;
+  height: 578rpx;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.parent {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+}
+.weui-cell{
+  background: rgba(216, 213, 213,0.3);
+  font-family: "楷体";
+
+}
+/* 表格代码   */
+
+.table {
+  display: flex;
+}
+
+.tr {
+  width: 20%;
+  display: block;
+  float: left;
+  justify-content: space-between;
+}
+
+.trr {
+  display: block;
+  float: left;
+}
+
+.th {
+  height: 40px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+  line-height: 40px;
+  font-family: "楷体";
+  box-sizing: border-box;
+  font-size: 28rpx;
+  background-color: rgba(248, 103, 7, 0.966);
+  color: #fff;
+}
+.txt{
+   width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  font-size: 28rpx;
+  color: #ee4f05;
+  box-sizing: border-box;
+}
+.td {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+   box-sizing: border-box;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  font-size: 28rpx;
+}
+.coverShow{
+  width: 100%;
+  overflow: hidden;
+}
+.nav{
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+}
+.infoNav{
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.info{
+   width: 90%;
+  margin: 0 auto;
+}
+.page__bd_spacing{
+  margin-top: 15px;
+}
+.Section{
+    width: 100%;
+    height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.result{
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.info{
+  width: 90%;
+   margin: 0 auto;
+  overflow: hidden;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.infoOne{
+  width: 100%;
+  color: black;
+  font-family: "楷体";
+  padding: 5px;
+}
+.infoTwo{
+  width: 100%;
+  overflow: hidden;
+  font-family: "楷体";
+
+}
+.foot{
+  width: 90%;
+   margin: 0 auto;
+   margin-top: 10px;
+}
+   .foot1{
+     margin: 0 auto;
+     width: 100%;
+     color: black;
+     font-family: "楷体";
+   }
+   .foot2{
+      margin: 0 auto;
+     width: 100%;
+     font-family: "楷体";
+
+   }
+.page__bd_spacing{
+  margin-top: 10px;
+}
+
+.nav1{
+  width: 100%;
+  height: 180px;
+  box-sizing: border-box;
+}
+.BackImage{
+  width: 100%;
+  height: 100%;
+}
+.page1{
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  box-sizing: border-box;
+  top:10px;
+  left: 0;
+  text-align: center;
+}
+.UserImage{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.page2{
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  box-sizing: border-box;
+  top:90px;
+  left: 0;
+  text-align: center;
+  color: white;
+}
+.page3{
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  box-sizing: border-box;
+  top:120px;
+  left: 0;
+  text-align: center;
+}
+.page3Box{
+  width: 33%;
+  float: left;
+  height: 60px;
+  box-sizing: border-box;
+}
+.Info1{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+   box-sizing: border-box;
+}
+.Info1>image{
+  width: 30px;
+  height: 30px;
+}
+.Info2{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+   box-sizing: border-box;
+   color: white;
+   font-size: 13px;
+   line-height: 30px;
+}
+button::after {
+  border: none;
+}
+
+button {
+  border: 1px solid rgba(248, 103, 7, 0.966);
+  margin-top: 10px;
+  height: 40px;
+  width: 80%;
+  margin: 0 auto;
+  color: rgba(248, 103, 7, 0.966);
+  line-height: 40px;
+  font-size: 15px;
+}
+

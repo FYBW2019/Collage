@@ -1,16 +1,18 @@
 @import '/style/weui.wxss';
 .showPicker {  
-  border: 1px solid rgba(17, 17, 17, 0.986);
-  border-radius: 10px;
-  font-family: "楷体";
+    border: 1px solid rgba(228, 225, 223, 0.2);
+    background-color: rgba(228, 225, 223, 0.2);
     width: 90%;
-    height: 92rpx;
+    height: 40px;
     margin: 0 auto;
-    line-height: 80rpx;
-    font-size: 36rpx;
+    line-height: 40px;
+    font-size: 15px;
     text-align: center;
 }
-
+.selected {
+  border: 1px solid rgba(238, 81, 9, 0.644);
+  color: rgba(238, 81, 9, 0.644);
+}
 .shade-container {
     position: fixed;
     height: 100%;

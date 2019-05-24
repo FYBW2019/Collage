@@ -17,8 +17,8 @@
       <view class="placeholder {{navClass4}}" bindtap='page4'>第四部分</view>
     </view>
   </view>
-  <text class="{{page2}}">在下列每一对词语中,哪一个词语更合你心意?请仔细想想这些词语的意义,而不要理会他们的字形或读音 </text>
-  <text class="{{page4}}">在下列每一对词语中,哪一个词语更合你心意?</text>
+  <text class="{{page2}}" style=' width: 100%;overflow: hidden; box-sizing: border-box;padding: 0 10px;'>在下列每一对词语中,哪一个词语更合你心意?请仔细想想这些词语的意义,而不要理会他们的字形或读音 </text>
+  <text class="{{page4}}" style=' width: 100%;overflow: hidden; box-sizing: border-box;padding: 0 10px;'>在下列每一对词语中,哪一个词语更合你心意?</text>
   <view class='Section {{page1}}'>
     <block wx:for="{{list}}" wx:key="index">
       <block wx:if="{{index<26}}">
@@ -121,11 +121,11 @@
       </block>
     </block>
   </view>
-  <button class="{{page4}}" bindtap='show'>提交</button>
+  <button class="{{page4}}" bindtap='show'>保存并查看结果</button>
 </view>
 <view class="coverShow" style='display:{{hidden}}'>
   <view class="nav">
-    您的评测结果:{{code}}
+    您的评测结果
   </view>
   <view>
     <view class="infoNav">{{code}}</view>
@@ -146,7 +146,7 @@
   </view>
   <view class="page__bd page__bd_spacing">
     <view class="button-sp-area">
-      <button class="weui-btn" bindtap='cancel' type="primary" plain="true">关闭</button>
+      <button class="weui-btn" bindtap='cancel'>关闭</button>
     </view>
   </view>
 </view>

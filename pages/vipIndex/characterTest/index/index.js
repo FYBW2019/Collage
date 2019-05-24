@@ -25,7 +25,9 @@ wx.navigateTo({
     this.setData({
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType: app.globalData.userType
     })
   },
 

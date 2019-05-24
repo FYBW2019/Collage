@@ -5,11 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    socres: ['600以上', '500~600', '400~500', '300~400', '200~300', '100~200'],
+    score: '分数范围',
     nickName: '',
     avatarUrl: '',
     year:'2015',
     list:[],
     show:'none'
+  },
+  bindPickerChange: function (e) {
+    console.log('分数范围选择', this.data.socres[e.detail.value])
+    this.setData({
+      score: this.data.socres[e.detail.value],
+    })
   },
   //选择年份
   bindDateChange: function (e) {
@@ -25,11 +33,12 @@ Page({
     this.setData({
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType: app.globalData.userType
     })
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let that=this;
     if (e.detail.value.collageName==''){
       wx.showToast({
@@ -44,12 +53,45 @@ Page({
       let year=that.data.year;
       let collageName=e.detail.value.collageName;
       let majorName=e.detail.value.majorName;
+      let province = app.globalData.userProvince;
+      let score = that.data.score;
+      let ScoreGreater = '';
+      let ScoreLess = '';
+      if (score == '600以上') {
+        ScoreGreater = '600';
+        ScoreLess = '750';
+      }
+      if (score == '500~600') {
+        ScoreGreater = '500';
+        ScoreLess = '600';
+      }
+      if (score == '400~500') {
+        ScoreGreater = '400';
+        ScoreLess = '500';
+      }
+      if (score == '300~400') {
+        ScoreGreater = '300';
+        ScoreLess = '400';
+      }
+      if (score == '200~300') {
+        ScoreGreater = '200';
+        ScoreLess = '300';
+      }
+      if (score == '100~200') {
+        ScoreGreater = '100';
+        ScoreLess = '200';
+      }
+      console.log(ScoreGreater + ">>" + ScoreLess);
       wx.request({
-        url: 'https://mini.zhitonggaokao.cn/CollageMobile/directionData',
+        url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/directionData',
         data: {
           year: year,
           collageName: collageName,
-          major: majorName
+          major: majorName,          
+          province: province,
+          scoreGreater: ScoreGreater,
+          scoreLess: ScoreLess,
+          type:'理科'
         },
         method: 'GET',
         success(res) {

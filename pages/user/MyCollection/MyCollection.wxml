@@ -1,18 +1,61 @@
-<view class="weui-cell">
-  <view class="weui-cell__bd">
-    <view>
-      <text>China No.1</text>
-    </view>   
+<view class='nav'>
+  <image src='/image/8-banner.png' class="BackImage"></image>
+  <view class="page1">
+    <image src='{{avatarUrl}}' class="UserImage"></image>
   </view>
-  <view class="weui-cell__bd">
-    <view>生源地:<text>西藏</text>
+  <view class="page2">
+    {{nickName}}
+  </view>
+  <view class="page3">
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/1.png'></image>
+      </view>
+      <view class="info2">
+        等级:V{{vip}}
+      </view>
     </view>
-  </view>
-  <view class="weui-cell__bd">
-    <view>等级:<text>v1</text>
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/2.png'></image>
+      </view>
+      <view class="info2">
+        类别:{{userType}}
+      </view>
+    </view>
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/3.png'></image>
+      </view>
+      <view class="info2">
+        生源地:{{userProvince}}
+      </view>
     </view>
   </view>
 </view>
-<block wx:for="{{list}}">
-<view>{{item}}</view>
-</block>
+<view class="parent">
+  <view class="tr">
+    <view class="th">学校名称</view>
+    <view class="th">学校性质</view>
+    <view class="th">学校排名</view>
+    <view class="th">院校分类</view>
+    <view class="th">985</view>
+    <view class="th">211</view>
+    <view class="th">学历层次</view>
+  </view>
+  <scroll-view scroll-x style="width: 80%;float:right">
+    <view class="table">
+      <block wx:for="{{list}}" wx:key="index">
+        <view class="trr">
+          <view class="td">{{item.collageName}}</view>
+          <view class="td">{{item.collageNature}}</view>
+          <view class="td">{{item.ranking}}</view>
+          <view class="td">{{item.collageType}}</view>
+          <view class="td">{{item.special985}}</view>
+          <view class="td">{{item.special211}}</view>
+          <view class="td">{{item.collageLevel}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

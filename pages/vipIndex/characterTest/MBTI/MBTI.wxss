@@ -1,10 +1,25 @@
 @import '/style/weui.wxss';
+button::after {
+  border: none;
+}
+
+button {
+  border: 1px solid rgb(241, 98, 3);
+  margin-top: 10px;
+  height: 40px;
+  width: 60%;
+  margin: 0 auto;
+  color: rgb(241, 98, 3);
+  line-height: 40px;
+  font-size: 15px;
+
+}
 .hander{
   height: 30px;
   width: 100%;
   text-align: center;
   border-bottom: 1px #ccc solid;
-  padding: 10px;
+  line-height: 30px;
 }
 .hander text{
   font-size: 20px;
@@ -22,14 +37,8 @@
 .placeholder{
  text-align: center;
  padding: 10px 0;
- font-family: "楷体";
- 
-}
-.weui-flex__item{
-  font-family: "楷体";
 }
 text{
-   font-family: "楷体";
    display: block;
    font-size: 14px;
 }
@@ -50,32 +59,39 @@ text{
 }
 .nav{
   width: 90%;
+  height: 40px;
+text-align: center;
+line-height: 40px;
+box-sizing: border-box;
   margin: 0 auto;
-  border:2px solid rgb(27, 222, 236); 
-  font-family: "楷体";
-  padding: 5px;
 }
 .infoNav{
   width: 90%;
   margin: 0 auto;
-  background-color: rgb(27, 222, 236); 
-  font-family: "楷体";
   padding: 5px;
-  color: #ffffff;
+  color: #f3680b;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .info{
    width: 90%;
   margin: 0 auto;
-  background-color: #fab010;
 }
 .page__bd_spacing{
   margin-top: 15px;
 }
 .Section{
     width: 100%;
-height: 500px;
+height: 600px;
+box-sizing: border-box;
+padding: 0 10px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+.title{
+ width: 100%;
+ display: block;
+ overflow: hidden;
+ box-sizing: border-box;
+ padding: 0 10px;
 }

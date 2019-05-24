@@ -1,9 +1,122 @@
-text{
-  color: rgb(240, 173, 49);
+.nav{
+  width: 100%;
+  height: 180px;
+  box-sizing: border-box;
+}
+.BackImage{
+  width: 100%;
+  height: 100%;
+}
+.page1{
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  box-sizing: border-box;
+  top:10px;
+  left: 0;
+  text-align: center;
+}
+.UserImage{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.page2{
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  box-sizing: border-box;
+  top:90px;
+  left: 0;
+  text-align: center;
+  color: white;
+}
+.page3{
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  box-sizing: border-box;
+  top:120px;
+  left: 0;
+  text-align: center;
+}
+.page3Box{
+  width: 33%;
+  float: left;
+  height: 60px;
+  box-sizing: border-box;
+}
+.info1{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+   box-sizing: border-box;
+}
+.info1>image{
+  width: 30px;
+  height: 30px;
+}
+.info2{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+   box-sizing: border-box;
+   color: white;
+   font-size: 13px;
+   line-height: 30px;
 }
 .weui-cell{
-  border-bottom: 3px solid #aaa;
   background: rgb(216, 213, 213);
   font-family: "楷体";
 
+}
+.parent {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  border:1px solid #dadada;
+
+}
+
+/* 表格代码   */
+
+.table {
+  display: flex;
+}
+
+.tr {
+  width: 20%;
+  display: block;
+  float: left;
+  justify-content: space-between;
+}
+
+.trr {
+  display: block;
+  float: left;
+}
+
+.th {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ee780a;
+
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.td {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  font-size: 30rpx;
 }

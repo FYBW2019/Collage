@@ -1,87 +1,87 @@
-<!-- <view class="page">
-  <view class="header"> -->
-<!--index.wxml-->
-<!-- <view class="userinfo"> -->
-<!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button> -->
-<!-- <block>
-        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-  </view> -->
-<!-- <view class='page__hd'>
-    <view class="weui-cells weui-cells_after-title">
-      <block wx:for="{{list}}" wx:key="index">
-        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-          <view class="weui-cell__bd">{{item.cn}}</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </view>
-      </block>
-    </view>
-  </view> -->
-<!-- <view class="weui-cells weui-cells_after-title">
-    <block wx:for="{{list}}" wx:key="index">
-
-      <view class="weui-cell">
-        <view class="weui-cell__bd">{{item.cn}}</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+<view class='nav'>
+  <image src='/image/8-banner.png' class="BackImage"></image>
+  <view class="page1">
+    <image src='{{avatarUrl}}' class="UserImage"></image>
+  </view>
+  <view class="page2">
+    {{nickName}}
+  </view>
+  <view class="page3">
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/1.png'></image>
       </view>
-    </block>
+      <view class="info2">
+        等级:V{{vip}}
+      </view>
+    </view>
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/2.png'></image>
+      </view>
+      <view class="info2">
+        类别:{{userType}}
+      </view>
+    </view>
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/3.png'></image>
+      </view>
+      <view class="info2">
+        生源地:{{userProvince}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class='section'>
+  <view class='menuList'>
+    <view class='menu' bindtap='myTest'>
+      <view class='menuImage'>
+        <image src='/image/8-1cp.png'></image>
+      </view>
+      <view class='menuName'>
+        我的测评
+      </view>
+    </view>
+    <view class='menu' bindtap='myCollection'>
+      <view class='menuImage'>
+        <image src='/image/8-2sc.png'></image>
+      </view>
+      <view class='menuName'>
+        我的收藏
+      </view>
+    </view>
+    <view class='menu' bindtap='NoService'>
+      <view class='menuImage'>
+        <image src='/image/8-3fw.png'></image>
+      </view>
+      <view class='menuName'>
+        升级服务
+      </view>
+    </view>
+  </view>
+</view>
+<view class='menuInfo' bindtap='modifyProvince' hover-class='selected'>
+  <view class='menuLeft'>
+    修改省份
+  </view>
+  <view class='menuRight'>
+    <image src='/image/arrowright.png'></image>
+  </view>
+</view>
+<view class='menuInfo'>
+  <view class='menuLeft'>
+    关于我们
+  </view>
+  <view class='menuRight'>
+    <image src='/image/arrowright.png'></image>
+  </view>
+</view>
+
+
+<!-- 
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell" bindtap='selectActiveCode'>
+    <view>激活码</view>
   </view>
 </view> -->
-
-<view class="weui-cell">
-  <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-    <image src="{{avatarUrl}}" style="width: 50px; height: 50px; display: block" />
-  </view>
-  <view class="weui-cell__bd">
-    <view>
-      <text>{{nickName}}</text>
-    </view>
-    <view>生源地:
-      <text>安徽</text>
-    </view>
-  </view>
-  <view class="weui-cell__bd">
-    <view>等级:
-      <text>V{{vip}}</text>
-    </view>
-    <view>当前积分:
-      <text>500</text>
-    </view>
-  </view>
-</view>
-<view class="weui-flex">
-  <view class="weui-flex__item">
-    <view class="show"></view>
-    <view>我的测评</view>
-  </view>
-  <view class="weui-flex__item" bindtap='myCollection'>
-    <view class="show"></view>
-    <view>我的收藏</view>
-  </view>
-  <view class="weui-flex__item">
-    <view class="show"></view>
-    <view>1对1服务</view>
-  </view>
-</view>
-<view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell">
-    <view>修改密码</view>
-  </view>
-  <view class="weui-cell">
-    <view>代理人</view>
-  </view>
-  <view class="weui-cell">
-    <view>关于我们</view>
-  </view>
-</view>
-<!-- <view class="weui-flex">
-      <view class="weui-flex__item">
-      </view>
-      <view class="weui-flex__item">
-        <button class="weui-btn" type="default" plain="true">退出</button>
-      </view>
-      <view class="weui-flex__item">
-      </view>
-    </view> -->

@@ -1,31 +1,118 @@
 @import '/style/weui.wxss';
 
-.weui-cell {
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  background: rgba(216, 213, 213, 0.1);
-  font-family: "楷体";
-}
-
-.pageHander {
+.nav {
   width: 100%;
   height: 80px;
-  border: 3px solid #115bfc79;
-  border-radius: 10px;
+}
+
+.backImage {
+  width: 100%;
+  height: 100%;
+}
+
+.userBox {
+  width: 30%;
+  height: 80px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
   text-align: center;
-  background: rgba(63, 206, 224, 0.1);
-  padding: 30px 0 1px 0;
 }
 
-.pageHander>text {
-  font-size: 30px;
-  font-family: "楷体";
-  letter-spacing: 15rpx;
+.userBox>image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 20px;
 }
 
+.name {
+  width: 70%;
+  height: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 30%;
+}
+
+.name text {
+  width: 100%;
+  font-size: 13px;
+  color: white;
+  display: block;
+  margin-top: 20px;
+}
+
+.info {
+  width: 70%;
+  height: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 40px;
+  left: 30%;
+}
+
+.infoPage {
+  width: 33%;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0px;
+}
+
+.infoPageLeft {
+  width: 30%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.infoPageRight {
+  width: 70%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.infoPageLeft>image {
+  width: 20px;
+  height: 20px;
+}
+
+.infoPageRight text {
+  font-size: 13px;
+  color: white;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  border: 1px solid rgba(228, 225, 223, 0.2);
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  font-size: 15px;
+}
+
+.selected {
+  border: 1px solid rgba(238, 81, 9, 0.644);
+  color: rgba(238, 81, 9, 0.644);
+}
 .history-table-wrap {
   width: 100%;
-  height: 578rpx;
+  height: 330px;
+  box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -38,33 +125,30 @@
 .put {
   margin: 0 auto;
   width: 90%;
-  border: 1px solid #0e0e0ff5;
-  border-radius: 10px;
-  font-family: "楷体";
-  height: 46px;
+  border: 1px solid rgba(228, 225, 223, 0.2);
+  border-radius: 5px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   z-index: -10;
-  background-color: #fff;
+  background-color:rgba(228, 225, 223, 0.2);
 }
 
 .bton2 {
   width: 90%;
-  border-radius: 10px;
-  font-family: "楷体";
 }
 
 .bton3 {
   width: 80%;
-  border: 1px solid #ee9209b6;
-  border-radius: 10px;
-  font-family: "楷体";
+
 }
 .button-sp-area{
   width: 100%;
   overflow: hidden;
 }
 .weui-flex {
-  margin-top: 20px;
+  margin-top: 10px;
+  padding: 0px;
 }
 .all{
   width: 100%;
@@ -181,8 +265,8 @@ height: 100%;
 .Table {
   width: 100%;
   overflow: hidden;
-  margin-top: 20px;
-  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(238, 82, 9, 0.89);
 }
 
 /* 表格代码   */
@@ -199,8 +283,21 @@ height: 100%;
   justify-content: space-between;
 }
 
-.th, .td {
-  padding: 10px;
+.th{
+  height: 40px;
+  box-sizing: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  background-color: rgba(238, 82, 9, 0.89);
+  width: 100%;
+
+  
+}
+ .td {
+  height: 40px;
+  box-sizing: 40px;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
   text-align: center;
@@ -210,21 +307,20 @@ height: 100%;
 .th1, .th2, .td1, .td2 {
   width: 40%;
 }
-
+.td2{
+  height: 40px;
+  line-height: 40px;
+}
 .th {
   font-weight: 800;
   font-size: 28rpx;
-  color: #330e0e;
+  color: white;
 }
 
 .td {
   font-size: 26rpx;
 }
 
-.txt {
-  display: flex;
-  align-items: center;
-}
 
 .mini-btn1 {
     width: 100rpx;

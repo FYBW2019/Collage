@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    scrollTop: 0,
     nickName: '',
     avatarUrl: '',
     year: '2018',
@@ -12,7 +14,8 @@ Page({
     typeList: ['理科', '文科'],
     list:[],
     socres: ['600以上', '500~600', '400~500', '300~400', '200~300', '100~200'],
-    score: '分数范围'
+    score: '分数范围',
+    userProvince: app.globalData.userProvince
 
   },
   onShareAppMessage: function() {
@@ -76,12 +79,13 @@ Page({
     wx.showLoading({
       title: '数据加载中',
     })
+    let userProvince = this.data.userProvince;
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/oneParagraph',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/oneParagraph',
       data: {
         type: type,
         year: year,
-        province: '安徽',
+        province: userProvince,
         scoreLess: ScoreLess,
         scoreGreater: ScoreGreater
       },
@@ -110,13 +114,51 @@ Page({
    */
   onLoad: function(options) {
     let that = this;
-    console.log('options', options)
+    let year = that.data.year;
+    let type = that.data.type;
+    let score = that.data.score;
+    let ScoreGreater = '';
+    let ScoreLess = '';
+    wx.showLoading({
+      title: '数据加载中',
+    })
+    let userProvince = that.data.userProvince;
+    wx.request({
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/oneParagraph',
+      data: {
+        type: type,
+        year: year,
+        province: userProvince,
+        scoreLess: ScoreLess,
+        scoreGreater: ScoreGreater
+      },
+      method: 'GET',
+      success(res) {
+        console.log(res.data.results);
+        if (res.data.results == null || res.data.results == undefined) {
+          wx.showToast({
+            title: '暂无数据',
+            icon: 'none',
+            duration: 2000
+          });
+          wx.hideLoading()
+        } else {
+          wx.hideLoading();
+          that.setData({
+            list: res.data.results
+          })
+        }
+
+      }
+    })
     let id = options.jsonStr
     console.log('id' + id)
     this.setData({
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType: app.globalData.userType
     })
   },
 

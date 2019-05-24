@@ -1,34 +1,117 @@
 @import '/style/weui.wxss';
-.weui-cell{
-  border-bottom: 1px solid #aaa;
-  border-top: 1px solid #aaa;
-  font-family: "楷体";
+.nav {
+  width: 100%;
+  height: 80px;
+}
 
+.backImage {
+  width: 100%;
+  height: 100%;
+}
+
+.userBox {
+  width: 30%;
+  height: 80px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.userBox>image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.name {
+  width: 70%;
+  height: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 30%;
+}
+
+.name text {
+  width: 100%;
+  font-size: 13px;
+  color: white;
+  display: block;
+  margin-top: 20px;
+}
+
+.info {
+  width: 70%;
+  height: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 40px;
+  left: 30%;
+}
+
+.infoPage {
+  width: 33%;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0px;
+}
+
+.infoPageLeft {
+  width: 30%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.infoPageRight {
+  width: 70%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.infoPageLeft>image {
+  width: 20px;
+  height: 20px;
+}
+
+.infoPageRight text {
+  font-size: 13px;
+  color: white;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  border: 1px solid rgba(228, 184, 215, 0.473);
+  margin-top: 10px;
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  font-size: 15px;
 }
 .bton{
   width: 90%;
-  border-radius: 10px;
-  font-family: "楷体";
 }
 .bton3{
   width: 80%;
-  border: 3px solid #ee9209b6;
-  border-radius: 10px;
-  font-family: "楷体";
 }
 .Table{
-  margin-top: 20px;
-  border: 1px solid #dadada;
   overflow: hidden;
-}
-.weui-flex{
-  margin-top: 20px;
-}
-.history-table-wrap{
-  width: 100%;
-  height: 578rpx;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 /* 表格代码   */
 .table{
@@ -41,21 +124,40 @@
   display: flex;
   justify-content: space-between;
 }
-.th,.td{
-  padding: 10px;
+.th{
+    background: rgba(245, 101, 5, 0.938);
+  height: 45px;
+  line-height: 45px;
+  box-sizing: border-box;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
   text-align: center;
   width: 100%;
 }
-.th1,.th2,.td1,.td2{
+.td{
+ height: 45px;
+ line-height: 45px;
+ box-sizing: border-box;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+  font-size: 30rpx;
+
+}
+.th1,.th2{
   width: 40%;
+    
 }
 .th{
   font-weight: 800;
   font-size: 28rpx;
-  color: #330e0e;
+  color: white;
 }
-.td{
-  font-size: 30rpx;
+.scroll-view{
+ height: 578rpx;
+ width:100%;
+ overflow-y: scroll;
+ border-bottom: 1px solid salmon;
 }
+

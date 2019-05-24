@@ -1,127 +1,129 @@
-<view class='page__hd'>
-  <view class="weui-cell">
-    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-      <image src="{{avatarUrl}}" style="width: 50px; height: 50px; display: block" />
-    </view>
-    <view class="weui-cell__bd">
-      <view>
-        <text>{{nickName}}</text>
+<view class='nav'>
+  <image src="/image/banner.jpg" class='backImage'></image>
+  <view class='userBox'>
+    <image src='{{avatarUrl}}'></image>
+  </view>
+  <view class='name'>
+    <text>{{nickName}}</text>
+  </view>
+  <view class='info'>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/1.png'></image>
       </view>
-      <view>生源地:
-        <text>安徽</text>
-      </view>
-    </view>
-    <view class="weui-cell__bd">
-      <view>等级:
+      <view class="infoPageRight">
+        <text>等级</text>
         <text>V{{vip}}</text>
       </view>
-      <view>当前积分:
-        <text>500</text>
+    </view>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/2.png'></image>
+      </view>
+      <view class="infoPageRight">
+        <text>类别</text>
+        <text>{{userType}}</text>
+      </view>
+    </view>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+        <image src='/image/3.png'></image>
+      </view>
+      <view class="infoPageRight">
+        <text>生源地</text>
+        <text>{{userProvince}}</text>
       </view>
     </view>
   </view>
-  <view class='section'>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange" range="{{batchList}}">
-          <button type="default" plain='true' class='bton'>{{batch}}</button>
-        </picker>
+</view>
+<view class="parent">
+  <view class="tr">
+    <view class="th">学校名称</view>
+    <view class="th">年份</view>
+    <view class="th">批次线</view>
+    <view class="th">批次</view>
+    <view class="th2">
+      <view class='one'>
+        投档线
       </view>
-      <view class="weui-flex__item">
-        <picker mode="date" fields="year" value="2018" start="2012" end="2018" bindchange="bindDateChange">
-          <button type="default" plain='true' class='bton'>{{year}}</button>
-        </picker>
-      </view>
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange2" range="{{accountList}}">
-          <button type="default" plain='true' class='bton'>{{account}}</button>
-        </picker>
+      <view class='two'>
+        <view class='two2'>当年</view>
+        <view class='two3'>平均</view>
       </view>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange3" range="{{provinceList}}">
-          <button type="default" plain='true' class='bton'>{{SchoolProvince}}</button>
-        </picker>
+    <view class="th2">
+      <view class='one one2'>
+        线差
       </view>
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange4" range="{{schoolList}}">
-          <input type='button' class='put' disabled="true" value='{{schoolName}}' style='display:{{show}}'></input>
-        </picker>
+      <view class='two'>
+        <view class='two2'>当年</view>
+        <view class='two3'>平均</view>
       </view>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton3' type="primary" plain='true' bindtap='serachResult'>查询</button>
+    <view class="th2">
+      <view class='one'>
+        省排名
+      </view>
+      <view class='two'>
+        <view class='two2'>当年</view>
+        <view class='two3'>平均</view>
       </view>
     </view>
   </view>
-<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
-    <view class="modals-cancel" bindtap="hideModal"></view>
-    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
-     
+  <scroll-view scroll-x style="width: 80%;float:right">
+    <view>
+      <view class="table">
+        <block wx:for="{{list}}" wx:key="index">
+          <view class="trr">
+            <view class="td">{{item.name}}</view>
+            <view class="td">{{item.year}}</view>
+            <view class="td">{{item.line}}</view>
+            <view class="td">{{item.batch}}</view>
+            <view class="td">{{item.sLine}}</view>
+            <view class="td">{{item.aScore}}</view>
+            <view class="td">{{item.diff}}</view>
+            <view class="td">{{item.aDiff}}</view>
+            <view class="td">{{item.rank}}</view>
+            <view class="td">{{item.aRank}}</view>
+          </view>
+        </block>
+      </view>
     </view>
+  </scroll-view>
 </view>
-<!-- <view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
-    <view class="modals-cancel" bindtap="hideModal"></view>
-    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}"> -->
-     <view class="parent">
-        <view class="tr">
-          <view class="th">学校名称</view>
-          <view class="th">年份</view>
-          <view class="th">批次线</view>
-          <view class="th">批次</view>
-          <view class="th">
-            <view class='one'>
-              投档线
-            </view>
-            <view class='two'>
-              <view class='two2'>当年</view>
-              <view class='two3'>平均</view>
-            </view>
-          </view>
-          <view class="th">
-            <view class='one one2'>
-              线差
-            </view>
-            <view class='two'>
-              <view class='two2'>当年</view>
-              <view class='two3'>平均</view>
-            </view>
-          </view>
-          <view class="th">
-            <view class='one'>
-              省排名
-            </view>
-            <view class='two'>
-              <view class='two2'>当年</view>
-              <view class='two3'>平均</view>
-            </view>
-          </view>
-        </view>
-        <scroll-view scroll-x style="width: 80%;float:right">
-          <view>
-            <view class="table">
-              <block wx:for="{{list}}" wx:key="index">
-                <view class="trr">
-                  <view class="td">{{item.name}}</view>
-                  <view class="td">{{item.year}}</view>
-                  <view class="td">{{item.line}}</view>
-                  <view class="td">{{item.batch}}</view>
-                  <view class="td">{{item.sLine}}</view>
-                  <view class="td">{{item.aScore}}</view>
-                  <view class="td">{{item.diff}}</view>
-                  <view class="td">{{item.aDiff}}</view>
-                  <view class="td">{{item.rank}}</view>
-                  <view class="td">{{item.aRank}}</view>
-                </view>
-              </block>
-            </view>
-          </view>
-        </scroll-view>
-      <!-- </view> -->
-    <!-- </view> -->
-
+<view class='section'>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <picker bindchange="bindPickerChange" range="{{batchList}}">
+        <button  class='bton'>{{batch}}<text class="icon-triangledownfill"></text></button>
+      </picker>
     </view>
+    <view class="weui-flex__item">
+      <picker mode="date" fields="year" value="2018" start="2012" end="2018" bindchange="bindDateChange">
+        <button  class='bton'>{{year}}   <text class="icon-triangledownfill"></text></button>
+      </picker>
+    </view>
+    <view class="weui-flex__item">
+      <picker bindchange="bindPickerChange2" range="{{accountList}}">
+        <button  class='bton'>{{account}}   <text class="icon-triangledownfill"></text></button>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <picker bindchange="bindPickerChange3" range="{{provinceList}}">
+        <button  class='bton'>{{SchoolProvince}}  <text class="icon-triangledownfill"></text></button>
+      </picker>
+    </view>
+    <view class="weui-flex__item">
+      <picker bindchange="bindPickerChange4" range="{{schoolList}}">
+        <button class='bton'> {{schoolName}}  <text class="icon-triangledownfill"></text></button>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <button class='bton3'  bindtap='serachResult'>查询</button>
+    </view>
+  </view>
 </view>
-      

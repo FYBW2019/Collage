@@ -16,7 +16,9 @@
     "pages/vipIndex/selectInfo/index/SelectOne/SelectOne",  
     "pages/vipIndex/selectInfo/index/index",
     "pages/user/user",
-    "pages/user/MyCollection/MyCollection"
+    "pages/user/MyCollection/MyCollection",
+    "pages/user/MyTest/MyTest",
+    "pages/user/InfoModifyProvince/InfoModifyProvince"
   ],
   "window": {
     "backgroundTextStyle": "light",

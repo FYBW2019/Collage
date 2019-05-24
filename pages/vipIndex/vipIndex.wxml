@@ -1,45 +1,71 @@
-<view class='page__hd'>
-  <view class="weui-cell">
-    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-      <image src="{{avatarUrl}}" style="width: 50px; height: 50px; display: block" />
-    </view>
-    <view class="weui-cell__bd">
-      <view>
-        <text>{{nickName}}</text>
-      </view>
-      <view>生源地:
-        <text>安徽</text>
+<view>
+  <view class="hander">
+    <view class='F-userImage'>
+      <view class='userImage'>
+        <image src='{{avatarUrl}}' id='userImage'></image>
       </view>
     </view>
-    <view class="weui-cell__bd">
-      <view>等级:
-        <text>V{{vip}}</text>
-      </view>
-      <view>当前积分:
-        <text>500</text>
-      </view>
+    <view class='name'>
+      <text>{{nickName}}</text>
     </view>
+    <image src='/image/8-banner.png'></image>
+    <view class='page1'></view>
+    <view class='page2'></view>
+    <view class='page3'></view>
   </view>
   <view class='section'>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton2' bindtap='selectInfo'>[V1]查信息</button>
+    <view class='info'>
+      <view class='infoOne'>
+        <view class='infoOneSon'>
+          <view>
+            <image src='/image/1.png'></image>
+          </view>
+          <view>
+            <text>等级</text>
+          </view>
+        </view>
+        <text>V{{vip}}</text>
+      </view>
+      <view class='infoOne'>
+        <view class='infoOneSon'>
+          <view>
+            <image src='/image/2.png'></image>
+          </view>
+          <view>
+            <text>类别</text>
+          </view>
+        </view>
+        <text>{{userType}}</text>
+      </view>
+      <view class='infoOne'>
+        <view class='infoOneSon'>
+          <view>
+            <image src='/image/3.png'></image>
+          </view>
+          <view>
+            <text>生源地</text>
+          </view>
+        </view>
+        <text>{{userProvince}}</text>
       </view>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton2' disabled='{{power}}'  bindtap='characterTest'>[V2]测性格</button>
-      </view>
-    </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton2' disabled='{{power}}'  bindtap='volunteerChoice'>[V2]志愿选择分析</button>
-      </view>
-    </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton2' bindtap='userInfo'>个人中心</button>
-      </view>
-    </view>
-  </view>
+
+</view>
+<view class='meun'>
+  <button class="meun1" hover-class='hoverMenu' bindtap='selectInfo'>
+    <text class='meun_text1'>V1</text>
+    <text class='meun_text2'>查信息</text>
+  </button>
+  <button class="meun2 {{power}}" id= hover-class='hoverMenu'  bindtap='characterTest'>
+    <text class='meun_text1'>V2</text>
+    <text class='meun_text2'>测性格</text>
+  </button>
+  <button class="meun3 {{power}}" hover-class='hoverMenu'  bindtap='volunteerChoice'>
+    <text class='meun_text1'>V2</text>
+    <text class='meun_text2'>志愿选择分析</text>
+  </button>
+  <button class="meun4" hover-class='hoverMenu' bindtap='userInfo'>
+    <text>个人中心</text>
+  </button>
+</view>
 </view>

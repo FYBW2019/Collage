@@ -9,10 +9,11 @@ Page({
     batchList: app.globalData.batchList, //批次列表
     provinceList: app.globalData.provinceList, //省份列表
     accountList: app.globalData.accountList, //科目列表
+    userProvince: app.globalData.userProvince,//用户所在省份
     batch: "批次",
-    year: "2015",
+    year: "2018",
     account: "理科",
-    SchoolProvince: "大学省份", //大学省份
+    SchoolProvince: '', //大学省份
     schoolList: [],
     schoolName: '大学名称',
     nickName: '',
@@ -20,8 +21,6 @@ Page({
     list: [],
     hideModal: true, //模态框的状态  true-隐藏  false-显示
     animationData: {}, //
-
-
   },
   //查询结果
   serachResult: function(e) {
@@ -31,31 +30,24 @@ Page({
     let collageName = that.data.schoolName;
     let year = that.data.year;
     let type = that.data.account;
-    if (batch == "全部") {
+    let userProvince=that.data.userProvince
+    if (batch == "全部" || batch == '批次') {
       batch = '';
       console.log(batch)
     }
-    if (batch == '批次') {
-      wx.showToast({
-        title: '请选择批次',
-        icon: 'none',
-        duration: 2000
-      })
-    } else {
-
 
       wx.showLoading({
         title: '数据加载中',
       })
       wx.request({
-        url: 'https://mini.zhitonggaokao.cn/CollageMobile/collageDeliverFileAnalysis',
+        url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/collageDeliverFileAnalysis',
         data: {
           batch: batch,
           SchoolProvince: SchoolProvince,
           year: year,
           type: type,
           CollageName: collageName,
-          enroll_province: '安徽'
+          enroll_province: userProvince
         },
         method: "GET",
         success(res) {
@@ -78,7 +70,7 @@ Page({
 
         }
       })
-    }
+    
   },
   //大学名称选择
   bindPickerChange4: function(e) {
@@ -91,27 +83,37 @@ Page({
   //大学省份选择
   bindPickerChange3: function(e) {
     let that = this;
+    let userProvince = that.data.userProvince;
     console.log('批次选择', that.data.provinceList[e.detail.value])
     that.setData({
       SchoolProvince: that.data.provinceList[e.detail.value]
     })
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/WEIXINcollageDeliverFileAnalysisCollageProvince',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/WEIXINcollageDeliverFileAnalysisCollageProvince',
       data: {
-        enrollProvince: '安徽',
+        enrollProvince: userProvince,
         province: that.data.provinceList[e.detail.value]
       },
       method: "GET",
       success(res) {
-        let list = [];
-        for (var i = 0; i < res.data.length; i++) {
-          list.push(res.data[i].name)
+        if(res.data.length<1){
+          wx.showToast({
+            title: '暂无该省份对生源地招生数据',
+            icon:'',
+            duration:2000
+          })
+        }else{
+          let list = [];
+          for (var i = 0; i < res.data.length; i++) {
+            list.push(res.data[i].name)
+          }
+          console.log(res.data);
+          that.setData({
+            schoolList: list,
+            schoolName: list[0]
+          })
         }
-        console.log(res.data);
-        that.setData({
-          schoolList: list,
-          schoolName: list[0]
-        })
+        
       }
     })
   },
@@ -142,59 +144,46 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let that=this;
+    wx.request({
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/WEIXINcollageDeliverFileAnalysisCollageProvince',
+      data: {
+        enrollProvince: app.globalData.userProvince,
+        province: app.globalData.userProvince
+      },
+      method: "GET",
+      success(res) {
+        if (res.data.length < 1) {
+          wx.showToast({
+            title: '暂无该省份对生源地招生数据',
+            icon: '',
+            duration: 2000
+          })
+        } else {
+          let list = [];
+          for (var i = 0; i < res.data.length; i++) {
+            list.push(res.data[i].name)
+          }
+          console.log(res.data);
+          that.setData({
+            schoolList: list,
+            schoolName: list[0]
+          })
+          that.serachResult();
+        }
+
+      }
+    })
     this.setData({
       batchList: app.globalData.batchList,
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType: app.globalData.userType,
+      SchoolProvince: app.globalData.userProvince
     })
 
-  },
-  // 显示遮罩层
-  showModal: function() {
-    var that = this;
-    that.setData({
-      hideModal: false
-    })
-    var animation = wx.createAnimation({
-      duration: 600, //动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease', //动画的效果 默认值是linear
-    })
-    this.animation = animation
-    setTimeout(function() {
-      that.fadeIn(); //调用显示动画
-    }, 200)
-  },
-
-  // 隐藏遮罩层
-  hideModal: function() {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 800, //动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease', //动画的效果 默认值是linear
-    })
-    this.animation = animation
-    that.fadeDown(); //调用隐藏动画   
-    setTimeout(function() {
-      that.setData({
-        hideModal: true
-      })
-    }, 720) //先执行下滑动画，再隐藏模块
-
-  },
-
-  //动画集
-  fadeIn: function() {
-    this.animation.translateY(0).step()
-    this.setData({
-      animationData: this.animation.export() //动画实例的export方法导出动画数据传递给组件的animation属性
-    })
-  },
-  fadeDown: function() {
-    this.animation.translateY(300).step()
-    this.setData({
-      animationData: this.animation.export(),
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

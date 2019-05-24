@@ -42,7 +42,7 @@
   </view>
    <view class="page__bd page__bd_spacing">
        <view class="button-sp-area">
-            <button class="weui-btn" bindtap='cancel' type="primary" plain="true">关闭</button>
+            <button class="weui-btn" bindtap='cancel' >关闭</button>
         </view>
     </view>
 </view>

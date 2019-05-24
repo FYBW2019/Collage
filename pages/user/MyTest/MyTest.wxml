@@ -1,0 +1,106 @@
+<view class='nav1'>
+  <image src='/image/8-banner.png' class="BackImage"></image>
+  <view class="page1">
+    <image src='{{avatarUrl}}' class="UserImage"></image>
+  </view>
+  <view class="page2">
+    {{nickName}}
+  </view>
+  <view class="page3">
+    <view class="page3Box">
+      <view class="Info1">
+        <image src='/image/1.png'></image>
+      </view>
+      <view class="Info2">
+        等级:V{{vip}}
+      </view>
+    </view>
+    <view class="page3Box">
+      <view class="Info1">
+        <image src='/image/2.png'></image>
+      </view>
+      <view class="Info2">
+        类别:{{userType}}
+      </view>
+    </view>
+    <view class="page3Box">
+      <view class="Info1">
+        <image src='/image/3.png'></image>
+      </view>
+      <view class="Info2">
+        生源地:{{userProvince}}
+      </view>
+    </view>
+  </view>
+</view>
+  <view class="parent" style='display:{{show}}'>
+    <view class="tr">
+      <view class="th">测试编码</view>
+      <view class="th">测试类型</view>
+      <view class="th">测试时间</view>
+      <view class="th">测试日期</view>
+    </view>
+    <scroll-view scroll-x style="width: 80%;float:right">
+      <view>
+        <view class="table">
+          <block wx:for="{{list}}" wx:key="index">
+            <view class="trr">
+              <view class="txt" id="{{item.id}}" bindtap='selectTest'>{{item.code}}</view>
+              <view class="td">{{item.type}}</view>
+              <view class="td">{{item.createTime}}</view>
+              <view class="td">{{item.createDate}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="coverShow" style='display:{{hidden}}'>
+    <view class="nav">
+      您的评测结果:{{code}}
+    </view>
+    <view>
+      <view class="infoNav">{{code}}</view>
+      <view class="info">
+        <text>{{answer}}</text>
+      </view>
+    </view>
+    <view class="infoNav">性格解析</view>
+    <view class='info'>
+
+      <text> “性格”是一种个体内部的行为倾向，它具有整体性、结构性、持久稳定性等特点，是每个人特有的，可以对个人外显的行为,态度提供统一的,内在的解释。 MBTI把性格分析4个维度，每个维度上的包含相互对立的2种偏好:</text>
+      <text>外向 or 内向</text>
+      <text>感觉 or 直觉</text>
+      <text>思考 or 情感</text>
+      <text>判断 or 感知</text>
+      <text>其中,"外向E——内向I"代表着各人不同的精力（Energy）来源；</text>
+      <text>"感觉S—直觉N","思考T—情感F"分别表示人们在进行感知（Perception）和判断（Judgement）时不同的用脑偏好；"判断J—感知P"针对人们的生活方式（Life Style）而言，它表明我们如何适应外部环境——在我们适应外部环境的活动中，究竟是感知还是判断发挥了主导作用。</text>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <view class="button-sp-area">
+        <button class="weui-btn" bindtap='cancel' type="primary" plain="true">关闭</button>
+      </view>
+    </view>
+  </view>
+  <view class="result" style='display:{{hidden2}}'>
+    <view class="nav">
+      评测结果:{{code}}
+    </view>
+    <block wx:for="{{reault1}}" wx:key="{{index}}">
+      <view class="info">
+        <view class="infoOne">{{item.nameCn}} {{item.code}}</view>
+        <view class="infoTwo">
+          <text>{{item.answer}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="foot">
+      <view class="foot1">适合职业</view>
+      <view class="foot2">{{answer}}</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <view class="button-sp-area">
+        <button  bindtap='cancel2'>关闭</button>
+      </view>
+    </view>
+  </view>

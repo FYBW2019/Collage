@@ -24,7 +24,7 @@ Page({
       success: loginRes => {     
         let code = loginRes.code;
         wx.request({
-          url: 'https://mini.zhitonggaokao.cn/CollageMobile/weixinLogin',
+          url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/weixinLogin2',
           method:"GET",
           data: {
             CODE: code

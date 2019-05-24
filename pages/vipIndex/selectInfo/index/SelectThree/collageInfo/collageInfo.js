@@ -1,4 +1,4 @@
-const app=getApp();
+const app = getApp();
 Page({
 
   /**
@@ -9,12 +9,13 @@ Page({
     first: 'show',
     info1: 'block',
     info2: 'none',
-    id:'',
-    collect:'点击加入收藏',
-    collectList:app.globalData.collects
+    id: '',
+    MobileCollectionId: '',
+    src: '/image/star1.png'
+    //collectList:app.globalData.collects
 
   },
-  select1: function () {
+  select1: function() {
     this.setData({
       first: 'show',
       second: '',
@@ -22,7 +23,7 @@ Page({
       info2: 'none'
     })
   },
-  select2: function () {
+  select2: function() {
     this.setData({
       first: '',
       second: 'show',
@@ -33,48 +34,92 @@ Page({
   /**
    * 收藏
    */
-  collect:function(){
+  collect: function() {
     console.log("Id值" + this.data.id)
-    if(this.data.collect=='点击加入收藏'){       
-      app.globalData.collects.push(this.data.id)
+    let collageId = this.data.id;
+    if (this.data.src == '/image/star1.png') {
+      let that = this;
+      //app.globalData.collects.push(this.data.id)
       this.setData({
-        collect:'已收藏'
+        src: '/image/star2.png'
       })
-      console.log("加入收藏夹" + app.globalData.collects)
-    }else{
-      for (var i = 0; i < app.globalData.collects.length;i++){
-        if (app.globalData.collects[i] == this.data.id){
-          app.globalData.collects.splice(i, 1);
-          break;
+      wx.request({
+        url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/MyCollectionSave',
+        data: {
+          UserId: app.globalData.userId,
+          collageId: collageId
+        },
+        success(res) {
+          console.log(res.data.result.id);
+          wx.showToast({
+            title: '收藏成功',
+          })
+          that.setData({
+            MobileCollectionId: res.data.result.id
+          })
+          wx.request({
+            url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/AllMyCollection',
+            data: {
+              UserId: app.globalData.userId
+            },
+            success(res) {
+              app.globalData.collects = res.data.results
+            }
+          })
         }
-      }
-      this.setData({
-        collect: '点击加入收藏'
       })
-      console.log("删除收藏夹" + app.globalData.collects)
+    } else {
+      let that = this;
+      that.setData({
+        src: '/image/star1.png'
+      })
+      wx.request({
+        url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/MyCollectionDelect',
+        data: {
+          id: that.data.MobileCollectionId
+        },
+        success: function(res) {
+          wx.showToast({
+            title: '取消收藏',
+          })
+          wx.request({
+            url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/AllMyCollection',
+            data: {
+              UserId: app.globalData.userId
+            },
+            success(res) {
+              app.globalData.collects = res.data.results
+            }
+          })
+        }
+      })
     }
- 
+
 
 
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let that = this;
-    console.log("ssssssssssss"+options.id)
-    for(var i=0;i<app.globalData.collects.length;i++){
-      if (app.globalData.collects[i] == options.id){
-        that.setData({
-          collect:'已收藏'
-        })
+    if (app.globalData.collects != ''){
+      for (var i = 0; i < app.globalData.collects.length; i++) {
+        if (app.globalData.collects[i].collageId == options.id) {
+          that.setData({
+            src: '/image/star2.png',
+            MobileCollectionId: app.globalData.collects[i].id
+          })
+          break;
+        }
       }
     }
+    
     that.setData({
       id: options.id
     })
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/assembleQuery',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/assembleQuery',
       data: {
         id: options.id
       },
@@ -91,49 +136,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

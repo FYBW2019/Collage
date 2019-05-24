@@ -1,0 +1,41 @@
+<view class='nav'>
+  <image src='/image/8-banner.png' class="BackImage"></image>
+  <view class="page1">
+    <image src='{{avatarUrl}}' class="UserImage"></image>
+  </view>
+  <view class="page2">
+    {{nickName}}
+  </view>
+  <view class="page3">
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/1.png'></image>
+      </view>
+      <view class="info2">
+        等级:V{{vip}}
+      </view>
+    </view>
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/2.png'></image>
+      </view>
+      <view class="info2">
+        类别:{{userType}}
+      </view>
+    </view>
+    <view class="page3Box">
+      <view class="info1">
+        <image src='/image/3.png'></image>
+      </view>
+      <view class="info2">
+        生源地:{{userProvince}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class='show'>
+  <picker bindchange="bindPickerChange3" range="{{provinceList}}">
+    <button class="weui-btn" type="default">{{SchoolProvince}}</button>
+  </picker>
+  <button class="weui-btn" type="default"  bindtap='modifyProvince'>确认</button>
+</view>

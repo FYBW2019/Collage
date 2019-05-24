@@ -8,6 +8,7 @@ App({
    
   },
   onLoad: function (options) {
+  
    
   },
   //全局变量
@@ -25,7 +26,8 @@ App({
     collects:[],//收藏列表
     userId:'',
     vip:'',
-    unionid:''
+    userProvince:'',//用户省份
+    userType:''
 
   }
 })

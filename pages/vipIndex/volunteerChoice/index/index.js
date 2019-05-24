@@ -576,17 +576,20 @@ Page({
       ScoreGreater = '100';
       ScoreLess = '200';
     }
+    let enrollProvince = app.globalData.userProvince;//生源地
+    let type = app.globalData.userType;//用户文理科
     console.log(ScoreGreater + ">>" + ScoreLess);
     console.log(year);
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/WEIXINscore',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/WEIXINscore',
       data: {
         major: major,
         province: province,
         ScoreGreater: ScoreGreater,
         ScoreLess: ScoreLess,
-        EnrollProvince: '安徽',
-        year: year
+        EnrollProvince: enrollProvince,
+        year: year,
+        type: type
 
       },
       method: "GET",
@@ -619,7 +622,9 @@ Page({
     this.setData({
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType: app.globalData.userType
     })
   },
   show: function(e) {

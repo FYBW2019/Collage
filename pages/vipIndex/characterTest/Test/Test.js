@@ -1,4 +1,4 @@
-// pages/vipIndex/characterTest/Test/Test.js
+const app = getApp();
 Page({
 
   /**
@@ -50,15 +50,14 @@ Page({
     let result = list.join(",");
     console.log("结果" + list.join(","));
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/TestSave2',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/TestSave2',
       data:{
-        result: result
+        result: result,
+        userID: app.globalData.userId
       },
       method:"GET",
       success(res){
-        console.log("结果" + res.data.code);
-        console.log("结果" + res.data.types[0].nameCn + res.data.types[0].code + res.data.types[0].answer);
-        console.log("结果" + res.data.answers[0].answer);
+        console.log("结果" + res.data);
         wx.hideLoading();
         that.setData({
           reault1: res.data.types,
@@ -83,7 +82,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/Test2',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/Test2',
       method: 'GET',
       success(res) {
         console.log(res.data);

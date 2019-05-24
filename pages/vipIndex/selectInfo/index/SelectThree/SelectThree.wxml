@@ -1,57 +1,42 @@
-<view class='page__hd'>
-  <view class="weui-cell">
-    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-      <image src="{{avatarUrl}}" style="width: 50px; height: 50px; display: block" />
+<view class='nav'>
+  <image src="/image/banner.jpg" class='backImage'></image>
+  <view class='userBox'>
+    <image src='{{avatarUrl}}'></image>
+  </view>
+  <view class='name'>
+  <text>{{nickName}}</text>
+  </view>
+  <view class='info'>
+    <view class='infoPage'>
+      <view class="infoPageLeft">
+         <image src='/image/1.png'></image>
+      </view>
+      <view class="infoPageRight">
+         <text>等级</text>
+         <text>V{{vip}}</text>
+      </view>
     </view>
-    <view class="weui-cell__bd">
-      <view>
-        <text>{{nickName}}</text>
+    <view class='infoPage'>
+     <view class="infoPageLeft">
+         <image src='/image/2.png'></image>
       </view>
-      <view>生源地:
-        <text>安徽</text>
+      <view class="infoPageRight">
+         <text>类别</text>
+         <text>{{userType}}</text>
       </view>
     </view>
-    <view class="weui-cell__bd">
-      <view>等级:
-        <text>V{{vip}}</text>
+    <view class='infoPage'>
+     <view class="infoPageLeft">
+         <image src='/image/3.png'></image>
       </view>
-      <view>当前积分:
-        <text>500</text>
+      <view class="infoPageRight">
+         <text>生源地</text>
+         <text>{{userProvince}}</text>
       </view>
     </view>
   </view>
-  <view class='section'>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange" range="{{provinceList}}">
-          <button class='bton' type="default" plain="true">{{province}}</button>
-        </picker>
-      </view>
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange2" range="{{natureList}}">
-          <button class='bton' type="default" plain="true">{{nature}}</button>
-        </picker>
-      </view>
-    </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange3" range="{{typeList}}">
-          <button class='bton' type="default" plain="true">{{type}}</button>
-        </picker>
-      </view>
-      <view class="weui-flex__item">
-        <picker bindchange="bindPickerChange4" range="{{S985OR211List}}">
-          <button class='bton' type="default" plain="true">{{S985OR211}}</button>
-        </picker>
-      </view>
-    </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <button class='bton3' bindtap='serachSchoolInfo'>查询</button>
-      </view>
-    </view>
-  </view>
-  <view class='Table'>
+</view>
+ <view class='Table'>
     <view class="tr">
       <view class="th th1">学校名称</view>
       <view class="th th2">所在地区</view>
@@ -74,4 +59,35 @@
       </view>
     </view>
   </view>
-</view>
+  <view class='section'>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <picker bindchange="bindPickerChange" range="{{provinceList}}">
+          <button class='bton' hover-class='selected'>省份:{{province}}   <text class="icon-triangledownfill"></text></button>
+        </picker>
+      </view>
+      <view class="weui-flex__item">
+        <picker bindchange="bindPickerChange2" range="{{natureList}}">
+          <button class='bton' hover-class='selected'>性质:{{nature}}   <text class="icon-triangledownfill"></text></button>
+        </picker>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <picker bindchange="bindPickerChange3" range="{{typeList}}">
+          <button class='bton' hover-class='selected'>类别:{{type}}   <text class="icon-triangledownfill"></text></button>
+        </picker>
+      </view>
+      <view class="weui-flex__item">
+        <picker bindchange="bindPickerChange4" range="{{S985OR211List}}">
+          <button class='bton' hover-class='selected'>{{S985OR211}}   <text class="icon-triangledownfill"></text></button>
+        </picker>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class='bton3' hover-class='selected'  bindtap='serachSchoolInfo'>查询</button>
+      </view>
+    </view>
+  </view>
+ 

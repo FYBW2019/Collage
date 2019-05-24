@@ -7,7 +7,7 @@ Page({
   data: {
     nickName: '',
     avatarUrl: '',
-    power: ''
+    power: '',
   },
   selectInfo: function() {
     wx.navigateTo({
@@ -15,14 +15,44 @@ Page({
     })
   },
   characterTest: function() {
-    wx.navigateTo({
-      url: '/pages/vipIndex/characterTest/index/index',
-    })
+    if (app.globalData.vip == 1) {
+      wx.showModal({
+        title: '升级提示',
+        content: '前往恰好志愿公众号进行升级，升级后解锁V2功能',
+        showCancel: false,
+        confirmText: '确认',
+        confirmColor: '#72B9C3',
+        success: function (res) {
+          if (res.confirm) {
+            
+          }
+        }
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/vipIndex/characterTest/index/index',
+      })
+    }    
   },
   volunteerChoice: function() {
-    wx.navigateTo({
-      url: '/pages/vipIndex/volunteerChoice/index/index',
-    })
+    if (app.globalData.vip == 1) {
+      wx.showModal({
+        title: '升级提示',
+        content: '前往恰好志愿公众号进行升级，升级后解锁V2功能',
+        showCancel: false,
+        confirmText: '确认',
+        confirmColor: '#72B9C3',
+        success: function (res) {
+          if (res.confirm) {
+
+          }
+        }
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/vipIndex/volunteerChoice/index/index',
+      })
+    }  
   },
   userInfo: function() {
     wx.navigateTo({
@@ -34,75 +64,102 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading();
     console.log(app.globalData.userInfo)
-    if (app.globalData.userInfo!=null){
+    if (app.globalData.userInfo != null) {
       this.setData({
         nickName: app.globalData.userInfo.nickName,
         avatarUrl: app.globalData.userInfo.avatarUrl,
         vip: app.globalData.vip
       })
     }
-    let that=this;
-      wx.getSetting({
-        success(res) {
-          console.log(res)
-          if (!res.authSetting['scope.userInfo']) {
-            wx.redirectTo({
-              url: '/pages/index/index',
-            })
-          }else{
-            wx.getUserInfo({
-              lang: "zh_CN",
-              success(res) {
-                wx.login({
-                  success: loginRes => {
-                    wx.request({
-                      url: 'https://mini.zhitonggaokao.cn/CollageMobile/weixinLogin',
-                      data: {
-                        CODE: loginRes.code
-                      },
-                      success(res) {
-                        if (res.data.user!=null){
-                          let userId = res.data.user[0];
-                          let vip = res.data.user[14];
-                          app.globalData.userId = userId;
-                          app.globalData.vip = vip;  
+    let that = this;
+    wx.getSetting({
+      success(res) {
+        
+        if (!res.authSetting['scope.userInfo']) {
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        } else {
+          wx.getUserInfo({
+            lang: "zh_CN",
+            success(res) {
+              wx.login({
+                success: loginRes => {
+                  wx.request({
+                    url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/weixinLogin2',
+                    data: {
+                      CODE: loginRes.code
+                    },
+                    success(res) {
+                      console.log(res.data.user)
+                      wx.setStorageSync("user", res.data.user);
+                      wx.setStorageSync("session", res.data.sessionkey);
+                      if (res.data.user != null) {
+                        let userId = res.data.user[0];
+                        let userProvince = res.data.user[33];
+                        let vip = res.data.user[2];
+                        let userType = res.data.user[34];
+                        app.globalData.userId = userId;
+                        app.globalData.vip = vip;
+                        app.globalData.userProvince = userProvince;
+                        app.globalData.userType = userType
+                        that.setData({
+                          vip: vip,
+                          userType: userType,
+                          userProvince: userProvince
+                        })
+                        console.log(app.globalData.vip)
+                        if (vip ==1) {
                           that.setData({
-                            vip: vip
+                            power: 'ban'
                           })
+                          
                         }else{
-                          wx.redirectTo({
-                            url: '/pages/regist/regist',
+                          that.setData({
+                            power: ''
                           })
-                        }                                                                                                         
+                        }
+                        //查找该用户收藏的学校
+                        wx.request({
+                          url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/AllMyCollection',
+                          data: {
+                            UserId: userId
+                          },
+                          success(res) {
+                            wx.hideLoading();
+                            if (res.data.results == null) {
+
+                            } else {
+                              app.globalData.collects = res.data.results
+                            }
+
+                          }
+                        })
+                      } else {
+                        wx.redirectTo({
+                          url: '/pages/regist/regist',
+                        })
                       }
-                    })
-                  }
-                })
+                    }
+                  })
+                }
+              })
 
 
-                that.setData({
-                  nickName: res.userInfo.nickName,
-                  avatarUrl: res.userInfo.avatarUrl,
-                })
-                app.globalData.userInfo = res.userInfo;
-              }
-            })
-          }
+              that.setData({
+                nickName: res.userInfo.nickName,
+                avatarUrl: res.userInfo.avatarUrl,
+              })
+              app.globalData.userInfo = res.userInfo;
+            }
+          })
         }
-      })
-   
-    console.log(app.globalData.vip)
-    if (app.globalData.vip == 1) {
-      that.setData({
-        power: true
-      })
-    }
-    if (app.globalData.vip == 2) {
-      that.setData({
-        power: false
-      })
-    }
+      }
+    })
+
+
 
 
   },

@@ -7,7 +7,7 @@ Page({
   data: {
     nickName: '',
     avatarUrl: '',
-    year: '2016',
+    year: '2018',
     SchoolList: [],//学校列表
     majorList: [],//专业列表
     SchoolName: '大学名称',
@@ -16,7 +16,8 @@ Page({
     multiple: true,
     results: [],//选中的专业列表
     show:'none',
-    isShow:false
+    isShow:false,
+    userProvince: app.globalData.userProvince//用户所在省份
   },
   // 点击确定事件
   choose(e) {
@@ -25,32 +26,22 @@ Page({
       majorName: s
       
     })
-    console.log(e.detail.chooseArray);
   },
-  /**
-   * 关闭模态框
-   */
-  onCancelOrderPay: function (e) {
-    this.setData({
-      isShow: false
-    })
-  },
+
   //专业介绍
   majorInfo:function(e){
     let that=this;
-    console.log("专业ID"+e.currentTarget.id);
-    console.log("选中的专业>>>" + that.data.results[e.currentTarget.id].major) 
     let majorName = that.data.results[e.currentTarget.id].major;
     let collageName=that.data.SchoolName;
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/majorInfo',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/majorInfo',
       data:{
         collage: collageName,
         major: majorName
       },
       method:'GET',
       success(res){
-        console.log(res.data)
+       
         if (res.data==''){
           wx.showToast({
             title: '该专业无介绍',
@@ -61,10 +52,6 @@ Page({
           wx.navigateTo({
             url: '/pages/vipIndex/selectInfo/index/SelectFour/majorInfo/majorInfo?txt=' + res.data,
           })
-          // that.setData({
-          //   txt: res.data,
-          //   isShow: true
-          // })
         }
         
       }
@@ -80,18 +67,19 @@ Page({
     let major = that.data.majorName;
     let year = that.data.year;
     let collage = that.data.SchoolName;
-    let province = '安徽';
+    let province = that.data.userProvince;
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/IndexSelect',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/IndexSelect',
       data: {
         province: province,
         year: year,
         collage: collage,
-        major: major
+        major: major,
+        type: app.globalData.userType
       },
       method: "GET",
       success(res) {
-        console.log(res.data)
+       
         if (res.data == '' || res.data==undefined){
           wx.hideLoading();
           wx.showToast({
@@ -113,7 +101,6 @@ Page({
   },
   //选择年份
   bindDateChange: function(e) {
-    console.log(e.detail.value)
     this.setData({
       year: e.detail.value
     })
@@ -121,16 +108,16 @@ Page({
   //选择学校
   bindPickerChange2: function(e) {
     let that = this;
-    console.log("学校选择" + that.data.SchoolList[e.detail.value])
+    let province= that.data.userProvince;
     let SchoolName = that.data.SchoolList[e.detail.value];
     that.setData({
       SchoolName: SchoolName
     })
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/IndexFindMajor', 
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/IndexFindMajor', 
       data: {
         year: '2017',
-        province: '安徽',
+        province: province,
         collage: SchoolName
       },
       method: 'GET',
@@ -138,7 +125,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data.results)
         let list = [];
         for (var i = 0; i < res.data.results.length; i++) {
           list.push(res.data.results[i].name)
@@ -154,39 +140,75 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this;
+    let that=this;
     let year = that.data.year;
-
+    wx.showLoading({
+      title: '数据加载中',
+    })
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/IndexShow', // 仅为示例，并非真实的接口地址
       data: {
-        year: '2017',
-        province: '安徽',
+        year: '2018',
+        province: app.globalData.userProvince,
         S985OR211: '全部'
       },
       method: 'GET',
       success(res) {
-        console.log(res.data.majors)
-
         let list = [];
         let list2 = [];
         for (var i = 0; i < res.data.collages.length; i++) {
           list.push(res.data.collages[i].name)
         }
+       
+        wx.hideLoading()
         that.setData({
           SchoolList: list,
           chooseList: res.data.majors,
-          SchoolName: list[0],
-          // majorName: list2[0],
+          SchoolName: list[0]
         })
+        let year = that.data.year;
+        let collage = that.data.SchoolName;
+        let province = that.data.userProvince;
+        let majorList=[];
+        majorList.push(res.data.majors[0].name);
+        majorList.push(res.data.majors[1].name);
+        majorList.push(res.data.majors[2].name);
+        majorList.push(res.data.majors[3].name);
+        console.log(majorList)
+        wx.request({
+          url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/IndexSelect',
+          data: {
+            province: province,
+            year: year,
+            collage: collage,
+            major: majorList.join(','),
+            type:app.globalData.userType
+          },
+          method: "GET",
+          success(res) {
+            if (res.data == '' || res.data == undefined) {
+              wx.showToast({
+                title: '暂无数据',
+                icon: 'none',
+                duration: 3000
+              })
+            } else {
+              that.setData({
+                results: res.data,
+                show: 'block'
+              })
+            }
 
-
+          }
+        })
       }
     });
     that.setData({
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType: app.globalData.userType
     })
   },
 

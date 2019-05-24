@@ -1,4 +1,4 @@
-<input type="button" disabled='true' value='{{majorName}}' class='showPicker' bindtap='showPicker'/>
+<input type="button" disabled='true' hover-class='selected' value='{{majorName}}' class='showPicker' bindtap='showPicker'/>
 <cover-view class='{{ showPicker ? ".shade-container" : "hide-container" }}' wx:if='{{ firstShow }}'>
   <cover-view class='left-shade' bindtap='hidePicker'></cover-view>
   <cover-view class='right-choose'>

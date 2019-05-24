@@ -1,47 +1,135 @@
 @import '/style/weui.wxss';
-.weui-cell{
-  border-bottom: 1px solid #aaa;
- border-top: 1px solid #aaa;
-  font-family: "楷体";
-
+button::after {
+  border: none;
 }
+button{
+  border:1px solid rgba(216, 212, 212, 0.5);
+  height: 40px;
+  line-height: 40px;
+}
+.nav {
+  width: 100%;
+  height: 80px;
+}
+
+.backImage {
+  width: 100%;
+  height: 100%;
+}
+
+.userBox {
+  width: 30%;
+  height: 80px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.userBox>image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.name {
+  width: 70%;
+  height: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 30%;
+}
+
+.name text {
+  width: 100%;
+  font-size: 13px;
+  color: white;
+  display: block;
+  margin-top: 20px;
+}
+
+.info {
+  width: 70%;
+  height: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 100;
+  top: 40px;
+  left: 30%;
+}
+
+.infoPage {
+  width: 33%;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0px;
+}
+
+.infoPageLeft {
+  width: 30%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.infoPageRight {
+  width: 70%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.infoPageLeft>image {
+  width: 20px;
+  height: 20px;
+}
+
+.infoPageRight text {
+  font-size: 13px;
+  color: white;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
 .bton {
   width: 90%;
-  border-radius: 10px;
-  font-family: "楷体";
 }
 .put{
   width: 90%;
-  border: 1px solid rgb(20, 19, 19);
-  border-radius: 10px;
-  font-family: "楷体";
-  height: 46px;
+  border: 1px solid rgba(216, 212, 212, 0.5);
+  border-radius: 5px;
+  height: 38px;
   text-align: center;
-  z-index:-10;
-  background-color: #ffffff;
+  line-height: 38px;
+  background-color: rgba(216, 212, 212, 0.062);
 }
 .bton3 {
   width: 80%;
-  border-radius: 10px;
-  font-family: "楷体";
 }
-
 .weui-flex {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .history-table-wrap {
   width: 80%;
   float: right;
-  /* overflow-y:hidden ;
-  overflow-x: scroll; */
+  
 }
 
 .parent {
   width: 100%;
   overflow: hidden;
-  border: 1px solid #dadada;
-  margin-top: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(245, 101, 5, 0.938);
 }
 
 /* 表格代码   */
@@ -64,42 +152,61 @@
 }
 
 .th {
-  padding: 10px 0 10px 0;
-  border-bottom: 1px solid #dadada;
-  border-right: 1px solid #dadada;
+   background: rgba(245, 101, 5, 0.938);
+  height: 40px;
+  border-bottom: 1px solid rgba(216, 212, 212, 0.5);
+  border-right: 1px solid rgba(216, 212, 212, 0.5);
   text-align: center;
   width: 100%;
-  overflow: hidden;
-  font-weight: 800;
+  line-height: 40px;
+  box-sizing: border-box;
   font-size: 28rpx;
-  color: #330e0e;
+  color: white;
+}
+.th2 {
+   background: rgba(245, 101, 5, 0.938);
+  height: 80px;
+  border-bottom: 1px solid rgba(216, 212, 212, 0.5);
+  border-right: 1px solid rgba(216, 212, 212, 0.5);
+  text-align: center;
+  width: 100%;
+  line-height: 80px;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: white;
 }
 
 .td {
-    width: 180px;
-
-  padding: 10px 0 10px 0;
-  border-bottom: 1px solid #dadada;
-  border-right: 1px solid #dadada;
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid rgba(216, 212, 212, 0.5);
+  border-right: 1px solid rgba(216, 212, 212, 0.5);
   text-align: center;
- 
+  box-sizing: border-box;
   font-size: 28rpx;
 }
 
 .one {
   width: 30%;
+  height: 100%;
+  box-sizing: border-box;
   display: block;
   float: left;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid rgba(216, 212, 212, 0.5);
   text-align: center;
+  line-height: 100%;
+  letter-spacing: 5px;
+  padding: 20px 0 0 0;
 }
-
-.one2 {
-  padding: 9px 0 10px 0;
+.one2{
+  padding: 25px 0 0 0;
 }
 
 .two {
   width: 60%;
+  height: 100%;
+  box-sizing: border-box;
   display: block;
   float: right;
   text-align: center;
@@ -107,13 +214,17 @@
 
 .two2 {
   width: 100%;
-  padding: 0 0 9px 0;
-  border-bottom: 1px #ccc solid;
+  height: 40px;
+  line-height: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px rgba(216, 212, 212, 0.5) solid;
 }
 
 .two3 {
   width: 100%;
-  padding: 9px 0 0 0;
+  height: 40px;
+  line-height: 40px;
+  box-sizing: border-box;
 }
 .modals {
   position: fixed;
@@ -123,17 +234,6 @@
   right: 0;
   bottom: 0;
 }
-
-.modals-cancel {
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 .bottom-dialog-body {
   position: absolute;
   z-index: 10001;
@@ -145,14 +245,3 @@
   background-color: #fff;
 }
 
-/*动画前初始位置*/
-
-.bottom-pos {
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
-}
-
-.page__bd_spacing{
-  position: relative;
-  margin-top: 500px;
-}

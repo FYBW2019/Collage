@@ -13,9 +13,9 @@ Page({
     nickName: '',
     avatarUrl: '',
     S985OR211: '985/211',
-    province: '大学省份',
-    nature: '大学性质',
-    type: '类别',
+    province: '',
+    nature: '全部',
+    type: '全部',
     list: []
   },
   //省份选择
@@ -56,11 +56,8 @@ Page({
     wx.showLoading({
       title: '数据加载中',
     })
-    if (S985OR211 == "全部" || S985OR211 == "985or211") {
+    if (S985OR211 == "全部" || S985OR211 == "985/211") {
       S985OR211 = ''
-    }
-    if (province == '大学省份') {
-      province = '安徽'
     }
     if (nature == '大学性质' || nature == '全部') {
       nature = ''
@@ -69,7 +66,7 @@ Page({
       type = ''
     }
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/universityInfo',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/universityInfo',
       data: {
         S985OR211: S985OR211,
         province: province,
@@ -112,13 +109,18 @@ Page({
    */
   onLoad: function (options) { 
     console.log("ss" + app.globalData.provinceList)
+    
     this.setData({
        provinceList: app.globalData.provinceList,
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType: app.globalData.userType,
+      province: app.globalData.userProvince
 
     })
+    this.serachSchoolInfo();
   },
 
   /**

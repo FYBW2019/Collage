@@ -26,14 +26,46 @@ wx.navigateTo({
     })
   },
   SelectFour:function(){
-    wx.navigateTo({
-    url: '/pages/vipIndex/selectInfo/index/SelectFour/SelectFour'
-  })
+    if (app.globalData.vip == 1) {
+      wx.showModal({
+        title: '升级提示',
+        content: '前往恰好志愿公众号进行升级，升级后解锁V2功能',
+        showCancel: false,
+        confirmText: '确认',
+        confirmColor: '#72B9C3',
+        success: function (res) {
+          if (res.confirm) {
+
+          }
+        }
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/vipIndex/selectInfo/index/SelectFour/SelectFour'
+      })
+    }
+ 
   },
   SelectFive: function () {
-    wx.navigateTo({
-    url: '/pages/vipIndex/selectInfo/index/SelectFive/SelectFive'
-})
+    if (app.globalData.vip == 1) {
+      wx.showModal({
+        title: '升级提示',
+        content: '前往恰好志愿公众号进行升级，升级后解锁V2功能',
+        showCancel: false,
+        confirmText: '确认',
+        confirmColor: '#72B9C3',
+        success: function (res) {
+          if (res.confirm) {
+
+          }
+        }
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/vipIndex/selectInfo/index/SelectFive/SelectFive'
+      })
+    }
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -41,18 +73,19 @@ wx.navigateTo({
   onLoad: function (options) {
     if (app.globalData.vip==1){
       this.setData({
-        power:true
+        power:'ban'
       })
-    }
-    if (app.globalData.vip == 2){
+    }else{
       this.setData({
-        power: false
+        power: ''
       })
     }
     this.setData({
       nickName: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl,
-      vip: app.globalData.vip
+      vip: app.globalData.vip,
+      userProvince: app.globalData.userProvince,
+      userType:app.globalData.userType
     })
   },
 

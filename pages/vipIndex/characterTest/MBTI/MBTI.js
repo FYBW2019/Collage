@@ -1,4 +1,4 @@
-// pages/vipIndex/characterTest/MBTI/MBTI.js
+const app = getApp();
 Page({
 
   /**
@@ -87,8 +87,6 @@ Page({
    * 选择的答案
    */
   radioChange: function(e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
-    console.log('Id值：', e.currentTarget.id);
     let answer = e.detail.value;
     let index = e.currentTarget.id;
     let answerList = this.data.list;
@@ -113,24 +111,24 @@ Page({
     let answerList = that.data.list;
     let list = [];
     for (var i = 0; i < answerList.length; i++) {
-      console.log(answerList[i])
+     // console.log(answerList[i])
       for (var j = 0; j < answerList[i].answer.length; j++) {
         if (answerList[i].answer[j].checked == true) {
           list.push(answerList[i].answer[j].value)
         }
       }
     }
+    console.log("用户的ID" + app.globalData.userId)
     let result = list.join(",");
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/MBTISave',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/MBTISave',
       method: 'GET',
       data: {
-        result: result
+        result: result,
+        userID: app.globalData.userId
       },
       success(res) {
-        console.log("结果》》》" + res.data.results.code);
-        console.log("code" + res.data.code)
-        console.log("answer" + res.data.results.answer);
+        console.log(res)
         that.setData({
           code: res.data.results.code,
           answer: res.data.results.answer,
@@ -140,7 +138,6 @@ Page({
         wx.hideLoading();
       }
     })
-    console.log("结果" + list.join(","));
   },
   /**
    * 返回按钮
@@ -158,7 +155,7 @@ Page({
   onLoad: function(options) {
     let that = this;
     wx.request({
-      url: 'https://mini.zhitonggaokao.cn/CollageMobile/Test1',
+      url: 'https://sz.zhitonggaokao.cn/collage/CollageMobile/Test1',
       method: 'GET',
       success(res) {
         console.log(res.data);
